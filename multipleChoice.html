@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<title>Event planner</title>
+<head>
+<link rel="stylesheet" href="multipleStyles.css" type="text/css">
+</head>
+<style>
+	body{
+	background-image: url('hearts.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	  background-attachment: fixed;
+ 	 background-size: cover;
+  }
+  .content-box {
+  background: #F8F3EA;
+  border: 3px solid #570228;
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Spinning animation */
+#spinner {
+  width: 100px; /* size of your spinner */
+  height: 100px;
+  animation: spin 1s linear infinite;
+}
+
+/* Spin keyframes */
+@keyframes spin {
+  to { transform: rotate(720deg); }
+}
+
+/* Hide preloader once done */
+.hide-preloader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+</style>
+<body>
+<div id="preloader">
+    <img src="loadingHeart.png" id="spinner" alt="Loading...">
+</div>
+<div class="content-box">
+<p>Hola baby! Te va a tocar escoger que hacemos. Abajo podras escoger los numeros de eventos que quisieras hacer conmigo. Todos estos planes le puse mucho coco jaja y creo que te gustara .</p>
+<p>Ahora a escoger cuantos lugares te gustaria ir?<br>Yo entiendo que podria estar muy ocupado mañana y lo podemos hacer o el domingo o hasta la proxima semana.</p>
+
+<div class="choose-number">
+  <button class="buttons" data-num="1">1</button>
+  <button class="buttons" data-num="2">2</button>
+  <button class="buttons" data-num="3">3</button>
+</div>
+</div>
+<div id="box-container">
+</div>
+<div class="button-wrapper">
+  <button id="send-whatsapp" class="buttonwhatsapp" style="display:none;">Send My Choices</button>
+</div>
+<script>
+function goToPage(page) {
+	  window.location.href = page;
+	}
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+window.addEventListener("load", function() {
+
+	window.scrollTo(0, 0);
+  const preloader = document.getElementById("preloader");
+  
+  // fade out
+  preloader.classList.add("hide-preloader");
+
+  // optional: remove it completely after fade
+ setTimeout(() => {
+      preloader.style.display = "none";
+  }, 2500); // match the CSS transition
+});
+document.addEventListener("DOMContentLoaded", function() {
+
+  const btns = document.querySelectorAll(".buttons");
+  const container = document.getElementById("box-container");
+  const sendButton = document.getElementById("send-whatsapp");
+
+  let maxSelections = 0;
+  let selectedCount = 0;
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const count = parseInt(btn.dataset.num);
+      showBoxes(count);
+    });
+  });
+
+  function showBoxes(n) {
+    container.innerHTML = "";
+
+    maxSelections = n;
+    selectedCount = 0;
+
+    const plans = [
+      {
+        img: "hermann.jpg",
+        alt: "Walk Plan",
+        text: "What do you think about recreating our pictures where we went with Camila and now have Nala when we were in the fountain. "
+      },
+      {
+        img: "movies.jpg",
+        alt: "Movie Plan",
+        text: "I looked up and it's a drama movie featuring Jacob Elordi or more known as Noah Flynn from the kissing booth. Yeah yeah I know you like him and i thought it was a special movie maybe you may like as it is categorized as Drama."
+      },
+      {
+        img: "gamebox.webp",
+        alt: "Game Night Plan",
+        text: "This will be a plan for a couples game experience at Immersive box in Woodlands. There is currently a special for two hours for the price of one for valentine's day ;)"
+      },
+      {
+          img: "activate.webp",
+          alt: "Activate",
+          text: "Activate is a place where we can play many fun activities. Somewhat like gamebox but it is more active and different games so we can change it up a bit and try a new place."
+        },
+      {
+          img: "kemah.jpg",
+          alt: "Kemah Plan",
+          text: "I know it has been a while that I have been bullied on not knowing what this place is. Why not enjoy a little escapada and go together and have some fun activities while we are there."
+        },
+      {
+          img: "meowwolf.webp",
+          alt: "Meow Wolf Plan",
+          text: "Meow Wolf is an interactive art exhibit where we can go and see something we have never seen before."
+        },
+      {
+          img: "northitalia.jpg",
+          alt: "North Italia Plan",
+          text: "I know this is a place where you have been wanting to go. I believe it is a great day to be able to celebrate our love and time together and enjoy a nice dinner together."
+        },
+      {
+          img: "tennis.jpg",
+          alt: "Tennis Plan",
+          text: "It has been a while since we have played and it reminds me of one of our first valentines together as you surprised me when we went to Doss park and I would love to repeat our sport date again. (chocolate strawberries are included)"
+        },
+        {
+            img: "jinya.jpg",
+            alt: "Jinya Plan",
+            text: "Going to go out and eat some ramen with your other half? No lo se que opinas? Ya llevamos rato empujando este plan ya varios meses y podriamos intentarlo en el dia de San Valentin."
+          },
+          {
+              img: "monopoly.jpg",
+              alt: "Monopoly Plan",
+              text: "Monopoly on the Mac has become a game we have started to love playing with each other. This could be a relaxed activity we can do at home and enjoy passing time with each other."
+            },
+            {
+                img: "arcade.jpg",
+                alt: "Arcade Plan",
+                text: "We started our relationship going many times to main event or Dave and Busters and it could be a romantic getaway we can do in our special day having fun and playing a couple of mario kart games."
+              },
+              {
+                  img: "aerialadventure.webp",
+                  alt: "Adventures Plan",
+                  text: "This is an adventure in the skies that we missed out on but I have not forgotten about it. We can go and have a fun and adventurous date together. Although it does have to be before mid day because it does look as it is going to rain this afternoon. :)"
+                },
+                {
+                    img: "picnic.jpg",
+                    alt: "Picnic Plan",
+                    text: "It has been almost 4 years since we had our picnic at the park in buffalo bayou. Would you like to recreate another picnic with me love?"
+                 },
+          {
+             img: "illusions.jpeg",
+             alt: "Illusions",
+             text: "I know you are not a fan of museums but I feel this may be a place you may like as there is different things one can enjoy and not be as boring."
+           },
+           {
+               img: "noto.jpg",
+               alt: "Noto",
+               text: "It would not be right if we did not include a night club out for Valentine's. We have never gone dancing on this day and it could be our first."
+             },
+           {
+             img: "artechouse.jpg",
+             alt: "ARTECHOUSE",
+             text: "Artechouse is a visual appealing place where art is merged with tecnology. There are more pictures that may look more appealing for you online."
+           },
+    ];
+
+    for (let i = 0; i < plans.length; i++) {
+      const box = document.createElement("div");
+      box.classList.add("planner-box");
+
+      box.innerHTML = `
+        <img src="${plans[i].img}" alt="${plans[i].alt}">
+        <p>${plans[i].text}</p>
+      `;
+
+      box.addEventListener("click", function () {
+        if (box.classList.contains("selected")) {
+          box.classList.remove("selected");
+          selectedCount--;
+        } else {
+          if (selectedCount < maxSelections) {
+            box.classList.add("selected");
+            selectedCount++;
+          } else {
+            alert("You can only select " + maxSelections + " option(s).");
+          }
+        }
+        // Show send button ONLY if user selected exactly maxSelections
+        if (selectedCount === maxSelections) {
+          sendButton.style.display = "block";
+        } else {
+          sendButton.style.display = "none";
+        }
+      });
+
+      container.appendChild(box);
+    }
+ // WhatsApp button
+    sendButton.addEventListener("click", function() {
+      const selectedBoxes = document.querySelectorAll(".planner-box.selected");
+
+      let message = "Hola! Here are my selected activities:\n";
+      selectedBoxes.forEach((box, index) => {
+        const img = box.querySelector("img");
+        const activity = img.alt; // use alt text instead of paragraph
+        message += `${index + 1}. ${activity}\n`;
+      });
+
+      const encodedMessage = encodeURIComponent(message);
+      const phoneNumber = "9364198559"; // your number
+      const waLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+      window.open(waLink, "_blank");
+    });
+  }
+
+});
+</script>
+
+</body>
+</html>

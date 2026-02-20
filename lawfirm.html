@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+		<link rel="stylesheet" type="text/css" href="lawfirm.css">		
+</head>
+<body>
+	<div class="header">
+	
+	<div class ="top-bar">   
+	    <div class="logo">
+        <img src="Logo.png" alt="Law Firm Logo">
+    </div>
+    
+		<nav class="navbar">
+			<ul class="nav">
+				<li>
+					<a href="#Home" onclick="toggleMenu(true)">Home</a>
+				</li>
+				
+				<li>
+					<a href="#Our Team" onclick="toggleMenu(true)">Our Team</a>
+				</li>
+
+				<li class="dropdown">
+    			<a href="#Criminal-Defense" class="dropbtn">     Criminal Defense ▾</a>
+
+    <ul class="dropdown-content">
+        <li><a href="#DUI">Driving While Intoxicated (DWI/DUI)</a></li>
+        <li><a href="#Drug-Crimes">Drug Crimes</a></li>
+        <li><a href="#Violent Crimes">Violent Crimes</a></li>
+        <li><a href="#Weapons Offenses">Weapons Offenses</a></li>
+        <li><a href="#Juvenile Crimes">Juvenile Crimes</a></li>
+        <li><a href="#Federal Crimes">Federal Crimes</a></li>
+    </ul>
+</li>
+				<li>
+					<a>(###)###-####</a>
+				</li>
+				<li>
+					<button class ="contactUs" onclick="goToPage('contactUs.html')">Contacts Us</button>
+				</li>
+
+			</ul>
+			</nav>
+</div>
+</div>
+<div class="crime-section">
+    <img src="DUI.jpg" alt="DWI Defense">
+	<div class="crime-text">
+	<h1>Driving While Intoxicated (DWI/DUI)</h1>
+	<h2>This refers to being accused of driving a vehicle while under the influence of alcohol or drugs. It can range from a first‑time ticket to more serious charges if someone was hurt.</h2>
+	</div>
+	</div>
+	
+	<div class="crime-section">
+    <img src="Drugs.jpg" alt="DWI Defense">
+	<div class="crime-text">
+	<h1>Drug Crimes</h1>
+	<h2>Covers offenses related to controlled substances, such as possession, distribution, manufacturing, trafficking, and even drug paraphernalia. These can be charged as misdemeanors or serious felonies depending on amount and intent.</h2>
+	</div>
+	</div>
+	
+	<div class="crime-section">
+    <img src="Asault.jpg" alt="DWI Defense">
+	<div class="crime-text">
+	<h1>Violent Crimes</h1>
+	<h2>These are crimes where someone is accused of hurting or threatening to hurt another person. Examples include assaults, fights, domestic violence, or more serious charges like manslaughter or murder.</h2>
+	</div>
+	</div>
+	
+	<div class="crime-section">
+    <img src="Weapons.jpg" alt="DWI Defense">
+	<div class="crime-text">
+	<h1>Weapons Offenses</h1>
+	<h2>If someone is accused of illegally carrying, using, or owning a weapon (like a gun or knife), this falls under weapons crimes.</h2>
+	</div>
+	</div>
+	
+	<div class="crime-section">
+    <img src="Juvenile.jpg" alt="DWI Defense">
+	<div class="crime-text">
+	<h1>Juvenile Crimes</h1>
+	<h2>These are offenses committed by people under 18. The legal process is different from adult court and focuses more on rehabilitation.</h2>
+	</div>
+	</div>
+	
+	<div class="crime-section">
+    <img src="Federal.jpg" alt="DWI Defense">
+	<div class="crime-text">
+	<h1>Federal Crimes</h1>
+	<h2>Some crimes are charged under federal law (instead of just state law), like large‑scale drug trafficking, federal fraud, or offenses involving federal agencies. These usually come with harsher penalties.</h2>
+	</div>
+	</div>
+
+<<section id="parentFooter">
+    <div class="footer">
+        <div class="footer-container">
+            <div class="row">
+                <div class="column column_VISIT_TITLE">
+                    <em>ADDRESS</em>
+                    <p>Clear Lake, 2101 E NASA Pkwy, Houston, TX 77058</p>
+                </div>
+
+                <div class="column column_maps">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.7453976543193!2d-95.09337479999999!3d29.552908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86409db01c646f73%3A0x212847ff510dada4!2sNASA%20Johnson%20Space%20Center!5e0!3m2!1sen!2sus!4v1771534444148!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Your Law Firm. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</section>
+			
+	    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+        </script>
+</body>
+</html>

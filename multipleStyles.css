@@ -1,0 +1,86 @@
+
+.buttons{
+  background: linear-gradient(to bottom right, #570228, #FA9EBC);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-wrapper {
+  width: 100%;              /* take the full width of the page */
+  display: flex;            /* use flexbox */
+  justify-content: center;  /* center the button horizontally */
+  margin-top: 20px;         /* optional spacing above the button */
+}
+
+.buttonwhatsapp {
+  background: linear-gradient(to bottom right, #570228, #FA9EBC);
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  padding: 0 1rem;
+  text-align: center;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.buttons:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.buttons:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+#box-container {
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 4 columns */
+  gap: 20px; /* space between boxes */
+  margin-top: 20px;
+}
+
+.planner-box {
+  width: 250px;
+  text-align: center;
+  border: 3px solid #570228;
+  /*#FFC5D3 */
+  padding: 10px;
+   background-color: #F8F3EA; 
+   border-radius: 12px; 
+}
+
+.planner-box img {
+  width: 100%;
+  height: auto;
+}
+.planner-box:hover {
+  transform: translateY(-5px);
+}
+.planner-box.selected {
+  background-color: #FFC5D3;   /* slightly darker than #F8F3EA */
+  border: 2px solid #570228;   /* stronger pink */
+  transform: scale(0.98);      /* subtle "pressed" feel */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}

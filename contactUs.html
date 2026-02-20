@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+ <link rel="stylesheet" href="contactUs.css">
+</head>
+<body>
+
+<div class="form-wrapper">
+<form class ="form" action="https://formspree.io/f/xlgwnakp" method="POST">
+    <h2>Contacting Us</h2>
+  <input type="text" name="name" placeholder="Full Name" required>
+  
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+  <textarea name="message" placeholder="Message" required></textarea>
+  
+  <button type="submit">SUBMIT</button>
+</form>
+</div>
+
+<script>
+document.getElementById("phone").addEventListener("input", function (e) {
+  let input = e.target.value.replace(/\D/g, "");
+  if (input.length > 10) input = input.slice(0, 10);
+
+  let formatted = input;
+  if (input.length > 6) {
+    formatted = `(${input.slice(0,3)}) ${input.slice(3,6)}-${input.slice(6)}`;
+  } else if (input.length > 3) {
+    formatted = `(${input.slice(0,3)}) ${input.slice(3)}`;
+  }
+
+  e.target.value = formatted;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Symbol</title>
+ <link rel="stylesheet" href="Styles.css">
+</head>
+<style>
+	body{
+	background-image: url('Cindwallpaper.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	  background-attachment: fixed;
+ 	 background-size: cover;
+  }
+  
+  /* Full-screen overlay */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+  /* Hide preloader once done */
+.hide-preloader {
+  opacity: 0;
+  pointer-events: none;
+}
+.content-box {
+  background: white;
+  border: 3px solid lightblue;
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+</style>
+
+<div id="preloader" style="display:none;">
+    <img src="loadingPenguin.gif" alt="Loading..."width="150">
+</div>
+
+<body class= "box">
+
+<div class="center">
+<img id="mainImg" src="anya.gif" alt="wondering what can be said" width="250" height="200">
+</div>
+<div class="content-box">
+<p id="mainText">Would you like to be my Valentines?</p>
+
+<button id="yesBtn" onclick="goToPage('Yes.html')" class="selectbtn">Yes</button>
+<button id="noBtn" onclick="buttonNoClick()" class="selectbtn">No</button>
+ </div>   
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+        let noClicks = 0;
+        const maxClicks = 10;
+        const yesButton = document.getElementById("yesBtn");
+        const noButton = document.getElementById("noBtn");
+
+        function buttonNoClick() {
+            noClicks++;
+            
+            if (noClicks === 1) {
+                document.getElementById("mainImg").src = "crying.gif";
+                document.getElementById("mainText").textContent = "You dont want to be my valentines?";
+            }
+            if (noClicks === 2) {
+                document.getElementById("mainImg").src = "smirking.gif";
+                document.getElementById("mainText").textContent = "Ahh okay I see you made a mistake. Lets try again.";
+            }
+            if (noClicks === 3) {
+                document.getElementById("mainImg").src = "serious.gif";
+                document.getElementById("mainText").textContent = "Let me make the correct option a little bigger for you to better help you";
+            }            
+            if (noClicks === 4) {
+                document.getElementById("mainImg").src = "thinking.gif";
+                document.getElementById("mainText").textContent = "WHAT?!?!?";
+            }            
+            if (noClicks === 5) {
+                document.getElementById("mainImg").src = "dobby.jpg";
+                document.getElementById("mainText").textContent = "Now that is hurting my feelings.";
+            }            
+            if (noClicks === 6) {
+                document.getElementById("mainImg").src = "jerry.gif";
+                document.getElementById("mainText").textContent = "Pretty please?";
+            }            
+            if (noClicks === 7) {
+                document.getElementById("mainImg").src = "pikachu.gif";
+                document.getElementById("mainText").textContent = "May I remind you I am your husband?";
+            }            
+            if (noClicks === 8) {
+                document.getElementById("mainImg").src = "kageyama.gif";
+                document.getElementById("mainText").textContent = "You got to be kidding me! You really dont want to be my other half?!?!";
+            }            
+            if (noClicks === 9) {
+                document.getElementById("mainImg").src = "mad.webp";
+                document.getElementById("mainText").textContent = "At this point I feel you playing with me";
+            }            
+            if (noClicks === 10) {
+                document.getElementById("mainImg").src = "lucy.gif";
+                document.getElementById("mainText").textContent = "This is your last chance!";
+            }
+            // Only grow the button up to 10 clicks
+            if (noClicks <= maxClicks) {
+            	
+                const size = 65 + noClicks * 10;
+                const noSize = Math.max(10, 100 - noClicks * 10);  
+                const noFontSize = Math.max(1, 18 - noClicks * 2);   
+                const yesFontSize = 18 + noClicks * 1.5;  
+                
+                yesButton.style.width = size + "px";
+                yesButton.style.height = size + "px";
+                yesButton.style.fontSize = yesFontSize + "px";
+                
+                noButton.style.width = nosize + "px";
+                noButton.style.height = nosize + "px";
+            }
+
+            // If clicked more than 10 times → go to the NO page
+            if (noClicks > maxClicks) {
+                window.location.href = "No.html";
+            }
+        }
+        
+     // Prevent scroll restoration behavior
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Detect page load type
+        window.addEventListener('pageshow', function(event) {
+          const preloader = document.getElementById("preloader");
+
+          // If the page is *not* being restored from back/forward cache
+          if (event.persisted || performance.getEntriesByType("navigation")[0].type === "reload") {
+            // Show the loader
+            preloader.style.display = "flex";
+
+            // After 2 seconds, hide it
+            setTimeout(function() {
+              preloader.classList.add("hide-preloader");
+              setTimeout(function() {
+                preloader.style.display = "none";
+              }, 500); // match CSS fade
+            }, 2000);
+          }
+        });
+
+    </script>
+</body>
+</html>

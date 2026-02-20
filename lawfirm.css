@@ -1,0 +1,222 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+}
+body {
+	    margin: 0;   
+    font-family: 'Georgia', serif;  /* professional serif font */
+    color: #222;
+}
+ul{
+	list-style-type: none;
+}
+
+.header{
+	display:flex;
+	padding-bottom:30px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;  /* logo left, navbar right */
+    align-items: center;
+    width: 100%;
+    padding: 0 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+background: #0B3D91;  /* deep, trustworthy blue */
+color: white;
+}
+
+.navbar{
+	/*background: #3474e6;*/
+	color: #fff;
+	margin-left:auto;
+}
+
+
+.navbar a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+}
+.navbar .list{
+	display: flex;
+	justify-content: space-between;
+	align-items: end;}
+
+
+.navbar ul{
+	display: flex;
+	  gap: 20px;
+}
+
+
+/* Navbar layout */
+.nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav li {
+    position: relative;
+}
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none !important;  /* forces it hidden */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 220px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+
+.dropdown:hover > .dropdown-content {
+    display: block !important;
+}
+
+/* Dropdown links */
+.dropdown-content li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content li a:hover {
+    background-color: #f1f1f1;
+}
+button.contactUs {
+    background-color: white;
+    color: #B22222;
+}
+
+.logo img {
+    height: 60px;      /* adjust to fit your navbar */
+    width: auto;       /* maintain aspect ratio */
+}
+
+ @media (max-width: 768px) {
+    .crime-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .crime-section img,
+    .crime-text {
+        width: 100%;
+    }
+}
+.crime-section {
+	    background-color: #ffffff;   /* keep content readable */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* subtle depth */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 40px;
+    
+}
+
+/* Make images responsive */
+.crime-section img {
+    width: 30%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Text takes the rest */
+.crime-text {
+    width: 60%;
+    text-align:center;
+}
+
+.crime-text h1 {
+    font-size: 4rem;       /* big attention-grabbing size */
+    margin-bottom: 20px;   /* space between h1 and h2 */
+    color: #B22222;        /* optional: matches your top bar color for emphasis */
+}
+
+.crime-text h2 {
+    font-size: 2rem;     /* slightly larger than default */
+    line-height: 1.6;
+    color: #333;           /* dark gray for readability */
+}
+
+/* Alternate every other section */
+.crime-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.footer {
+    width: 100%;
+    background-color: #0B3D91;   /* matches top-bar */
+    color: white;
+
+    padding-top: 25px;    /* was 50px */
+    padding-bottom: 15px; /* was 30px */
+    display: flex;
+    flex-direction: column;      /* stack content vertically */
+    align-items: center;         /* center all children horizontally */
+    text-align: center;        
+}
+
+/* Row layout for content */
+.footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;      /* center row inside footer */
+    padding: 0;          /* remove left/right padding */
+}
+
+/* Footer columns */
+.column {
+    flex: 1 1 300px;    /* grow/shrink, min width 300px */
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1rem;
+}
+.column_VISIT_TITLE{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content: center;
+	text-align: center;
+	  max-width: 500px;
+	
+}
+.column_VISIT_TITLE em{
+	font-size: clamp(2em, 4vw, 4em);
+}
+.column_VISIT_TITLE p{
+	
+	font-size: clamp(18px, 1.2vw, 20px);
+	color:white;
+	margin-bottom: 10px;
+}
+.column_maps iframe {
+    width: 100%;        /* fill the column */
+    max-width: 600px;   /* optional maximum width */
+    height: 200px;
+    border: 0;
+    border-radius: 8px;
+}
