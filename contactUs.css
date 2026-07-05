@@ -51,11 +51,11 @@
 .form input:focus,
 .form textarea:focus {
     outline: none;
-    border-color: #0B3D91;           /* matches your navbar */
+    border-color: #b28649;           /* matches your navbar */
     box-shadow: 0 0 5px rgba(11,61,145,0.3);
 }
 .form button {
-    background-color: #0B3D91;
+    background-color: #b28649;
     color: white;
     padding: 15px;
     font-size: 1rem;
