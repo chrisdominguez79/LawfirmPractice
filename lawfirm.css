@@ -6,6 +6,7 @@ body {
 	    margin: 0;   
     font-family: 'Georgia', serif;  /* professional serif font */
     color: #b28649;
+    
 }
 ul{
 	list-style-type: none;
@@ -13,7 +14,12 @@ ul{
 
 .header{
 	display:flex;
-	padding-bottom:30px;
+
+	position: fixed;
+	    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .top-bar {
@@ -221,6 +227,16 @@ button.contactUs {
     color:white;
 }
 
+.Title em{	
+	display:flex;
+	align-items:center;
+	justify-content: center;
+	text-align: center;
+	font-size: clamp(2em, 4vw, 4em);
+	color: #101928; 
+}
+
+
 .crime-section {
 	    background-color: #ffffff;   /* keep content readable */
     box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* subtle depth */
@@ -296,9 +312,13 @@ button.contactUs {
     margin-top: 40px;
     font-size: 1rem;
 }
+
+.footer-logo img {
+    height: 150px;      /* adjust to fit your navbar */
+    width: auto;       /* maintain aspect ratio */
+}
 .column_VISIT_TITLE{
 	display:flex;
-	flex-direction:column;
 	align-items:center;
 	justify-content: center;
 	text-align: center;
@@ -314,10 +334,16 @@ button.contactUs {
 	color:white;
 	margin-bottom: 10px;
 }
+
+
+
+
+/*
 .column_maps iframe {
-    width: 100%;        /* fill the column */
-    max-width: 600px;   /* optional maximum width */
+    width: 100%;         fill the column 
+    max-width: 600px;    optional maximum width 
     height: 200px;
     border: 0;
     border-radius: 8px;
 }
+*/
