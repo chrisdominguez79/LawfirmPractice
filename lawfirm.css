@@ -491,6 +491,11 @@ button.contactUs:hover {
 
 }
 
+	.crime-section,
+.crime-section:nth-child(even) {
+    flex-direction: column !important;
+}
+
 .crime-text{
 
     text-align:center;
