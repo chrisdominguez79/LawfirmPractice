@@ -2,6 +2,13 @@
 * {
     box-sizing: border-box;
 }
+img{
+
+    display:block;
+    max-width:100%;
+    height:auto;
+
+}
 body {
 	    margin: 0;   
     font-family: 'Georgia', serif;  /* professional serif font */
@@ -238,21 +245,20 @@ button.contactUs:hover {
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    padding: 60px 40px;
+	padding:clamp(30px,5vw,60px);
     
 }
 
 /* Make images responsive */
 .crime-section img {
-    width: 30%;
-    border-radius: 8px;
-    object-fit: cover;
+    flex:1;
+    max-width:500px;
+    width:100%;
 }
 
 /* Text takes the rest */
 .crime-text {
-    width: 60%;
-    text-align:center;
+    flex:1;
 }
 
 .crime-text h1 {
@@ -377,6 +383,43 @@ button.contactUs:hover {
     gap:15px;
 }
 
+
+.welcome-text{
+
+    max-width:700px;
+    transform:translateY(-30px);
+
+}
+
+.welcome-text h1{
+
+    font-size:clamp(2.5rem,5vw,3.5rem);
+
+}
+
+.welcome-text h2{
+
+    font-size:1.2rem;
+
+}
+.crime-section{
+
+    gap:25px;
+    padding:40px 30px;
+
+}
+
+.crime-text h1{
+
+    font-size:clamp(2rem,4vw,3rem);
+
+}
+
+.crime-text h2{
+
+    font-size:1.3rem;
+
+}
 }
 
 @media (max-width:768px){
@@ -434,12 +477,37 @@ button.contactUs:hover {
  .crime-section {
         flex-direction: column;
         text-align: center;
+            padding:40px 20px;
+    gap:20px;
     }
 
     .crime-section img,
     .crime-text {
         width: 100%;
     }
+    .crime-section img{
+
+    max-width:100%;
+
+}
+
+.crime-text{
+
+    text-align:center;
+
+}
+
+.crime-text h1{
+
+    font-size:2rem;
+
+}
+
+.crime-text h2{
+
+    font-size:1rem;
+
+}
  
  .footer .row{
 
@@ -468,4 +536,28 @@ button.contactUs:hover {
     margin:15px auto;
 
 }
+.Title{
+
+    padding:20px;
+
+}
+.footer .row{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+.column{
+
+max-width:400px;
+
+}
+
+.footer-bottom{
+
+margin-top:25px;
+
+}
+
 }
