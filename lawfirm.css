@@ -177,7 +177,12 @@ button.contactUs:hover {
     height: 60px;      /* adjust to fit your navbar */
     width: auto;       /* maintain aspect ratio */
 }
-
+.footer-container {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
  @media (max-width: 768px) {
     .crime-section {
         flex-direction: column;
@@ -292,18 +297,16 @@ button.contactUs:hover {
 
 /* Row layout for content */
 .footer .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    margin: 0 auto;      /* center row inside footer */
-    padding: 0;          /* remove left/right padding */
+    display:flex;
+    justify-content:center;
+    width:100%;
 }
 
 /* Footer columns */
 .column {
-    flex: 1 1 300px;    /* grow/shrink, min width 300px */
+    width:100%;
+    display:flex;
+    justify-content:center;
 }
 
 /* Footer bottom section */
@@ -316,12 +319,14 @@ button.contactUs:hover {
 .footer-logo img {
     height: 150px;      /* adjust to fit your navbar */
     width: auto;       /* maintain aspect ratio */
+    margin-bottom:20px;
 }
 
 .developer-credit {
     font-size: 0.85rem;
     color: #b0b0b0;
     margin-top: 8px;
+    letter-spacing:.3px;
 }
 
 .developer-credit a {
@@ -345,14 +350,17 @@ button.contactUs:hover {
 .column_VISIT_TITLE em{
 	font-size: clamp(2em, 4vw, 4em);
 }
-.column_VISIT_TITLE p{
-	
-	font-size: clamp(18px, 1.2vw, 20px);
-	color:white;
-	margin-bottom: 10px;
+.column_VISIT_TITLE a{
+    color:white;
+    text-decoration:none;
+    transition:color .25s ease;
 }
 
+.column_VISIT_TITLE a:hover {
 
+    color:#b28649;
+
+}
 
 
 /*
@@ -490,8 +498,7 @@ button.contactUs:hover {
     max-width:100%;
 
 }
-
-	.crime-section,
+.crime-section,
 .crime-section:nth-child(even) {
     flex-direction: column !important;
 }
@@ -511,20 +518,6 @@ button.contactUs:hover {
 .crime-text h2{
 
     font-size:1rem;
-
-}
- 
- .footer .row{
-
-    flex-direction:column;
-    align-items:center;
-
-}
-
-.column{
-
-    width:100%;
-    text-align:center;
 
 }
 
@@ -554,14 +547,16 @@ align-items:center;
 }
 
 .column{
-
+width: 100%;
 max-width:400px;
+text-align: center;
 
 }
 
 .footer-bottom{
 
 margin-top:25px;
+padding: 0 15px;
 
 }
 
