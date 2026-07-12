@@ -287,8 +287,8 @@ button.contactUs:hover {
     background-color: #101928;   /* matches top-bar */
     color: white;
 
-    padding-top: 25px;    /* was 50px */
-    padding-bottom: 15px; /* was 30px */
+    padding-top:15px;
+    padding-bottom:10px;
     display: flex;
     flex-direction: column;      /* stack content vertically */
     align-items: center;         /* center all children horizontally */
@@ -523,7 +523,8 @@ button.contactUs:hover {
 
 .footer-logo img{
 
-    height:110px;
+    height:130px;
+    margin-bottom:10px;
 
 }
 .ContactUs-button,
@@ -555,8 +556,8 @@ text-align: center;
 
 .footer-bottom{
 
-margin-top:25px;
-padding: 0 15px;
+    margin-top:15px;
+    padding:0 15px;
 
 }
 
