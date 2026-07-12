@@ -20,6 +20,7 @@ ul{
     left: 0;
     width: 100%;
     z-index: 1000;
+      font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .top-bar {
@@ -133,10 +134,38 @@ color: white;
     background-color: #f1f1f1;
 }
 button.contactUs {
-    background-color: white;
-    color: #b28649;
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: .375em;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #363636;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 2.5em;
+  justify-content: center;
+  line-height: 1.5;
+  padding: calc(.5em - 1px) 1em;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+    transition: background-color 0.5s ease, color 0.5s ease;
+
 }
 
+button.contactUs:hover {
+    background-color: #9b7238;
+    color:white;
+}
 .logo img {
     height: 60px;      /* adjust to fit your navbar */
     width: auto;       /* maintain aspect ratio */
@@ -156,7 +185,8 @@ button.contactUs {
 
 .Welcome {
 	position: relative;
-	height: 100vh;
+    min-height:100vh;
+    height:auto;
 	overflow: hidden;
 	
 	display: flex;
@@ -174,7 +204,7 @@ button.contactUs {
 
 .welcome-text{
     position: relative;
-    color: #b28649;   
+    color:white;   
     z-index: 2;        /* Places text above the video */
 
     text-align: center;
@@ -182,49 +212,13 @@ button.contactUs {
 
     max-width: 900px;
     padding: 20px;
+    transform: translateY(-60px);
 }
 
 .welcome-text h1, 
 .welcome-text h2, 
 .welcome-text h3{
-    color: #b28649;  
-}
-
-.ContactUs-button {
-    display: inline-block;
-    background-color: white;
-    color:#b28649;
-    text-decoration: none;
-    padding: 15px 35px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-
-.ContactUs-button:hover {
-    background-color: #9b7238;
-    color:white;
-}
-
-
-.call-button {
-    display: inline-block;
-    background-color: white;
-    color:#b28649;
-    text-decoration: none;
-    padding: 15px 35px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-
-.call-button:hover {
-    background-color: #9b7238;
-    color:white;
+	color: #fff;
 }
 
 .Title em{	
@@ -262,7 +256,7 @@ button.contactUs {
 }
 
 .crime-text h1 {
-    font-size: 4rem;       /* big attention-grabbing size */
+    font-size:clamp(2rem, 5vw, 4rem);       /* big attention-grabbing size */
     margin-bottom: 20px;   /* space between h1 and h2 */
     color: #101928;        /* optional: matches your top bar color for emphasis */
 }
@@ -317,6 +311,23 @@ button.contactUs {
     height: 150px;      /* adjust to fit your navbar */
     width: auto;       /* maintain aspect ratio */
 }
+
+.developer-credit {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    margin-top: 8px;
+}
+
+.developer-credit a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.developer-credit a:hover {
+    color: #9b7238;
+}
+
 .column_VISIT_TITLE{
 	display:flex;
 	align-items:center;
@@ -347,3 +358,114 @@ button.contactUs {
     border-radius: 8px;
 }
 */
+
+@media (max-width:1024px){
+
+.top-bar{
+    padding:0 20px;
+}
+
+.logo img{
+    height:50px;
+}
+
+.navbar a{
+    font-size:16px;
+}
+
+.navbar ul{
+    gap:15px;
+}
+
+}
+
+@media (max-width:768px){
+
+.top-bar{
+    flex-direction:column;
+    padding:15px;
+}
+
+.navbar{
+    margin:15px 0 0 0;
+}
+
+.navbar ul{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.navbar a{
+    font-size:15px;
+}
+
+.logo img{
+    height:45px;
+}
+.welcome-text{
+
+    max-width:100%;
+    transform:none;
+    padding:20px;
+
+}
+
+.welcome-text h1{
+
+    font-size:2.2rem;
+    line-height:1.2;
+
+}
+
+.welcome-text h2{
+
+    font-size:1.05rem;
+    line-height:1.6;
+
+}
+
+.welcome-text h3{
+
+    font-size:1rem;
+
+}
+
+ .crime-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .crime-section img,
+    .crime-text {
+        width: 100%;
+    }
+ 
+ .footer .row{
+
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.column{
+
+    width:100%;
+    text-align:center;
+
+}
+
+.footer-logo img{
+
+    height:110px;
+
+}
+.ContactUs-button,
+.call-button{
+
+    display:block;
+    width:250px;
+    margin:15px auto;
+
+}
+}

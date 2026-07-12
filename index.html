@@ -43,7 +43,7 @@
 					<a href="tel:+12674365109" >(267)743-5109</a>
 				</li>
 				<li>
-					<button class ="contactUs" onclick="goToPage('contactUs.html')">Contacts Us</button>
+					<a href="contactUs.html">Contacts Us</a>
 				</li>
 
 			</ul>
@@ -54,14 +54,13 @@
 
     <video autoplay muted loop playsinline class="background-video">
         <source src="Video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
     <div class="welcome-text">
 	<h3>Welcome To Castlerod Lawfirm, PLLC</h3>
 	<h1>Justice Served With Integrity, Precision, And Care</h1>
-	<h2>At our firm, we believe great service begins with genuine dedication. Every client receives personalized attention, clear communication, and strategic expertise tailored to their unique needs. We don’t just handle cases — we build trust, uphold values, and deliver results that stand the test of time.</h2>
-	<button class ="ContactUs-button" onclick="goToPage('contactUs.html')">Contacts Us</button>
-	<a href="tel:+12674365109" class="call-button">+1(267)743-5109</a>
+	<h2>At our firm, we believe great service begins with genuine dedication. Every client receives personalized attention, clear communication, and strategic expertise tailored to their unique needs. We don’t just handle cases — we build trust, uphold values, and deliver results.</h2>
+	<button class ="contactUs" onclick="goToPage('contactUs.html')">Contacts Us</button>
+	<button class ="contactUs"<a href="tel:+12674365109">+1(267)743-5109</a></button>
 </div>
 </div>
 <div class="Title"> 
@@ -173,13 +172,17 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 Your Law Firm. All Rights Reserved.</p>
+                <p>© 2026 Castlerod Law Group PLLC. All Rights Reserved.</p>
+                <p class="developer-credit">Website created by Christian Dominguez.</p>
             </div>
         </div>
     </div>
 </section>
 		
 	<script>
+	function goToPage(page) {
+	    window.location.href = page;
+	}
   // Scroll to top on load or reload, including when coming from bfcache
   function scrollToTop() {
     // Use a second delay to override browser restoration
