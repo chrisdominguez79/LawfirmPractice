@@ -211,11 +211,24 @@ button.contactUs:hover {
 
 .navbar{
     display:flex;
+    position:fixed;
+
+    inset:0;
+
+    background:#101928;
+
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
 
     padding-top:70px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.35s ease;
+
+    z-index:2000;
 }
 .navbar.active{
 
