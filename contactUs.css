@@ -86,7 +86,10 @@
 @media (max-width:600px){
 
     .form-wrapper{
-        padding:20px 15px;
+    min-height:100svh;
+    justify-content:flex-start;
+    align-items:center;
+    padding:30px 15px;
     }
 
 
