@@ -201,9 +201,12 @@ button.contactUs:hover {
 }
  @media (max-width: 768px) {
 .top-bar{
-    justify-content:space-between;
+    position:relative;
+    display:flex;
+    justify-content:center;
     align-items:center;
-    padding:20px;
+    min-height:80px;
+    padding:15px 20px;
 }
 
 .navbar{
@@ -256,8 +259,9 @@ button.contactUs:hover {
 
 }
 
-.logo img{
-    height:110px;
+.mobile-logo img{
+    height:85px;
+    margin-bottom:20px;
 }
 .welcome-text{
 
@@ -368,11 +372,11 @@ text-align: center;
 .hamburger{
     display:block;
     position:absolute;
-    top:25px;
+    top:50%;
     right:20px;
-    font-size:36px;
-    cursor:pointer;
-    z-index:3000;
+    transform:translateY(-50%);
+    font-size:34px;
+    z-index:3001;
 }
 .hamburger.active {
   color: #e6b249; /* gold or white for visibility */
