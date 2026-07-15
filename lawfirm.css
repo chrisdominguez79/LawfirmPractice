@@ -200,17 +200,180 @@ button.contactUs:hover {
   z-index: 1100;
 }
  @media (max-width: 768px) {
-   .hamburger {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    transition: color 0.3s ease;
-    z-index: 1100;
-    cursor: pointer;
-  }
+.top-bar{
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+.navbar{
+
+    display:flex;
+    position:fixed;
+
+    inset:0;
+
+    background:#101928;
+
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:2000;
+
+}
+.navbar.active{
+
+    opacity:1;
+    visibility:visible;
+
+}
+.navbar ul{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+.navbar a{
+
+    font-size:30px;
+    font-weight:600;
+
+}
+.navbar .nav{
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.logo img{
+    height:110px;
+}
+.welcome-text{
+
+    max-width:100%;
+    transform:none;
+    padding:20px;
+
+}
+
+.welcome-text h1{
+
+    font-size:2.2rem;
+    line-height:1.2;
+
+}
+
+.welcome-text h2{
+
+    font-size:1.05rem;
+    line-height:1.6;
+
+}
+
+.welcome-text h3{
+
+    font-size:1rem;
+
+}
+
+ .crime-section {
+        flex-direction: column;
+        text-align: center;
+            padding:40px 20px;
+    gap:20px;
+    }
+
+    .crime-section img,
+    .crime-text {
+        width: 100%;
+    }
+    .crime-section img{
+
+    max-width:100%;
+
+}
+.crime-section,
+.crime-section:nth-child(even) {
+    flex-direction: column !important;
+}
+
+.crime-text{
+
+    text-align:center;
+
+}
+
+.crime-text h1{
+
+    font-size:2rem;
+
+}
+
+.crime-text h2{
+
+    font-size:1rem;
+
+}
+
+.footer-logo img{
+
+    height:130px;
+    margin-bottom:10px;
+
+}
+.ContactUs-button,
+.call-button{
+
+    display:block;
+    width:250px;
+    margin:15px auto;
+
+}
+.Title{
+
+    padding:20px;
+
+}
+.footer .row{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+.column{
+width: 100%;
+max-width:400px;
+text-align: center;
+
+}
+
+.footer-bottom{
+
+    margin-top:15px;
+    padding:0 15px;
+
+}
+.hamburger{
+    display:block;
+    position:absolute;
+    top:25px;
+    right:20px;
+    font-size:36px;
+    cursor:pointer;
+    z-index:3000;
+}
 .hamburger.active {
   color: #e6b249; /* gold or white for visibility */
 }
@@ -458,144 +621,4 @@ button.contactUs:hover {
     font-size:1.3rem;
 
 }
-}
-
-@media (max-width:768px){
-
-.top-bar{
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 20px;
-    position:relative;
-}
-
-.navbar{
-    display:none;
-    width:100%;
-    margin-top:15px;
-}
-.navbar.active{
-    display:block;
-}
-.navbar ul{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-}
-
-.navbar a{
-    font-size:15px;
-}
-
-.logo img{
-    height:45px;
-}
-.welcome-text{
-
-    max-width:100%;
-    transform:none;
-    padding:20px;
-
-}
-
-.welcome-text h1{
-
-    font-size:2.2rem;
-    line-height:1.2;
-
-}
-
-.welcome-text h2{
-
-    font-size:1.05rem;
-    line-height:1.6;
-
-}
-
-.welcome-text h3{
-
-    font-size:1rem;
-
-}
-
- .crime-section {
-        flex-direction: column;
-        text-align: center;
-            padding:40px 20px;
-    gap:20px;
-    }
-
-    .crime-section img,
-    .crime-text {
-        width: 100%;
-    }
-    .crime-section img{
-
-    max-width:100%;
-
-}
-.crime-section,
-.crime-section:nth-child(even) {
-    flex-direction: column !important;
-}
-
-.crime-text{
-
-    text-align:center;
-
-}
-
-.crime-text h1{
-
-    font-size:2rem;
-
-}
-
-.crime-text h2{
-
-    font-size:1rem;
-
-}
-
-.footer-logo img{
-
-    height:130px;
-    margin-bottom:10px;
-
-}
-.ContactUs-button,
-.call-button{
-
-    display:block;
-    width:250px;
-    margin:15px auto;
-
-}
-.Title{
-
-    padding:20px;
-
-}
-.footer .row{
-
-flex-direction:column;
-align-items:center;
-
-}
-
-.column{
-width: 100%;
-max-width:400px;
-text-align: center;
-
-}
-
-.footer-bottom{
-
-    margin-top:15px;
-    padding:0 15px;
-
-}
-
 }
