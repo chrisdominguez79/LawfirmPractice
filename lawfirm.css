@@ -2,6 +2,12 @@
 * {
     box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+.no-scroll {
+  overflow: hidden;
+}
 img{
 
     display:block;
@@ -183,7 +189,31 @@ button.contactUs:hover {
     flex-direction:column;
     align-items:center;
 }
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+    position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1100;
+}
  @media (max-width: 768px) {
+   .hamburger {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    transition: color 0.3s ease;
+    z-index: 1100;
+    cursor: pointer;
+  }
+.hamburger.active {
+  color: #e6b249; /* gold or white for visibility */
+}
     .crime-section {
         flex-direction: column;
         text-align: center;
@@ -433,18 +463,25 @@ button.contactUs:hover {
 @media (max-width:768px){
 
 .top-bar{
-    flex-direction:column;
-    padding:15px;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    position:relative;
 }
 
 .navbar{
-    margin:15px 0 0 0;
+    display:none;
+    width:100%;
+    margin-top:15px;
 }
-
+.navbar.active{
+    display:block;
+}
 .navbar ul{
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
 }
 
 .navbar a{

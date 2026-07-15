@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="header">
-	
+	<div class="hamburger" onclick="toggleMenu()">☰</div>	
 	<div class ="top-bar">   
 	    <div class="logo">
         <img src="Castlerod.png" alt="Law Firm Logo">
@@ -60,7 +60,9 @@
 	<h1>Justice Served With Integrity, Precision, And Care</h1>
 	<h2>At our firm, we believe great service begins with genuine dedication. Every client receives personalized attention, clear communication, and strategic expertise tailored to their unique needs. We don’t just handle cases — we build trust, uphold values, and deliver results.</h2>
 	<button class ="contactUs" onclick="goToPage('contactUs.html')">Contacts Us</button>
-	<button class ="contactUs"<a href="tel:+12674365109">+1(267)743-5109</a></button>
+<button class="contactUs" onclick="window.location.href='tel:+12674365109'">
+    +1(267)743-5109
+</button>
 </div>
 </div>
 <div class="Title"> 
@@ -228,7 +230,6 @@
  	{
  		    const navbar = document.querySelector('.navbar');
  		    const hamburger = document.querySelector('.hamburger');
- 		    const socials = document.querySelector('.mobile-socials');
  		   const body = document.body;
 		const isActive = navbar.classList.contains('active');
 		
@@ -236,13 +237,11 @@
 		      // Menu is open — now closing it
 		      navbar.classList.remove('active');
 		      hamburger.classList.remove('active');
-		      socials.classList.remove('active');
 		      body.classList.remove('no-scroll'); // ✅ Re-enable scroll
 		    } else {
 		      // Menu is closed — now opening it
 		      navbar.classList.add('active');
 		      hamburger.classList.add('active');
-		      socials.classList.add('active');
 		      body.classList.add('no-scroll'); // 🚫 Disable scroll
 		    }
 		  }
