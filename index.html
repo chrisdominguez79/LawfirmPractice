@@ -10,19 +10,19 @@
 </head>
 <body>
 	<div class="header">
-	<div class="hamburger" onclick="toggleMenu()">☰</div>	
+
 	<div class ="top-bar">   
 	    <div class="logo">
         <img src="Castlerod.png" alt="Law Firm Logo">
     </div>
-    
+    				<div class="hamburger" onclick="toggleMenu()">☰</div>	
+
 		<nav class="navbar">
-		<div class="mobile-logo">
-		<img src="Castlerod.png">
+			<div class="mobile-logo">
+				<img src="Castlerod.png">
+				<h2>Castlerod Law Group PLLC</h2>
+			</div>
 
-<h2>Castlerod Law Group PLLC</h2>
-
-</div>
 			<ul class="nav">
 				<li>
 					<a href="#Home" onclick="toggleMenu(true)">Home</a>
@@ -232,25 +232,26 @@
   });
 	
 		
- 		 function toggleMenu(forceClose = false) 
- 	{
- 		    const navbar = document.querySelector('.navbar');
- 		    const hamburger = document.querySelector('.hamburger');
- 		   const body = document.body;
-		const isActive = navbar.classList.contains('active');
-		
-		    if (isActive || forceClose) {
-		      // Menu is open — now closing it
-		      navbar.classList.remove('active');
-		      hamburger.classList.remove('active');
-		      body.classList.remove('no-scroll'); // ✅ Re-enable scroll
-		    } else {
-		      // Menu is closed — now opening it
-		      navbar.classList.add('active');
-		      hamburger.classList.add('active');
-		      body.classList.add('no-scroll'); // 🚫 Disable scroll
-		    }
-		  }
+  function toggleMenu(forceClose = false) {
+	    const header = document.querySelector(".header");
+	    const navbar = document.querySelector(".navbar");
+	    const hamburger = document.querySelector(".hamburger");
+	    const body = document.body;
+
+	    const isActive = navbar.classList.contains("active");
+
+	    if (isActive || forceClose) {
+	        navbar.classList.remove("active");
+	        hamburger.classList.remove("active");
+	        header.classList.remove("menu-open");
+	        body.classList.remove("no-scroll");
+	    } else {
+	        navbar.classList.add("active");
+	        hamburger.classList.add("active");
+	        header.classList.add("menu-open");
+	        body.classList.add("no-scroll");
+	    }
+	}
 	</script>
 </body>
 </html>
