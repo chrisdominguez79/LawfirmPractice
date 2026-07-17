@@ -211,7 +211,7 @@ button.contactUs:hover {
 }
 
 .logo img{
-    height:72px;       /* Increase to 75-80px if desired */
+    height:70px;
     width:auto;
 }
 .mobile-logo{
@@ -222,8 +222,7 @@ button.contactUs:hover {
     justify-content:space-between;
     align-items:center;
 
-    min-height:90px;
-    padding:0 20px;
+    padding:15px 20px;
 }
 .nav{
     display:flex;
@@ -275,10 +274,6 @@ button.contactUs:hover {
 
     margin:0;
     padding:0;
-}
-
-.header.menu-open .top-bar .logo{
-    visibility:hidden;
 }
 
 .header.menu-open .logo{
@@ -399,9 +394,15 @@ text-align: center;
 }
 .hamburger{
     display:block;
+    position:fixed;
+    top:28px;
+    right:20px;
+
     font-size:34px;
-    position:relative;
-    z-index:3002;
+    color:white;
+    cursor:pointer;
+
+    z-index:9999;
 }
 .hamburger.active {
   color: #e6b249; /* gold or white for visibility */
