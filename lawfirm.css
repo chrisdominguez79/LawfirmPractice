@@ -277,9 +277,8 @@ button.contactUs:hover {
     padding:0;
 }
 
-.navbar.active ~ .logo,
-.header.menu-open .logo{
-    display:none;
+.header.menu-open .top-bar .logo{
+    visibility:hidden;
 }
 
 .header.menu-open .logo{
@@ -399,9 +398,10 @@ text-align: center;
 
 }
 .hamburger{
-    position:static;
     display:block;
     font-size:34px;
+    position:relative;
+    z-index:3002;
 }
 .hamburger.active {
   color: #e6b249; /* gold or white for visibility */
