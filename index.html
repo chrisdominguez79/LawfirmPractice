@@ -40,16 +40,44 @@
 				</li>
 
 				<li class="dropdown">
-    			<a href="#Criminal-Defense" class="dropbtn">     Criminal Defense ▾</a>
+    			<a href="#Criminal-Defense" class="dropbtn"onclick="toggleMobileDropdown(event)">Criminal Defense ▾</a>
+<ul class="dropdown-content">
+    <li>
+        <a href="#DUI" onclick="closeMobileMenu()">
+            Driving While Intoxicated (DWI/DUI)
+        </a>
+    </li>
 
-    <ul class="dropdown-content">
-        <li><a href="#DUI">Driving While Intoxicated (DWI/DUI)</a></li>
-        <li><a href="#Drug Crimes">Drug Crimes</a></li>
-        <li><a href="#Violent Crimes">Violent Crimes</a></li>
-        <li><a href="#Weapons Offenses">Weapons Offenses</a></li>
-        <li><a href="#Juvenile Crimes">Juvenile Crimes</a></li>
-        <li><a href="#Federal Crimes">Federal Crimes</a></li>
-    </ul>
+    <li>
+        <a href="#Drug Crimes" onclick="closeMobileMenu()">
+            Drug Crimes
+        </a>
+    </li>
+
+    <li>
+        <a href="#Violent Crimes" onclick="closeMobileMenu()">
+            Violent Crimes
+        </a>
+    </li>
+
+    <li>
+        <a href="#Weapons Offenses" onclick="closeMobileMenu()">
+            Weapons Offenses
+        </a>
+    </li>
+
+    <li>
+        <a href="#Juvenile Crimes" onclick="closeMobileMenu()">
+            Juvenile Crimes
+        </a>
+    </li>
+
+    <li>
+        <a href="#Federal Crimes" onclick="closeMobileMenu()">
+            Federal Crimes
+        </a>
+    </li>
+</ul>
 </li>
 				<li>
 
@@ -261,6 +289,30 @@
 	            ? "Close navigation menu"
 	            : "Open navigation menu"
 	    );
+	}
+  function closeMobileMenu() {
+	    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+	    // Do nothing on desktop
+	    if (!isMobile) {
+	        return;
+	    }
+
+	    const navbar = document.querySelector(".navbar");
+	    const hamburger = document.querySelector(".hamburger");
+	    const header = document.querySelector(".header");
+
+	    navbar.classList.remove("active");
+	    hamburger.classList.remove("active");
+	    header.classList.remove("menu-open");
+	    document.body.classList.remove("no-scroll");
+
+	    document.querySelectorAll(".dropdown.open").forEach(function (dropdown) {
+	        dropdown.classList.remove("open");
+	    });
+
+	    hamburger.textContent = "☰";
+	    hamburger.setAttribute("aria-expanded", "false");
 	}
 	</script>
 </body>
