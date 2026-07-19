@@ -1,4 +1,9 @@
 @charset "UTF-8";
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 * {
     box-sizing: border-box;
 }
@@ -225,354 +230,6 @@ button.contactUs:hover {
 }
 
 
-
- @media (max-width: 768px) {
-.logo{
-    position:static;
-}
-
-.logo img{
-    height:72px;       /* Increase to 75-80px if desired */
-    width:auto;
-}
-.mobile-logo{
-    display:none;
-}
-.top-bar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    min-height:90px;
-    padding:0 20px;
-}
-.nav{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:30px;
-}
-.navbar{
-    display:flex;
-    position:fixed;
-
-    inset:0;
-
-    background:#101928;
-
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
-
-    padding-top:30px;
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:0.35s ease;
-
-    z-index:2000;
-}
-.navbar.active{
-
-    opacity:1;
-    visibility:visible;
-
-}
-
-.navbar ul{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-}
-
-.navbar a{
-
-    font-size:30px;
-
-}
-.navbar .nav{
-
-    margin:0;
-    padding:0;
-}
-
-.mobile-logo h2{
-    color:white;
-    font-size:30px;
-    margin-top:15px;
-    text-align:center;
-}
-
-.Welcome 
-	{
-   min-height: 100svh;
-   /* Reserve room for the fixed 90px header */    
-   padding-top: 110px;
-   padding-bottom: 35px;
-   /* Start the content below the header */
-   align-items: flex-start;
-}
-.welcome-text{
-
-    max-width:100%;
-    padding:20px;
-    transform:none;
-    margin: 0 auto;
-
-}
-
-.welcome-text h1{
-
-    font-size:2.2rem;
-    line-height:1.2;
-
-}
-
-.welcome-text h2{
-
-    font-size:1.05rem;
-    line-height:1.6;
-
-}
-
-.welcome-text h3{
-
-	margin-top: 0;
-
-}
-
- .crime-section {
-        flex-direction: column;
-        text-align: center;
-            padding:40px 20px;
-    gap:20px;
-    }
-
-    .crime-section img,
-    .crime-text {
-        width: 100%;
-    }
-    .crime-section img{
-
-    max-width:100%;
-
-}
-.crime-section,
-.crime-section:nth-child(even) {
-    flex-direction: column !important;
-}
-
-.crime-text{
-
-    text-align:center;
-
-}
-
-.crime-text h1{
-
-    font-size:2rem;
-
-}
-
-.crime-text h2{
-
-    font-size:1rem;
-
-}
-
-.footer-logo img{
-
-    height:130px;
-    margin-bottom:10px;
-
-}
-.ContactUs-button,
-.call-button{
-
-    display:block;
-    width:250px;
-    margin:15px auto;
-
-}
-.Title{
-
-    padding:20px;
-
-}
-.footer .row{
-
-flex-direction:column;
-align-items:center;
-
-}
-
-.column{
-width: 100%;
-max-width:400px;
-text-align: center;
-
-}
-
-.footer-bottom{
-
-    margin-top:15px;
-    padding:0 15px;
-
-}
-.hamburger{
-    display:block;
-    
-    right: 20px;
-    
-    /*Must be highter than the navbar's 2000*/
-    z-index:2100;
-    
-    font-size:34px;
-}
-.hamburger.active {
-  color: #e6b249; /* gold or white for visibility */
-}
-    .crime-section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .crime-section img,
-    .crime-text {
-        width: 100%;
-    }
-    .navbar.active .mobile-logo{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-bottom:40px;
-}
-
-
-.navbar.active .mobile-logo img{
-    height:120px;
-    width:auto;
-}
-
-
-.navbar.active .mobile-logo h2{
-    color:white;
-    font-size:30px;
-    text-align:center;
-    margin-top:15px;
-}
-/* MOBILE DROPDOWN ONLY */
-.dropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/*
-Keep the dropdown rendered so its opening and closing
-can be animated.
-*/
-.dropdown-content {
-    display: flex !important;
-    position: static;
-
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0 !important;
-
-    /* Smaller, more professional width */
-    width: 270px;
-    max-width: calc(100vw - 50px);
-    min-width: 0;
-
-    margin: 0 auto;
-    padding: 0;
-
-    background: #ffffff;
-    border-radius: 8px;
-
-    overflow: hidden;
-
-    /* Closed state */
-    max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transform: translateY(-8px) scale(0.98);
-    transform-origin: top center;
-
-    box-shadow: none;
-
-    transition:
-        max-height 0.4s ease,
-        opacity 0.25s ease,
-        transform 0.35s ease,
-        margin-top 0.35s ease,
-        box-shadow 0.35s ease,
-        visibility 0s linear 0.4s;
-}
-
-/* Open state */
-.dropdown.open > .dropdown-content {
-    max-height: 450px;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    margin-top: 12px;
-
-    transform: translateY(0) scale(1);
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
-
-    transition:
-        max-height 0.45s ease,
-        opacity 0.3s ease,
-        transform 0.35s ease,
-        margin-top 0.35s ease,
-        box-shadow 0.35s ease,
-        visibility 0s;
-}
-
-.dropdown-content li {
-    width: 100%;
-    margin: 0;
-}
-
-/* Smaller dropdown text */
-.dropdown-content li a {
-    display: block;
-    width: 100%;
-
-    padding: 11px 14px;
-
-    font-size: 18px;
-    line-height: 1.3;
-    font-weight: 600;
-
-    white-space: normal;
-    text-align: center;
-
-    color: #b28649;
-}
-
-/* Light separation between options */
-.dropdown-content li:not(:last-child) a {
-    border-bottom: 1px solid rgba(16, 25, 40, 0.1);
-}
-
-.dropdown-content li a:hover,
-.dropdown-content li a:active {
-    background-color: #f5f5f5;
-}
-}
-
-
-
 .Welcome {
 	position: relative;
     min-height:100vh;
@@ -611,13 +268,60 @@ can be animated.
 	color: #fff;
 }
 
-.Title em{	
-	display:flex;
-	align-items:center;
-	justify-content: center;
-	text-align: center;
-	font-size: clamp(2em, 4vw, 4em);
-	color: #101928; 
+/* SECTION TITLES */
+.Title {
+    width: min(900px, calc(100% - 40px));
+    margin: 0 auto 30px;
+    padding: 40px 0 18px;
+
+    display: grid;
+    grid-template-columns: minmax(40px, 110px) auto minmax(40px, 110px);
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    text-align: center;
+}
+
+/* Decorative gold lines */
+.Title::before,
+.Title::after {
+    content: "";
+    display: block;
+    height: 2px;
+}
+
+/* Left line */
+.Title::before {
+    background: linear-gradient(
+        to right,
+        transparent,
+        #b28649
+    );
+}
+
+/* Right line */
+.Title::after {
+    background: linear-gradient(
+        to left,
+        transparent,
+        #b28649
+    );
+}
+
+.Title em {
+    display: inline-block;
+    margin: 0;
+
+    color: #101928;
+
+    font-family: Georgia, serif;
+    font-style: normal;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 
@@ -771,7 +475,143 @@ can be animated.
     border-radius: 8px;
 }
 */
+/* Text-only practice areas — desktop and tablet base styles */
+.practice-areas {
+    background-color: #f4f4f4;
+    padding: 25px 0 60px;
+}
 
+.practice-areas .Title {
+    margin-bottom: 25px;
+}
+
+.practice-section {
+    width: min(1050px, calc(100% - 40px));
+    margin: 0 auto 28px;
+    padding: clamp(30px, 5vw, 55px);
+
+    background-color: white;
+    border-left: 5px solid #b28649;
+    border-radius: 8px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+    /* Keeps headings visible below the fixed navbar */
+    scroll-margin-top: 100px;
+}
+
+.practice-section h2 {
+    margin: 0 0 22px;
+
+    color: #101928;
+    font-family: Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.practice-section p {
+    margin: 0 0 20px;
+
+    color: #3e4652;
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.practice-section p:last-child {
+    margin-bottom: 0;
+}
+
+.practice-section .practice-cta {
+    color: #101928;
+    font-weight: bold;
+}
+/* OUR TEAM SECTION */
+.team-section {
+    background-color: #f4f4f4;
+    padding: 25px 0 60px;
+
+    /* Prevent the fixed navbar from covering the section */
+    scroll-margin-top: 100px;
+}
+
+.team-section .Title {
+    margin-bottom: 25px;
+}
+
+.team-container {
+    width: min(1050px, calc(100% - 40px));
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.team-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    padding: clamp(30px, 5vw, 50px);
+
+    background-color: white;
+    border-left: 5px solid #b28649;
+    border-radius: 8px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* Alternate the image position */
+.team-card:nth-child(even) {
+    flex-direction: row-reverse;
+    border-left: none;
+    border-right: 5px solid #b28649;
+}
+
+.team-image {
+    flex: 0 0 260px;
+}
+
+.team-image img {
+    width: 260px;
+    height: 320px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 8px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+.team-text {
+    flex: 1;
+}
+
+.team-text h2 {
+    margin: 0 0 22px;
+
+    color: #101928;
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.team-text p {
+    margin: 0 0 18px;
+
+    color: #3e4652;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.team-text p:last-child {
+    margin-bottom: 0;
+}
 @media (max-width:1024px){
 
 .top-bar{
@@ -827,11 +667,8 @@ can be animated.
     font-size:1.3rem;
 
 }
+}
 @media (max-width: 768px) {
-    .top-bar {
-        min-height: 90px;
-        padding: 0 20px;
-    }
 
     .logo {
         display: flex;
@@ -845,6 +682,225 @@ can be animated.
         transform: none;
     }
 
+.mobile-logo{
+    display:none;
+}
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    min-height:90px;
+    padding:0 20px;
+}
+.nav{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+}
+.navbar{
+    display:flex;
+    position:fixed;
+
+    inset:0;
+
+    background:#101928;
+
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+    padding-top:30px;
+    padding-bottom: 30px;
+    
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.35s ease;
+
+    z-index:2000;
+    /* Important for smaller mobile screens */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.navbar.active{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.navbar ul{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+.navbar a{
+
+    font-size:18px;
+    font-weight:bold;
+
+}
+.navbar .nav{
+
+    margin:0;
+    padding:0;
+}
+
+.mobile-logo h2{
+    color:white;
+    font-size:30px;
+    margin-top:15px;
+    text-align:center;
+}
+
+.Welcome 
+	{
+   min-height: 100svh;
+   /* Reserve room for the fixed 90px header */    
+   padding-top: 110px;
+   padding-bottom: 35px;
+   /* Start the content below the header */
+   align-items: flex-start;
+}
+.welcome-text{
+
+    max-width:100%;
+    padding:20px;
+    transform:none;
+    margin: 0 auto;
+
+}
+
+.welcome-text h1{
+
+    font-size:2.2rem;
+    line-height:1.2;
+
+}
+
+.welcome-text h2{
+
+    font-size:1.05rem;
+    line-height:1.6;
+
+}
+
+.welcome-text h3{
+
+	margin-top: 0;
+
+}
+.practice-areas {
+    padding: 20px 0 35px;
+}
+
+.practice-section {
+    width: calc(100% - 30px);
+    margin-bottom: 20px;
+    padding: 28px 20px;
+
+    border-left-width: 4px;
+
+    scroll-margin-top: 110px;
+}
+
+.practice-section h2 {
+    margin-bottom: 18px;
+    font-size: 1.65rem;
+    line-height: 1.25;
+}
+
+.practice-section p {
+    margin-bottom: 17px;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+ .crime-section {
+        flex-direction: column;
+        text-align: center;
+            padding:40px 20px;
+    gap:20px;
+    }
+
+    .crime-section img{
+
+    max-width:100%;
+
+}
+.crime-section,
+.crime-section:nth-child(even) {
+    flex-direction: column !important;
+}
+
+.crime-text{
+
+    text-align:center;
+
+}
+
+.crime-text h1{
+
+    font-size:2rem;
+
+}
+
+.crime-text h2{
+
+    font-size:1rem;
+
+}
+
+.footer-logo img{
+
+    height:130px;
+    margin-bottom:10px;
+
+}
+.ContactUs-button,
+.call-button{
+
+    display:block;
+    width:250px;
+    margin:15px auto;
+
+}
+.Title {
+    width: calc(100% - 30px);
+    margin-bottom: 20px;
+    padding: 28px 0 14px;
+
+    grid-template-columns: minmax(25px, 55px) auto minmax(25px, 55px);
+    gap: 10px;
+}
+
+.Title em {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    letter-spacing: 0.04em;
+}
+.footer .row{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+.column{
+width: 100%;
+max-width:400px;
+text-align: center;
+
+}
+
+.footer-bottom{
+
+    margin-top:15px;
+    padding:0 15px;
+
+}
     .hamburger {
         display: block;
         position: absolute;
@@ -853,8 +909,189 @@ can be animated.
         right: 20px;
         transform: translateY(-50%);
 
+		font-family:Arial, sans-serif;
+		font-size: 34px;
+		font-weight: 400;
+		line-height: 1;
+		
+		appearance:none;
+		-webkit-appearance: none;
         z-index: 2100;
         margin: 0;
     }
+.hamburger.active {
+  color: #e6b249; /* gold or white for visibility */
+}
+
+    .crime-section img,
+    .crime-text {
+        width: 100%;
+    }
+    .navbar.active .mobile-logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+
+.navbar.active .mobile-logo img{
+    height:120px;
+    width:auto;
+}
+
+
+.navbar.active .mobile-logo h2{
+    color:white;
+    font-size:30px;
+    text-align:center;
+    margin-top:15px;
+}
+/* MOBILE DROPDOWN ONLY */
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*
+Keep the dropdown rendered so its opening and closing
+can be animated.
+*/
+.dropdown-content {
+    display: flex !important;
+    position: static;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0 !important;
+
+    /* Smaller, more professional width */
+    width: 285px;
+    max-width: calc(100vw - 40px);
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: #ffffff;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    /* Closed state */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+
+    box-shadow: none;
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.25s ease,
+        transform 0.35s ease,
+        margin-top 0.35s ease,
+        box-shadow 0.35s ease,
+        visibility 0s linear 0.4s;
+}
+
+/* Open state */
+.dropdown.open > .dropdown-content {
+    max-height: 700px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    margin-top: 12px;
+
+    transform: translateY(0) scale(1);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+
+    transition:
+        max-height 0.45s ease,
+        opacity 0.3s ease,
+        transform 0.35s ease,
+        margin-top 0.35s ease,
+        box-shadow 0.35s ease,
+        visibility 0s;
+}
+
+.dropdown-content li {
+    width: 100%;
+    margin: 0;
+}
+
+/* Smaller dropdown text */
+.dropdown-content li a {
+	display: block;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    line-height: 1.3;
+
+    color: #b28649;
+    text-align: center;
+    white-space: normal;
+}
+
+/* Light separation between options */
+.dropdown-content li:not(:last-child) a {
+    border-bottom: 1px solid rgba(16, 25, 40, 0.1);
+}
+
+.dropdown-content li a:hover,
+.dropdown-content li a:active {
+    background-color: #f5f5f5;
+}
+
+.team-section {
+    padding: 20px 0 35px;
+    scroll-margin-top: 110px;
+}
+
+.team-container {
+    width: calc(100% - 30px);
+    gap: 20px;
+}
+
+.team-card,
+.team-card:nth-child(even) {
+    flex-direction: column;
+
+    padding: 28px 20px;
+    gap: 24px;
+
+    border-left: 4px solid #b28649;
+    border-right: none;
+
+    text-align: center;
+}
+
+.team-image {
+    flex: none;
+    width: 100%;
+}
+
+.team-image img {
+    width: 190px;
+    height: 240px;
+    margin: 0 auto;
+}
+
+.team-text h2 {
+    margin-bottom: 18px;
+    font-size: 1.8rem;
+}
+
+.team-text p {
+    margin-bottom: 16px;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 }
