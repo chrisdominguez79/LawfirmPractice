@@ -10,6 +10,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
 .form {
@@ -104,21 +105,29 @@ body {
 }
 @media (max-width:600px){
 
-.form-wrapper {
-    min-height: 100vh;
-    min-height: 100dvh;
+    .form-wrapper {
+        min-height: 100svh;
 
-    justify-content: center;
-    align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    padding: 20px 15px;
-}
+        padding: 20px 15px;
+        background-color: #f4f4f4;
 
-    .form{
-        width:100%;
-        padding:30px 20px;
-        border-radius:6px;
-        gap:18px;
+        /* Prevent any accidental layout animation */
+        transition: none;
+    }
+
+    .form {
+        width: 100%;
+        padding: 30px 20px;
+        border-radius: 6px;
+        gap: 18px;
+
+        margin: 0;
+        transform: none;
+        transition: none;
     }
 
 
