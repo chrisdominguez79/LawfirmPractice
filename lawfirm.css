@@ -448,6 +448,112 @@ text-align: center;
     text-align:center;
     margin-top:15px;
 }
+/* MOBILE DROPDOWN ONLY */
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*
+Keep the dropdown rendered so its opening and closing
+can be animated.
+*/
+.dropdown-content {
+    display: flex !important;
+    position: static;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0 !important;
+
+    /* Smaller, more professional width */
+    width: 270px;
+    max-width: calc(100vw - 50px);
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: #ffffff;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    /* Closed state */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+
+    box-shadow: none;
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.25s ease,
+        transform 0.35s ease,
+        margin-top 0.35s ease,
+        box-shadow 0.35s ease,
+        visibility 0s linear 0.4s;
+}
+
+/* Open state */
+.dropdown.open > .dropdown-content {
+    max-height: 450px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    margin-top: 12px;
+
+    transform: translateY(0) scale(1);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+
+    transition:
+        max-height 0.45s ease,
+        opacity 0.3s ease,
+        transform 0.35s ease,
+        margin-top 0.35s ease,
+        box-shadow 0.35s ease,
+        visibility 0s;
+}
+
+.dropdown-content li {
+    width: 100%;
+    margin: 0;
+}
+
+/* Smaller dropdown text */
+.dropdown-content li a {
+    display: block;
+    width: 100%;
+
+    padding: 11px 14px;
+
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 600;
+
+    white-space: normal;
+    text-align: center;
+
+    color: #b28649;
+}
+
+/* Light separation between options */
+.dropdown-content li:not(:last-child) a {
+    border-bottom: 1px solid rgba(16, 25, 40, 0.1);
+}
+
+.dropdown-content li a:hover,
+.dropdown-content li a:active {
+    background-color: #f5f5f5;
+}
 }
 
 

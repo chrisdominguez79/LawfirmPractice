@@ -273,6 +273,7 @@
   function toggleMenu(forceClose = false) {
 	    const navbar = document.querySelector(".navbar");
 	    const hamburger = document.querySelector(".hamburger");
+	    const dropdown = document.querySelector(".dropdown");
 	    const isOpen = navbar.classList.contains("active");
 
 	    const shouldOpen = !forceClose && !isOpen;
@@ -281,8 +282,17 @@
 	    hamburger.classList.toggle("active", shouldOpen);
 	    document.body.classList.toggle("no-scroll", shouldOpen);
 
+	    /*
+	    Close the submenu whenever the full hamburger
+	    menu is being closed.
+	    */
+	    if (!shouldOpen && dropdown) {
+	        dropdown.classList.remove("open");
+	    }
+
 	    hamburger.textContent = shouldOpen ? "✕" : "☰";
 	    hamburger.setAttribute("aria-expanded", String(shouldOpen));
+
 	    hamburger.setAttribute(
 	        "aria-label",
 	        shouldOpen
@@ -290,21 +300,35 @@
 	            : "Open navigation menu"
 	    );
 	}
-  function closeMobileMenu() {
+
+	function toggleMobileDropdown(event) {
 	    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-	    // Do nothing on desktop
+	    if (!isMobile) {
+	        return;
+	    }
+
+	    event.preventDefault();
+
+	    const dropdown = event.currentTarget.closest(".dropdown");
+
+	    if (dropdown) {
+	        dropdown.classList.toggle("open");
+	    }
+	}
+
+	function closeMobileMenu() {
+	    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
 	    if (!isMobile) {
 	        return;
 	    }
 
 	    const navbar = document.querySelector(".navbar");
 	    const hamburger = document.querySelector(".hamburger");
-	    const header = document.querySelector(".header");
 
 	    navbar.classList.remove("active");
 	    hamburger.classList.remove("active");
-	    header.classList.remove("menu-open");
 	    document.body.classList.remove("no-scroll");
 
 	    document.querySelectorAll(".dropdown.open").forEach(function (dropdown) {
@@ -313,6 +337,7 @@
 
 	    hamburger.textContent = "☰";
 	    hamburger.setAttribute("aria-expanded", "false");
+	    hamburger.setAttribute("aria-label", "Open navigation menu");
 	}
 	</script>
 </body>
