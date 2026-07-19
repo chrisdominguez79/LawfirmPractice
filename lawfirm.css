@@ -300,11 +300,22 @@ button.contactUs:hover {
     margin-top:15px;
     text-align:center;
 }
+
+.Welcome 
+	{
+   min-height: 100svh;
+   /* Reserve room for the fixed 90px header */    
+   padding-top: 110px;
+   padding-bottom: 35px;
+   /* Start the content below the header */
+   align-items: flex-start;
+}
 .welcome-text{
 
     max-width:100%;
-    transform:none;
     padding:20px;
+    transform:none;
+    margin: 0 auto;
 
 }
 
@@ -324,7 +335,7 @@ button.contactUs:hover {
 
 .welcome-text h3{
 
-    font-size:1rem;
+	margin-top: 0;
 
 }
 
