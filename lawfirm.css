@@ -409,8 +409,6 @@ text-align: center;
 .hamburger{
     display:block;
     
-    position:fixed;
-    top:22px;
     right: 20px;
     
     /*Must be highter than the navbar's 2000*/
@@ -711,12 +709,31 @@ text-align: center;
 @media (max-width: 768px) {
     .top-bar {
         min-height: 90px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 90px;
     }
 
     .logo img {
-        height: 65px;
+        height: 75px;
         width: auto;
-        transform: translateY(2px);
+        transform: none;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+
+        z-index: 2100;
+        margin: 0;
     }
 }
 }
