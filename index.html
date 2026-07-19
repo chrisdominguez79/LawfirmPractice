@@ -15,9 +15,16 @@
 	    <div class="logo">
         <img src="Castlerod.png" alt="Law Firm Logo">
     </div>
-    				<div class="hamburger" onclick="toggleMenu()">☰</div>	
+    	<button
+		    class="hamburger"
+		    type="button"
+		    aria-label="Open navigation menu"
+		    aria-expanded="false"
+		    aria-controls="main-navigation"
+		    onclick="toggleMenu()"
+		>☰</button>	
 
-		<nav class="navbar">
+		<nav class="navbar" id="main-navigation">
 			<div class="mobile-logo">
 				<img src="Castlerod.png">
 				<h2>Castlerod Law Group PLLC</h2>
@@ -233,24 +240,24 @@
 	
 		
   function toggleMenu(forceClose = false) {
-	    const header = document.querySelector(".header");
 	    const navbar = document.querySelector(".navbar");
 	    const hamburger = document.querySelector(".hamburger");
-	    const body = document.body;
+	    const isOpen = navbar.classList.contains("active");
 
-	    const isActive = navbar.classList.contains("active");
+	    const shouldOpen = !forceClose && !isOpen;
 
-	    if (isActive || forceClose) {
-	        navbar.classList.remove("active");
-	        hamburger.classList.remove("active");
-	        header.classList.remove("menu-open");
-	        body.classList.remove("no-scroll");
-	    } else {
-	        navbar.classList.add("active");
-	        hamburger.classList.add("active");
-	        header.classList.add("menu-open");
-	        body.classList.add("no-scroll");
-	    }
+	    navbar.classList.toggle("active", shouldOpen);
+	    hamburger.classList.toggle("active", shouldOpen);
+	    document.body.classList.toggle("no-scroll", shouldOpen);
+
+	    hamburger.textContent = shouldOpen ? "✕" : "☰";
+	    hamburger.setAttribute("aria-expanded", String(shouldOpen));
+	    hamburger.setAttribute(
+	        "aria-label",
+	        shouldOpen
+	            ? "Close navigation menu"
+	            : "Open navigation menu"
+	    );
 	}
 	</script>
 </body>
