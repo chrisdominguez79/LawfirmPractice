@@ -12,7 +12,11 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
-
+.logo a,
+.mobile-logo a {
+    display: block;
+    line-height: 0;
+}
 .form {
     background: white;
     padding: 50px 60px;
