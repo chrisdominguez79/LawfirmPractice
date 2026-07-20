@@ -231,14 +231,21 @@ button.contactUs:hover {
 
 
 .Welcome {
-	position: relative;
-    min-height:100vh;
-    height:auto;
-	overflow: hidden;
-	
-	display: flex;
-	justify-content: center;
-	align-items:center;
+    position: relative;
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Static fallback underneath the video */
+    background-color: #101928;
+    background-image: url("VideoPoster.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .background-video {
     position: absolute;
