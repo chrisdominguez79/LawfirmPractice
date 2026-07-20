@@ -118,8 +118,11 @@ color: white;
     transition: transform .25s ease;
 }
 
-.nav li:hover > a::after {
-    transform: translateX(-50%) scaleX(1);
+/* Hover animation only on devices that have a mouse */
+@media (hover: hover) and (pointer: fine) {
+    .nav li:hover > a::after {
+        transform: translateX(-50%) scaleX(1);
+    }
 }
 /* Dropdown */
 .dropdown {
@@ -756,7 +759,25 @@ button.contactUs:hover {
     margin:0;
     padding:0;
 }
+/* Normal mobile menu color */
+.nav > li > a {
+    color: white;
+}
 
+/* Gold only while the link is being pressed */
+.nav > li > a:active {
+    color: #b28649;
+}
+
+.nav > li > a:active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Prevent keyboard/touch focus from leaving it gold */
+.nav > li > a:focus:not(:active) {
+    color: white;
+}
+	
 .mobile-logo h2{
     color:white;
     font-size:30px;
