@@ -118,12 +118,10 @@ color: white;
     transition: transform .25s ease;
 }
 
-/* Hover animation only on devices that have a mouse */
-@media (hover: hover) and (pointer: fine) {
-    .nav li:hover > a::after {
-        transform: translateX(-50%) scaleX(1);
-    }
+.nav li:hover > a::after {
+    transform: translateX(-50%) scaleX(1);
 }
+
 /* Dropdown */
 .dropdown {
     position: relative;
@@ -203,9 +201,12 @@ button.contactUs {
 
 }
 
-button.contactUs:hover {
-    background-color: #9b7238;
-    color:white;
+/* Hover effect only on computers with a mouse */
+@media (hover: hover) and (pointer: fine) {
+    button.contactUs:hover {
+        background-color: #9b7238;
+        color: white;
+    }
 }
 .logo img {
     height: 60px;      /* adjust to fit your navbar */
@@ -759,25 +760,7 @@ button.contactUs:hover {
     margin:0;
     padding:0;
 }
-/* Normal mobile menu color */
-.nav > li > a {
-    color: white;
-}
 
-/* Gold only while the link is being pressed */
-.nav > li > a:active {
-    color: #b28649;
-}
-
-.nav > li > a:active::after {
-    transform: translateX(-50%) scaleX(1);
-}
-
-/* Prevent keyboard/touch focus from leaving it gold */
-.nav > li > a:focus:not(:active) {
-    color: white;
-}
-	
 .mobile-logo h2{
     color:white;
     font-size:30px;
@@ -888,6 +871,37 @@ button.contactUs:hover {
     margin-bottom:10px;
 
 }
+
+    button.contactUs {
+
+        background-color: #ffffff;
+
+        color: #363636;
+
+        -webkit-tap-highlight-color: transparent;
+
+    }
+
+    /* Gold only while the finger is pressing the button */
+
+    button.contactUs:active {
+
+        background-color: #9b7238;
+
+        color: white;
+
+    }
+
+    /* Return to normal after the press */
+
+    button.contactUs:focus:not(:active) {
+
+        background-color: #ffffff;
+
+        color: #363636;
+
+    }
+
 .ContactUs-button,
 .call-button{
 
