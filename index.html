@@ -607,7 +607,54 @@
 	    hamburger.setAttribute("aria-expanded", "false");
 	    hamburger.setAttribute("aria-label", "Open navigation menu");
 	}
+const mobileActionButtons =
+    document.querySelectorAll("button.contactUs");
 
+function clearPressedButtons() {
+    mobileActionButtons.forEach(function (button) {
+        button.classList.remove("is-pressed");
+        button.blur();
+    });
+}
+
+mobileActionButtons.forEach(function (button) {
+    button.addEventListener("pointerdown", function () {
+        if (!window.matchMedia("(max-width: 768px)").matches) {
+            return;
+        }
+
+        clearPressedButtons();
+        button.classList.add("is-pressed");
+    });
+
+    button.addEventListener("click", function () {
+        if (!window.matchMedia("(max-width: 768px)").matches) {
+            return;
+        }
+
+        /*
+        Leave the button gold briefly so the user can
+        see the pressed effect, then return it to white.
+        */
+        window.setTimeout(function () {
+            button.classList.remove("is-pressed");
+            button.blur();
+        }, 300);
+    });
+
+    button.addEventListener("pointercancel", clearPressedButtons);
+});
+
+/* Clear the gold state after returning from another tab */
+window.addEventListener("pageshow", clearPressedButtons);
+window.addEventListener("focus", clearPressedButtons);
+
+/* Clear it after returning from the phone application */
+document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) {
+        clearPressedButtons();
+    }
+});
 	</script>
 </body>
 </html>
