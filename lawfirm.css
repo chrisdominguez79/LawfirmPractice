@@ -872,35 +872,25 @@ button.contactUs {
 
 }
 
-    button.contactUs {
+  button.contactUs {
+    background-color: white;
+    color: #363636;
 
-        background-color: #ffffff;
+    /* Faster so the gold appears immediately */
+    transition:
+        background-color 0.12s ease,
+        color 0.12s ease;
 
-        color: #363636;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        -webkit-tap-highlight-color: transparent;
+/* Temporary gold state controlled by JavaScript */
+button.contactUs.is-pressed {
+    background-color: #9b7238;
+    color: white;
+}
 
-    }
 
-    /* Gold only while the finger is pressing the button */
-
-    button.contactUs:active {
-
-        background-color: #9b7238;
-
-        color: white;
-
-    }
-
-    /* Return to normal after the press */
-
-    button.contactUs:focus:not(:active) {
-
-        background-color: #ffffff;
-
-        color: #363636;
-
-    }
 
 .ContactUs-button,
 .call-button{
