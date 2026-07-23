@@ -1109,7 +1109,13 @@ text-align: center;
 .practice-areas.service-page .Title {
     margin-bottom: 20px;
 }
+    .accordion-list {
 
+        padding-top: 45px;
+
+        padding-bottom: 35px;
+
+    }
 .accordion-header {
     padding: 20px;
     font-size: 1.25rem;
