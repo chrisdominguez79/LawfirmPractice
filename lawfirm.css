@@ -466,7 +466,65 @@ button.contactUs {
 .practice-areas.service-page .Title {
     margin-bottom: 25px;
 }
+.accordion-item {
+    padding: 0;
+    overflow: hidden;
+}
 
+.accordion-header {
+    width: 100%;
+    padding: 24px 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    color: #101928;
+
+    border: 0;
+    cursor: pointer;
+
+    font-family: Georgia, serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    text-align: left;
+}
+
+.accordion-icon {
+    flex-shrink: 0;
+    margin-left: 20px;
+
+    color: #b28649;
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    padding: 0 28px;
+
+    transition:
+        max-height 0.45s ease,
+        opacity 0.3s ease,
+        padding 0.35s ease;
+}
+
+.accordion-item.open .accordion-content {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 28px 28px;
+}
+
+.accordion-item.open .accordion-icon {
+    transform: rotate(45deg);
+}
 /* Header clearance for the standalone Our Team page */
 .team-section.team-page {
     padding-top: 90px;
@@ -1050,6 +1108,25 @@ text-align: center;
 .practice-areas.service-page .Title {
     margin-bottom: 20px;
 }
+
+.accordion-header {
+    padding: 20px;
+    font-size: 1.25rem;
+}
+
+.accordion-icon {
+    margin-left: 15px;
+    font-size: 1.7rem;
+}
+
+.accordion-content {
+    padding: 0 20px;
+}
+
+.accordion-item.open .accordion-content {
+    padding: 0 20px 24px;
+}
+
 .team-section.team-page {
     padding-top: 110px;
 }
