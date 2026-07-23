@@ -412,6 +412,28 @@ button.contactUs {
     background-color: #b28649;
     border-color: #b28649;
 }
+
+/* Extra header clearance for individual service pages */
+.practice-areas.service-page {
+    /*
+    Approximately 60px for the fixed desktop header,
+    plus the original 25–30px section spacing.
+    */
+    padding-top: 90px;
+}
+
+.practice-areas.service-page .Title {
+    margin-bottom: 25px;
+}
+
+/* Header clearance for the standalone Our Team page */
+.team-section.team-page {
+    padding-top: 90px;
+}
+
+.team-section.team-page .Title {
+    margin-bottom: 25px;
+}
 .footer {
     width: 100%;
     background-color: #101928;   /* matches top-bar */
@@ -963,7 +985,24 @@ max-width:400px;
 text-align: center;
 
 }
+.practice-areas.service-page {
+    /*
+    Mobile navigation is approximately 90px tall,
+    plus 20px of comfortable spacing.
+    */
+    padding-top: 110px;
+}
 
+.practice-areas.service-page .Title {
+    margin-bottom: 20px;
+}
+.team-section.team-page {
+    padding-top: 110px;
+}
+
+.team-section.team-page .Title {
+    margin-bottom: 20px;
+}
 .footer-bottom{
 
     margin-top:15px;
