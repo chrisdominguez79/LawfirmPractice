@@ -200,7 +200,14 @@ button.contactUs {
     transition: background-color 0.5s ease, color 0.5s ease;
 
 }
+.service-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 
+    margin-top: 30px;
+}
 /* Hover effect only on computers with a mouse */
 @media (hover: hover) and (pointer: fine) {
     button.contactUs:hover {
@@ -1313,6 +1320,19 @@ can be animated.
 .dropdown-content li a:active {
     background-color: #f5f5f5;
 }
+.service-actions {
+
+        flex-direction: column;
+
+        gap: 14px;
+
+    }
+
+    .service-actions .contactUs {
+
+        width: 220px;
+
+    }
 
 .team-section {
     padding: 20px 0 35px;
