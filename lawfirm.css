@@ -963,8 +963,9 @@ button.contactUs {
 	margin-top: 0;
 
 }
+
 .practice-areas {
-    padding: 20px 0 35px;
+    padding: 45px 0 35px;
 }
 
 .practice-section {
@@ -1126,7 +1127,9 @@ text-align: center;
 .accordion-item.open .accordion-content {
     padding: 0 20px 24px;
 }
-
+.accordion-item:first-of-type {
+    margin-top: 0;
+}
 .team-section.team-page {
     padding-top: 110px;
 }
