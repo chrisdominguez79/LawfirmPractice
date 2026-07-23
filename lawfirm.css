@@ -1117,13 +1117,31 @@ text-align: center;
 
     }
 .accordion-header {
+    width: 100%;
     padding: 20px;
-    font-size: 1.25rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    color: #101928;
+    border: 0;
+
+    font-family: Georgia, serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: left;
+
+    cursor: pointer;
 }
 
 .accordion-icon {
+    flex-shrink: 0;
     margin-left: 15px;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 .accordion-content {
