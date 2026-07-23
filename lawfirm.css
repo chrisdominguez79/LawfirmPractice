@@ -1321,12 +1321,15 @@ can be animated.
     background-color: #f5f5f5;
 }
 .service-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-        flex-direction: column;
+    width: 100%;
+    margin: 35px auto 0;
+}
 
-        gap: 14px;
-
-    }
 
     .service-actions .contactUs {
 
