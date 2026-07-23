@@ -1004,6 +1004,8 @@ button.contactUs.is-pressed {
     width: 100%;
     max-width: 260px;
     margin: 25px auto 0;
+    width: fit-content;
+margin: 25px auto 0;
 }
 .Title {
     width: calc(100% - 30px);
