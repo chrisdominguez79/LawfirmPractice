@@ -335,7 +335,48 @@ button.contactUs {
     text-transform: uppercase;
 }
 
+.learn-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
+    margin-top: 30px;
+    padding: 14px 32px;
+
+    background-color: #101928;
+    color: white;
+
+    border: 2px solid #101928;
+    border-radius: 8px;
+
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .4px;
+
+    text-decoration: none;
+
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #b28649;
+    border-color: #b28649;
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 22px rgba(0,0,0,.18);
+}
+
+.learn-more-btn:active {
+    transform: translateY(0);
+}
 .crime-section {
 	    background-color: #ffffff;   /* keep content readable */
     box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* subtle depth */
@@ -958,6 +999,11 @@ button.contactUs.is-pressed {
     width:250px;
     margin:15px auto;
 
+}
+.learn-more-btn {
+    width: 100%;
+    max-width: 260px;
+    margin: 25px auto 0;
 }
 .Title {
     width: calc(100% - 30px);
