@@ -147,25 +147,32 @@
 <button class="contactUs" onclick="window.location.href='tel:+13465007949'">(346) 500-7949</button>
 </div>
 </div>
-<section id="practice-areas" class="practice-areas">
+<section class="practice-section accordion-item">
 
-    <div class="Title">
-        <em>Our Practice Areas</em>
-    </div>
+    <button
+        class="accordion-header"
+        type="button"
+        aria-expanded="false"
+    >
+        <span>DWI Defense</span>
+        <span class="accordion-icon">+</span>
+    </button>
 
-    <section id="dwi-defense" class="practice-section">
-        <h2>DWI Defense</h2>
+    <div class="accordion-content">
 
         <p>
-            A DWI arrest can put your license, career, and freedom at risk—but an arrest is not a conviction. We carefully examine every aspect of the stop, the investigation, and the evidence to protect your rights and challenge the State’s case.
+            A DWI arrest can put your license, career, and freedom at risk—but
+            an arrest is not a conviction. We examine the stop, investigation,
+            and evidence to protect your rights and challenge the State's case.
         </p>
-      <p class="practice-cta">
-            Learn how we can help protect your rights and explore your legal options.
-        </p>
-<a href="dwi-defense.html" class="learn-more-btn">
-    Learn More →
-</a>
-    </section>
+
+        <a href="dwi-defense.html" class="learn-more-btn">
+            Learn More →
+        </a>
+
+    </div>
+
+</section>
 
 
     <section id="assault-family-violence" class="practice-section">
@@ -438,6 +445,34 @@
 	}
 const mobileActionButtons =
     document.querySelectorAll("button.contactUs");
+
+document.querySelectorAll(".accordion-header").forEach(function (button) {
+    button.addEventListener("click", function () {
+        const item = button.closest(".accordion-item");
+        const isOpen = item.classList.contains("open");
+
+        /*
+        Close the other practice areas so only one remains open.
+        Remove this block if you want several sections open at once.
+        */
+        document.querySelectorAll(".accordion-item.open").forEach(function (openItem) {
+            openItem.classList.remove("open");
+
+            const openButton = openItem.querySelector(".accordion-header");
+
+            if (openButton) {
+                openButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        if (!isOpen) {
+            item.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+        } else {
+            button.setAttribute("aria-expanded", "false");
+        }
+    });
+});
 
 function clearPressedButtons() {
     mobileActionButtons.forEach(function (button) {
