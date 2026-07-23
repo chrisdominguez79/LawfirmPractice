@@ -1001,11 +1001,17 @@ button.contactUs.is-pressed {
 
 }
 .learn-more-btn {
-    width: 100%;
-    max-width: 260px;
-    margin: 25px auto 0;
-    width: fit-content;
-margin: 25px auto 0;
+       display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        width: 180px;
+
+        margin: 25px auto 0;
+
+        padding: 12px 0;
 }
 .Title {
     width: calc(100% - 30px);
