@@ -424,7 +424,7 @@ button.contactUs {
     flex-direction: row-reverse;
 }
 
-[4:33 PM, 7/22/2026] Christian Dominguez: .learn-more {
+.learn-more {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -456,7 +456,7 @@ button.contactUs {
         transform: translateY(-2px);
     }
 }
-[4:33 PM, 7/22/2026] Christian Dominguez: .learn-more:active {
+.learn-more:active {
     background-color: #b28649;
     border-color: #b28649;
 }
@@ -1350,7 +1350,6 @@ can be animated.
 
         white-space: nowrap;
       }
-    }
 
 .team-section {
     padding: 20px 0 35px;
