@@ -946,6 +946,50 @@ button.contactUs {
 .team-text p:last-child {
     margin-bottom: 0;
 }
+
+.faq-section {
+    background: #f4f4f4;
+    padding: 30px 0 70px;
+}
+
+.faq-section .Title {
+    margin-bottom: 30px;
+}
+
+.faq-section .accordion-list {
+    width: min(1050px, calc(100% - 40px));
+    margin: 0 auto;
+}
+/* FAQ question */
+.faq-section .accordion-header {
+    background-color: #ffffff;
+    color: #101928;
+
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    line-height: 1.35;
+
+    border-bottom: 1px solid transparent;
+}
+
+/* FAQ answer area */
+.faq-section .accordion-content {
+    background-color: #ffffff;
+}
+
+/* FAQ answer text */
+.faq-section .accordion-content p {
+    margin: 0;
+
+    color: #3e4652;
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+
+/* Subtle separation when opened */
+.faq-section .accordion-item.open .accordion-header {
+    border-bottom-color: rgba(16, 25, 40, 0.1);
+}
 @media (max-width:1024px){
 
 .top-bar{
@@ -1683,6 +1727,43 @@ can be animated.
 .team-text p {
     margin-bottom: 16px;
     font-size: 1rem;
+    line-height: 1.7;
+}
+.faq-section {
+    padding: 25px 0 45px;
+}
+
+.faq-section .Title {
+    margin-bottom: 20px;
+}
+
+.faq-section .accordion-list {
+    width: calc(100% - 30px);
+}
+
+.faq-section .accordion-header {
+    padding: 20px;
+
+    font-size: 1.25rem;
+    line-height: 1.35;
+}
+
+.faq-section .accordion-content {
+    padding: 0 20px;
+}
+
+.faq-section .accordion-item.open .accordion-content {
+    padding: 0 20px 24px;
+}
+.faq-section .accordion-header {
+    padding: 20px;
+
+    font-size: 1.3rem;
+    line-height: 1.35;
+}
+
+.faq-section .accordion-content p {
+    font-size: 1.08rem;
     line-height: 1.7;
 }
 }
