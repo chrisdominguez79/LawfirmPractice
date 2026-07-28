@@ -978,7 +978,8 @@ button.contactUs {
 
 /* FAQ answer text */
 .faq-section .accordion-content p {
-    margin: 0;
+	margin-top:18px;
+    margin-bottom: 0;
 
     color: #3e4652;
     font-family: Georgia, serif;
@@ -989,6 +990,11 @@ button.contactUs {
 /* Subtle separation when opened */
 .faq-section .accordion-item.open .accordion-header {
     border-bottom-color: rgba(16, 25, 40, 0.1);
+}
+/* Top spacing for the standalone FAQ page */
+.faq-section.faq-page {
+    padding-top: 90px;
+    padding-bottom: 70px;
 }
 @media (max-width:1024px){
 
@@ -1766,4 +1772,8 @@ can be animated.
     font-size: 1.08rem;
     line-height: 1.7;
 }
+    .faq-section.faq-page {
+        padding-top: 110px;
+        padding-bottom: 45px;
+    }
 }
