@@ -1,0 +1,10 @@
+# Keep line endings consistent no matter which machine edits a file.
+# faq.html had picked up Windows line endings while every other page used
+# Unix ones, which made diffs show the whole file as changed.
+* text=auto eol=lf
+
+# Never let git rewrite bytes inside binary assets.
+*.png binary
+*.jpg binary
+*.PNG binary
+*.mp4 binary

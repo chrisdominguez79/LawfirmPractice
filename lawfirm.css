@@ -1,48 +1,103 @@
 @charset "UTF-8";
+
+/* ============================================================================
+   CASTLEROD LAW GROUP PLLC - SITE STYLESHEET
+   ============================================================================
+
+   Shared by every page in both languages. The Spanish pages in /es/ load this
+   same file as "../lawfirm.css" so the browser caches one copy for the whole
+   site.
+
+   BRAND COLOURS
+       #101928   deep navy    header, footer, buttons, icon circles
+       #b28649   gold         accents, underlines, icons, borders
+       #9b7238   dark gold    hover and pressed states
+       #f4f4f4   light grey   section backgrounds
+       #3e4652   slate        body copy
+
+   BREAKPOINTS
+       up to 1024px   tablet adjustments
+       up to  768px   phone layout, hamburger menu, stacked cards
+
+   CONTENTS
+        1. Reset and page defaults
+        2. Header, top bar and navigation
+        3. Dropdown menu
+        4. Buttons
+        5. Hero / welcome panel
+        6. Why choose Castlerod
+        7. Section titles
+        8. Crime section (not currently used)
+        9. Practice areas and accordions
+       10. Our team
+       11. Footer
+       12. Practice area page layout
+       13. Our team cards
+       14. FAQ
+       15. Tablet styles  (up to 1024px)
+       16. Phone styles   (up to  768px)
+   ========================================================================== */
+
+
+/* ============================================================================
+   1. RESET AND PAGE DEFAULTS
+   ========================================================================== */
+
+/* border-box makes padding count inside a declared width, which is what the
+   fixed-width cards and form fields throughout the site assume. */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
-* {
-    box-sizing: border-box;
-}
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 .no-scroll {
-  overflow: hidden;
+    overflow: hidden;
 }
-img{
 
-    display:block;
-    max-width:100%;
-    height:auto;
-
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
+
 body {
-	    margin: 0;   
+    margin: 0;
     font-family: 'Georgia', serif;  /* professional serif font */
     color: #b28649;
-    
 }
-ul{
-	list-style-type: none;
+
+ul {
+    list-style-type: none;
 }
+
 .logo a,
 .mobile-logo a {
     display: block;
     line-height: 0;
 }
-.header{
-	display:flex;
 
-	position: fixed;
-	    top: 0;
+
+/* ============================================================================
+   2. HEADER, TOP BAR AND NAVIGATION
+   ----------------------------------------------------------------------------
+   The header is fixed to the top of the window, so every page whose
+   content starts at the top adds its own padding to clear it: 90px on
+   desktop, 110px on phones.
+   ========================================================================== */
+
+.header {
+    display: flex;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-      font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .top-bar {
@@ -55,34 +110,33 @@ ul{
     top: 0;
     left: 0;
     z-index: 2;
-background: #101928;  /* deep, trustworthy blue */
-color: white;
+    background: #101928;  /* deep, trustworthy blue */
+    color: white;
 }
 
-.navbar{
-	/*background: #3474e6;*/
-	color: #fff;
-	margin-left:auto;
+.navbar {
+    /*background: #3474e6;*/
+    color: #fff;
+    margin-left: auto;
 }
 
-
-.navbar a{
-	color: #fff;
-	text-decoration: none;
-	font-size: 18px;
-	font-weight: bold;
-}
-.navbar .list{
-	display: flex;
-	justify-content: space-between;
-	align-items: end;}
-
-
-.navbar ul{
-	display: flex;
-	  gap: 20px;
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
 }
 
+.navbar .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px;
+}
 
 /* Navbar layout */
 .nav {
@@ -94,6 +148,7 @@ color: white;
 .nav li {
     position: relative;
 }
+
 .nav li a {
     position: relative;
     display: inline-block;
@@ -106,15 +161,11 @@ color: white;
     position: absolute;
     left: 50%;
     bottom: -3px;
-
     height: 2px;
     width: 100%;
-
     background: #b28649;
-
     transform: translateX(-50%) scaleX(0);
     transform-origin: center;
-
     transition: transform .25s ease;
 }
 
@@ -122,7 +173,15 @@ color: white;
     transform: translateX(-50%) scaleX(1);
 }
 
-/* Dropdown */
+
+/* ============================================================================
+   3. DROPDOWN MENU
+   ----------------------------------------------------------------------------
+   On desktop the "Criminal Defense" submenu opens on hover, handled
+   entirely here in CSS. Phones have no hover, so lawfirm.js toggles an
+   "open" class instead; the phone version lives in section 13.
+   ========================================================================== */
+
 .dropdown {
     position: relative;
 }
@@ -150,20 +209,19 @@ color: white;
     display: block;
     padding: 12px 15px;
     text-decoration: none;
-    color:#b28649;
+    color: #b28649;
 }
 
 .dropdown-content li a:hover {
     background-color: #f1f1f1;
 }
+
 /* Correct underline position inside dropdown options */
 .nav .dropdown-content li a::after {
     left: 15px;
     right: 15px;
     bottom: 4px;
-
     width: auto;
-
     transform: scaleX(0);
     transform-origin: left;
 }
@@ -172,42 +230,52 @@ color: white;
 .nav .dropdown-content li:hover > a::after {
     transform: scaleX(1);
 }
-button.contactUs {
-  align-items: center;
-  appearance: none;
-  background-color: #fff;
-  border: 1px solid #dbdbdb;
-  border-radius: .375em;
-  box-shadow: none;
-  box-sizing: border-box;
-  color: #363636;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  height: 2.5em;
-  justify-content: center;
-  line-height: 1.5;
-  padding: calc(.5em - 1px) 1em;
-  position: relative;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
-    transition: background-color 0.5s ease, color 0.5s ease;
 
+
+/* ============================================================================
+   4. BUTTONS
+   ----------------------------------------------------------------------------
+   The gold hover state is limited to devices with a real mouse. On a
+   touch screen lawfirm.js adds an "is-pressed" class instead, because a
+   CSS :hover sticks after the finger lifts.
+   ========================================================================== */
+
+button.contactUs {
+    align-items: center;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: .375em;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #363636;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 2.5em;
+    justify-content: center;
+    line-height: 1.5;
+    padding: calc(.5em - 1px) 1em;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
+
 .service-actions {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
-
     margin-top: 30px;
 }
+
 /* Hover effect only on computers with a mouse */
 @media (hover: hover) and (pointer: fine) {
     button.contactUs:hover {
@@ -215,38 +283,48 @@ button.contactUs {
         color: white;
     }
 }
+
 .logo img {
-    height: 60px;      /* adjust to fit your navbar */
-    width: auto;       /* maintain aspect ratio */
+    height: 60px;  /* adjust to fit your navbar */
+    width: auto;  /* maintain aspect ratio */
 }
+
 .footer-container {
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .hamburger {
     display: none;
     background: transparent;
     border: 0;
     padding: 8px;
-
     font-size: 34px;
     line-height: 1;
     color: white;
     cursor: pointer;
 }
-.mobile-logo{
-    display:none;
+
+.mobile-logo {
+    display: none;
 }
 
+
+/* ============================================================================
+   5. HERO / WELCOME PANEL
+   ----------------------------------------------------------------------------
+   The looping video sits behind the text. VideoPoster.jpg is also set as
+   a background image underneath it, so there is still a picture while
+   the video loads, or if the browser refuses to play it.
+   ========================================================================== */
 
 .Welcome {
     position: relative;
     min-height: 100vh;
     height: auto;
     overflow: hidden;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -258,43 +336,44 @@ button.contactUs {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .background-video {
     position: absolute;
-    inset: 0;          /* same as top:0; right:0; bottom:0; left:0 */
+    inset: 0;  /* same as top:0; right:0; bottom:0; left:0 */
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
 }
 
-.welcome-text{
+.welcome-text {
     position: relative;
-    color:white;   
-    z-index: 2;        /* Places text above the video */
-
+    color: white;
+    z-index: 2;  /* Places text above the video */
     text-align: center;
     color: white;
-
     max-width: 900px;
     padding: 20px;
     transform: translateY(-60px);
 }
 
-.welcome-text h1, 
-.welcome-text h2, 
-.welcome-text h3{
-	color: #fff;
+.welcome-text h1,
+.welcome-text h2,
+.welcome-text h3 {
+    color: #fff;
 }
 
-/* ==========================
-   WHY CHOOSE CASTLEROD
-========================== */
+
+/* ============================================================================
+   6. WHY CHOOSE CASTLEROD
+   ----------------------------------------------------------------------------
+   Four cards on a navy band: two columns on desktop, one on phones.
+   ========================================================================== */
 
 .why-castlerod {
     background: #101928;
     padding: 70px 20px 80px;
 }
-
 
 .why-heading {
     margin: 0 auto 45px;
@@ -302,10 +381,8 @@ button.contactUs {
 }
 
 .why-label {
-    margin: 0 0 4px;;
-
+    margin: 0 0 4px;
     color: #b28649;
-
     font-family: Arial, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -316,9 +393,7 @@ button.contactUs {
 .why-heading h2 {
     margin-top: 2px;
     margin-bottom: 0;
-
     color: white;
-
     font-family: Georgia, serif;
     font-size: clamp(2rem, 4vw, 2.9rem);
     line-height: 1.15;
@@ -326,13 +401,12 @@ button.contactUs {
 
 .why-heading > p:last-child {
     margin: 0;
-
     color: white;
-
     font-family: Georgia, serif;
     font-size: 1.1rem;
     line-height: 1.8;
 }
+
 .why-intro {
     max-width: 850px;
     margin: 0 auto 50px;
@@ -341,16 +415,13 @@ button.contactUs {
 
 .why-intro h2 {
     margin-bottom: 18px;
-
     color: #b28649;
-
     font-family: Georgia, serif;
     font-size: clamp(2rem, 4vw, 2.8rem);
 }
 
 .why-intro p {
     color: white;
-
     font-family: Georgia, serif;
     font-size: 1.15rem;
     line-height: 1.8;
@@ -359,7 +430,6 @@ button.contactUs {
 .why-grid {
     width: min(1100px, 100%);
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 28px;
@@ -367,67 +437,63 @@ button.contactUs {
 
 .why-card {
     background: white;
-
     padding: 35px 30px;
-
     border-radius: 10px;
     border-top: 5px solid #b28649;
-
     text-align: center;
-
     box-shadow: 0 10px 25px rgba(0,0,0,.18);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .why-card:hover {
     transform: translateY(-6px);
-
     box-shadow: 0 16px 32px rgba(0,0,0,.22);
 }
 
+/* The navy circle each card icon sits inside. */
 .why-icon {
     width: 72px;
     height: 72px;
-
     margin: 0 auto 22px;
-
     border-radius: 50%;
-
     background: #101928;
     color: #b28649;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-size: 45px;
 }
+
+/*
+The card icons are inline SVG. They used to be Font Awesome glyphs sized with
+font-size, which meant loading a whole icon font from a CDN for four pictures.
+An SVG needs a real width and height instead, and inherits its colour from
+"stroke: currentColor" in the markup.
+*/
+.why-svg-icon,
 .heart-handshake-icon {
     display: block;
-
-    width: 60px;
-    height: 60px;
-
+    width: 42px;
+    height: 42px;
     color: #b28649;
+}
+
+/* The heart-handshake drawing reads smaller than the others at the same box
+   size, so it is given a little more room. */
+.heart-handshake-icon {
+    width: 48px;
+    height: 48px;
 }
 
 .why-card h3 {
     margin: 0 0 18px;
-
     color: #101928;
-
     font-family: Georgia, serif;
     font-size: 1.55rem;
 }
 
 .why-card p {
     margin: 0;
-
     color: #444;
-
     font-family: Georgia, serif;
     font-size: 1.05rem;
     line-height: 1.8;
@@ -437,22 +503,26 @@ button.contactUs {
     display: flex;
     justify-content: center;
     gap: 15px;
-
     margin-top: 45px;
 }
 
-/* SECTION TITLES */
+
+/* ============================================================================
+   7. SECTION TITLES
+   ----------------------------------------------------------------------------
+   The gold rules either side of a heading are drawn with ::before and
+   ::after rather than with extra markup.
+   ========================================================================== */
+
 .Title {
     width: min(900px, calc(100% - 40px));
     margin: 0 auto 30px;
     padding: 40px 0 18px;
-
     display: grid;
     grid-template-columns: minmax(40px, 110px) auto minmax(40px, 110px);
     align-items: center;
     justify-content: center;
     gap: 20px;
-
     text-align: center;
 }
 
@@ -463,34 +533,26 @@ button.contactUs {
     display: block;
     height: 2px;
 }
+
 .mobile-header-actions,
-.mobile-language-toggle{
-	display: none;
+.mobile-language-toggle {
+    display: none;
 }
+
 /* Left line */
 .Title::before {
-    background: linear-gradient(
-        to right,
-        transparent,
-        #b28649
-    );
+    background: linear-gradient( to right, transparent, #b28649 );
 }
 
 /* Right line */
 .Title::after {
-    background: linear-gradient(
-        to left,
-        transparent,
-        #b28649
-    );
+    background: linear-gradient( to left, transparent, #b28649 );
 }
 
 .Title em {
     display: inline-block;
     margin: 0;
-
     color: #101928;
-
     font-family: Georgia, serif;
     font-style: normal;
     font-size: clamp(2rem, 4vw, 3.6rem);
@@ -504,77 +566,73 @@ button.contactUs {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     margin-top: 30px;
     padding: 14px 32px;
-
     background-color: #101928;
     color: white;
-
     border: 2px solid #101928;
     border-radius: 8px;
-
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: .4px;
-
     text-decoration: none;
-
-    transition:
-        background-color .3s ease,
-        color .3s ease,
-        border-color .3s ease,
-        transform .25s ease,
-        box-shadow .25s ease;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .25s ease, box-shadow .25s ease;
 }
 
 .learn-more-btn:hover {
     background-color: #b28649;
     border-color: #b28649;
     color: white;
-
     transform: translateY(-2px);
-
     box-shadow: 0 10px 22px rgba(0,0,0,.18);
 }
 
 .learn-more-btn:active {
     transform: translateY(0);
 }
+
+
+/* ============================================================================
+   8. CRIME SECTION  (not currently used)
+   ----------------------------------------------------------------------------
+   Left over from an earlier image-and-text layout. No page uses the
+   .crime-section or .crime-text classes today. Kept in case the layout
+   comes back; safe to delete otherwise.
+   ========================================================================== */
+
 .crime-section {
-	    background-color: #ffffff;   /* keep content readable */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* subtle depth */
+    background-color: #ffffff;  /* keep content readable */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);  /* subtle depth */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-	padding:clamp(30px,5vw,60px);
-    
+    padding: clamp(30px,5vw,60px);
 }
 
 /* Make images responsive */
 .crime-section img {
-    flex:1;
-    max-width:500px;
-    width:100%;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
 }
 
 /* Text takes the rest */
 .crime-text {
-    flex:1;
+    flex: 1;
 }
 
 .crime-text h1 {
-    font-size:clamp(2rem, 5vw, 4rem);       /* big attention-grabbing size */
-    margin-bottom: 20px;   /* space between h1 and h2 */
-    color: #101928;        /* optional: matches your top bar color for emphasis */
+    font-size: clamp(2rem, 5vw, 4rem);  /* big attention-grabbing size */
+    margin-bottom: 20px;  /* space between h1 and h2 */
+    color: #101928;  /* optional: matches your top bar color for emphasis */
 }
 
 .crime-text h2 {
-    font-size: 2rem;     /* slightly larger than default */
+    font-size: 2rem;  /* slightly larger than default */
     line-height: 1.6;
-    color: #b28649;           /* dark blue for readability */
+    color: #b28649;  /* dark blue for readability */
 }
 
 /* Alternate every other section */
@@ -586,25 +644,17 @@ button.contactUs {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     margin-top: 8px;
     padding: 11px 22px;
-
     background-color: #101928;
     color: white;
-
     border: 1px solid #101928;
     border-radius: 6px;
-
     font-family: Arial, sans-serif;
     font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
-
-    transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.2s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -614,23 +664,34 @@ button.contactUs {
         transform: translateY(-2px);
     }
 }
+
 .learn-more:active {
     background-color: #b28649;
     border-color: #b28649;
 }
+
+
+/* ============================================================================
+   9. PRACTICE AREAS AND ACCORDIONS
+   ----------------------------------------------------------------------------
+   A panel is closed with max-height: 0 and opened by raising that limit,
+   which is what lets the height animate. The open limit has to stay
+   comfortably larger than the tallest panel or the text gets clipped.
+   ========================================================================== */
 
 /* Extra header clearance for individual service pages */
 .practice-areas.service-page {
     /*
     Approximately 60px for the fixed desktop header,
     plus the original 25–30px section spacing.
-    */
+     */
     padding-top: 90px;
 }
 
 .practice-areas.service-page .Title {
     margin-bottom: 25px;
 }
+
 .accordion-item {
     padding: 0;
     overflow: hidden;
@@ -639,17 +700,13 @@ button.contactUs {
 .accordion-header {
     width: 100%;
     padding: 24px 28px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background: white;
     color: #101928;
-
     border: 0;
     cursor: pointer;
-
     font-family: Georgia, serif;
     font-size: clamp(1.4rem, 3vw, 2rem);
     font-weight: 700;
@@ -659,12 +716,10 @@ button.contactUs {
 .accordion-icon {
     flex-shrink: 0;
     margin-left: 20px;
-
     color: #b28649;
     font-family: Arial, sans-serif;
     font-size: 2rem;
     font-weight: 400;
-
     transition: transform 0.3s ease;
 }
 
@@ -672,13 +727,8 @@ button.contactUs {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-
     padding: 0 28px;
-
-    transition:
-        max-height 0.45s ease,
-        opacity 0.3s ease,
-        padding 0.35s ease;
+    transition: max-height 0.45s ease, opacity 0.3s ease, padding 0.35s ease;
 }
 
 .accordion-item.open .accordion-content {
@@ -690,6 +740,12 @@ button.contactUs {
 .accordion-item.open .accordion-icon {
     transform: rotate(45deg);
 }
+
+
+/* ============================================================================
+   10. OUR TEAM
+   ========================================================================== */
+
 /* Header clearance for the standalone Our Team page */
 .team-section.team-page {
     padding-top: 90px;
@@ -698,31 +754,36 @@ button.contactUs {
 .team-section.team-page .Title {
     margin-bottom: 25px;
 }
+
+
+/* ============================================================================
+   11. FOOTER
+   ========================================================================== */
+
 .footer {
     width: 100%;
-    background-color: #101928;   /* matches top-bar */
+    background-color: #101928;  /* matches top-bar */
     color: white;
-
-    padding-top:15px;
-    padding-bottom:10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
     display: flex;
-    flex-direction: column;      /* stack content vertically */
-    align-items: center;         /* center all children horizontally */
-    text-align: center;        
+    flex-direction: column;  /* stack content vertically */
+    align-items: center;  /* center all children horizontally */
+    text-align: center;
 }
 
 /* Row layout for content */
 .footer .row {
-    display:flex;
-    justify-content:center;
-    width:100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 /* Footer columns */
 .column {
-    width:100%;
-    display:flex;
-    justify-content:center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 /* Footer bottom section */
@@ -733,16 +794,16 @@ button.contactUs {
 }
 
 .footer-logo img {
-    height: 150px;      /* adjust to fit your navbar */
-    width: auto;       /* maintain aspect ratio */
-    margin-bottom:20px;
+    height: 150px;  /* adjust to fit your navbar */
+    width: auto;  /* maintain aspect ratio */
+    margin-bottom: 20px;
 }
 
 .developer-credit {
     font-size: 0.85rem;
     color: #b0b0b0;
     margin-top: 8px;
-    letter-spacing:.3px;
+    letter-spacing: .3px;
 }
 
 .developer-credit a {
@@ -755,28 +816,27 @@ button.contactUs {
     color: #9b7238;
 }
 
-.column_VISIT_TITLE{
-	display:flex;
-	align-items:center;
-	justify-content: center;
-	text-align: center;
-	max-width: 500px;
-	gap:40px;
-	
+.column_VISIT_TITLE {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 500px;
+    gap: 40px;
 }
-.column_VISIT_TITLE em{
-	font-size: clamp(2em, 4vw, 4em);
+
+.column_VISIT_TITLE em {
+    font-size: clamp(2em, 4vw, 4em);
 }
-.column_VISIT_TITLE a{
-    color:white;
-    text-decoration:none;
-    transition:color .25s ease;
+
+.column_VISIT_TITLE a {
+    color: white;
+    text-decoration: none;
+    transition: color .25s ease;
 }
 
 .column_VISIT_TITLE a:hover {
-
-    color:#b28649;
-
+    color: #b28649;
 }
 
 .footer-contact-item {
@@ -786,12 +846,15 @@ button.contactUs {
 
     /* Space between the icon and its text */
     gap: 8px;
-
     white-space: nowrap;
 }
 
-.footer-contact-item i {
-    font-size: 24px;
+/* Inline SVG replacements for the old Font Awesome phone and map-marker
+   glyphs. flex-shrink keeps them from squashing next to long text. */
+.footer-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
     color: #b28649;
 }
 
@@ -800,16 +863,22 @@ button.contactUs {
     color: white;
     text-decoration: none;
 }
+
 /*
 .column_maps iframe {
-    width: 100%;         fill the column 
-    max-width: 600px;    optional maximum width 
-    height: 200px;
-    border: 0;
-    border-radius: 8px;
+width: 100%;         fill the column
+max-width: 600px;    optional maximum width
+height: 200px;
+border: 0;
+border-radius: 8px;
 }
-*/
-/* Text-only practice areas — desktop and tablet base styles */
+ */
+
+
+/* ============================================================================
+   12. PRACTICE AREA PAGE LAYOUT
+   ========================================================================== */
+
 .practice-areas {
     background-color: #f4f4f4;
     padding: 25px 0 60px;
@@ -823,11 +892,9 @@ button.contactUs {
     width: min(1050px, calc(100% - 40px));
     margin: 0 auto 28px;
     padding: clamp(30px, 5vw, 55px);
-
     background-color: white;
     border-left: 5px solid #b28649;
     border-radius: 8px;
-
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
 
     /* Keeps headings visible below the fixed navbar */
@@ -836,7 +903,6 @@ button.contactUs {
 
 .practice-section h2 {
     margin: 0 0 22px;
-
     color: #101928;
     font-family: Georgia, serif;
     font-size: clamp(1.8rem, 4vw, 3rem);
@@ -846,7 +912,6 @@ button.contactUs {
 
 .practice-section p {
     margin: 0 0 20px;
-
     color: #3e4652;
     font-family: Georgia, serif;
     font-size: 1.15rem;
@@ -861,7 +926,12 @@ button.contactUs {
     color: #101928;
     font-weight: bold;
 }
-/* OUR TEAM SECTION */
+
+
+/* ============================================================================
+   13. OUR TEAM CARDS
+   ========================================================================== */
+
 .team-section {
     background-color: #f4f4f4;
     padding: 25px 0 60px;
@@ -877,7 +947,6 @@ button.contactUs {
 .team-container {
     width: min(1050px, calc(100% - 40px));
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -887,13 +956,10 @@ button.contactUs {
     display: flex;
     align-items: center;
     gap: 40px;
-
     padding: clamp(30px, 5vw, 50px);
-
     background-color: white;
     border-left: 5px solid #b28649;
     border-radius: 8px;
-
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
 }
 
@@ -911,12 +977,9 @@ button.contactUs {
 .team-image img {
     width: 260px;
     height: 320px;
-
     object-fit: cover;
     object-position: center;
-
     border-radius: 8px;
-
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
@@ -926,7 +989,6 @@ button.contactUs {
 
 .team-text h2 {
     margin: 0 0 22px;
-
     color: #101928;
     font-family: Georgia, serif;
     font-size: clamp(2rem, 4vw, 3rem);
@@ -936,7 +998,6 @@ button.contactUs {
 
 .team-text p {
     margin: 0 0 18px;
-
     color: #3e4652;
     font-family: Georgia, serif;
     font-size: 1.1rem;
@@ -946,6 +1007,11 @@ button.contactUs {
 .team-text p:last-child {
     margin-bottom: 0;
 }
+
+
+/* ============================================================================
+   14. FAQ
+   ========================================================================== */
 
 .faq-section {
     background: #f4f4f4;
@@ -960,14 +1026,13 @@ button.contactUs {
     width: min(1050px, calc(100% - 40px));
     margin: 0 auto;
 }
+
 /* FAQ question */
 .faq-section .accordion-header {
     background-color: #ffffff;
     color: #101928;
-
     font-size: clamp(1.35rem, 2.5vw, 1.75rem);
     line-height: 1.35;
-
     border-bottom: 1px solid transparent;
 }
 
@@ -978,9 +1043,8 @@ button.contactUs {
 
 /* FAQ answer text */
 .faq-section .accordion-content p {
-	margin-top:18px;
+    margin-top: 18px;
     margin-bottom: 0;
-
     color: #3e4652;
     font-family: Georgia, serif;
     font-size: 1.15rem;
@@ -991,69 +1055,72 @@ button.contactUs {
 .faq-section .accordion-item.open .accordion-header {
     border-bottom-color: rgba(16, 25, 40, 0.1);
 }
+
 /* Top spacing for the standalone FAQ page */
 .faq-section.faq-page {
     padding-top: 90px;
     padding-bottom: 70px;
 }
-@media (max-width:1024px){
 
-.top-bar{
-    padding:0 20px;
+
+/* ============================================================================
+   15. TABLET STYLES  (up to 1024px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .top-bar {
+        padding: 0 20px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+    }
+
+    .navbar ul {
+        gap: 15px;
+    }
+
+    .welcome-text {
+        max-width: 700px;
+        transform: translateY(-30px);
+    }
+
+    .welcome-text h1 {
+        font-size: clamp(2.5rem,5vw,3.5rem);
+    }
+
+    .welcome-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .crime-section {
+        gap: 25px;
+        padding: 40px 30px;
+    }
+
+    .crime-text h1 {
+        font-size: clamp(2rem,4vw,3rem);
+    }
+
+    .crime-text h2 {
+        font-size: 1.3rem;
+    }
 }
 
-.logo img{
-    height:50px;
-}
 
-.navbar a{
-    font-size:16px;
-}
+/* ============================================================================
+   16. PHONE STYLES  (up to 768px)
+   ----------------------------------------------------------------------------
+   Everything below applies to phones only. This is where the navigation
+   becomes the full screen hamburger menu, the card grids collapse to a
+   single column, and the submenu switches from hover to tap.
+   ========================================================================== */
 
-.navbar ul{
-    gap:15px;
-}
-
-
-.welcome-text{
-
-    max-width:700px;
-    transform:translateY(-30px);
-
-}
-
-.welcome-text h1{
-
-    font-size:clamp(2.5rem,5vw,3.5rem);
-
-}
-
-.welcome-text h2{
-
-    font-size:1.2rem;
-
-}
-.crime-section{
-
-    gap:25px;
-    padding:40px 30px;
-
-}
-
-.crime-text h1{
-
-    font-size:clamp(2rem,4vw,3rem);
-
-}
-
-.crime-text h2{
-
-    font-size:1.3rem;
-
-}
-}
 @media (max-width: 768px) {
-
     .logo {
         display: flex;
         align-items: center;
@@ -1066,712 +1133,621 @@ button.contactUs {
         transform: none;
     }
 
-.mobile-logo{
-    display:none;
-}
-.top-bar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    min-height:90px;
-    padding:0 20px;
-}
-.nav{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:30px;
-}
-.navbar{
-    display:flex;
-    position:fixed;
-
-    inset:0;
-
-    background:#101928;
-
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
-
-    padding-top:30px;
-    padding-bottom: 30px;
-    
-    opacity:0;
-    visibility:hidden;
-
-    transition:0.35s ease;
-
-    z-index:2000;
-    /* Important for smaller mobile screens */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-.navbar.active{
-
-    opacity:1;
-    visibility:visible;
-
-}
-
-.navbar ul{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-}
-
-.navbar a{
-
-    font-size:18px;
-    font-weight:bold;
-
-}
-.navbar .nav{
-
-    margin:0;
-    padding:0;
-}
-
-.mobile-logo h2{
-    color:white;
-    font-size:30px;
-    margin-top:15px;
-    text-align:center;
-}
-
-.Welcome 
-	{
-   min-height: 100svh;
-   /* Reserve room for the fixed 90px header */    
-   padding-top: 110px;
-   padding-bottom: 35px;
-   /* Start the content below the header */
-   align-items: flex-start;
-}
-.welcome-text{
-
-    max-width:100%;
-    padding:20px;
-    transform:none;
-    margin: 0 auto;
-
-}
-
-.welcome-text h1{
-
-    font-size:2.2rem;
-    line-height:1.2;
-
-}
-
-.welcome-text h2{
-
-    font-size:1.05rem;
-    line-height:1.6;
-
-}
-
-.welcome-text h3{
-
-	margin-top: 0;
-
-}
-
-.practice-areas {
-    padding: 45px 0 35px;
-}
-/* WHY CHOOSE CASTLEROD */
-
-.why-castlerod {
-    padding: 50px 15px;
-}
-.why-heading {
-    width: min(850px, 100%);
-    margin: 0 auto 45px;
-    text-align: center;
-}
-
-.why-label {
-
-
-    color: #b28649;
-
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-	margin-bottom:7px;
-
-}
-
-.why-heading h2 {
-
-    font-size: 1.9rem;
-}
-
-.why-heading > p:last-child {
-    margin: 0;
-
-    color: white;
-
-    font-family: Georgia, serif;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.why-intro {
-    margin-bottom: 30px;
-}
-
-.why-intro h2 {
-    font-size: 1.7rem;
-}
-
-.why-intro p {
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-.why-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.why-card {
-    padding: 28px 22px;
-}
-
-.why-icon {
-    width: 60px;
-    height: 60px;
-
-    font-size: 26px;
-}
-
-.heart-handshake-icon {
-    width: 38px;
-    height: 38px;
-}
-
-.why-card h3 {
-    font-size: 1.35rem;
-}
-
-.why-card p {
-    font-size: 1rem;
-}
-
-
-.why-actions {
-    flex-direction: row;
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 35px;
-}
-
-.why-actions .contactUs {
-    width: auto;
-    min-width: 140px;
-
-    margin: 0;
-
-    white-space: nowrap;
-}
-
-.practice-section {
-    width: calc(100% - 30px);
-    margin-bottom: 20px;
-    padding: 28px 20px;
-
-    border-left-width: 4px;
-
-    scroll-margin-top: 110px;
-}
-
-.practice-section h2 {
-    margin-bottom: 18px;
-    font-size: 1.65rem;
-    line-height: 1.25;
-}
-
-.practice-section p {
-    margin-bottom: 17px;
-    font-size: 1rem;
-    line-height: 1.7;
-}
- .crime-section {
-        flex-direction: column;
-        text-align: center;
-            padding:40px 20px;
-    gap:20px;
+    .mobile-logo {
+        display: none;
     }
 
-    .crime-section img{
-
-    max-width:100%;
-
-}
-.crime-section,
-.crime-section:nth-child(even) {
-    flex-direction: column !important;
-}
-
-.crime-text{
-
-    text-align:center;
-
-}
-
-.crime-text h1{
-
-    font-size:2rem;
-
-}
-
-.crime-text h2{
-
-    font-size:1rem;
-
-}
-
-.footer-logo img{
-
-    height:130px;
-    margin-bottom:10px;
-
-}
-
-  button.contactUs {
-    background-color: white;
-    color: #363636;
-
-    /* Faster so the gold appears immediately */
-    transition:
-        background-color 0.12s ease,
-        color 0.12s ease;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Temporary gold state controlled by JavaScript */
-button.contactUs.is-pressed {
-    background-color: #9b7238;
-    color: white;
-}
-
-
-
-.ContactUs-button,
-.call-button{
-
-    display:block;
-    width:250px;
-    margin:15px auto;
-
-}
-.learn-more-btn {
-       display: flex;
-
-        justify-content: center;
-
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
+        min-height: 90px;
+        padding: 0 20px;
+    }
 
-        width: 180px;
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
 
-        margin: 25px auto 0;
+    .navbar {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        background: #101928;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.35s ease;
+        z-index: 2000;
 
-        padding: 12px 0;
-}
-.Title {
-    width: calc(100% - 30px);
-    margin-bottom: 20px;
-    padding: 28px 0 14px;
+        /* Important for smaller mobile screens */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 
-    grid-template-columns: minmax(25px, 55px) auto minmax(25px, 55px);
-    gap: 10px;
-}
+    .navbar.active {
+        opacity: 1;
+        visibility: visible;
+    }
 
-.Title em {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
-    letter-spacing: 0.04em;
-}
-.footer .row{
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
 
-flex-direction:column;
-align-items:center;
+    .navbar a {
+        font-size: 18px;
+        font-weight: bold;
+    }
 
-}
+    .navbar .nav {
+        margin: 0;
+        padding: 0;
+    }
 
-.column{
-width: 100%;
-max-width:400px;
-text-align: center;
+    .mobile-logo h2 {
+        color: white;
+        font-size: 30px;
+        margin-top: 15px;
+        text-align: center;
+    }
 
-}
-.practice-areas.service-page {
-    /*
-    Mobile navigation is approximately 90px tall,
-    plus 20px of comfortable spacing.
-    */
-    padding-top: 110px;
-}
+    .Welcome {
+        min-height: 100svh;
 
-.practice-areas.service-page .Title {
-    margin-bottom: 20px;
-}
-    .accordion-list {
-
-        padding-top: 45px;
-
+        /* Reserve room for the fixed 90px header */
+        padding-top: 110px;
         padding-bottom: 35px;
 
+        /* Start the content below the header */
+        align-items: flex-start;
     }
-.accordion-header {
-    width: 100%;
-    padding: 20px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .welcome-text {
+        max-width: 100%;
+        padding: 20px;
+        transform: none;
+        margin: 0 auto;
+    }
 
-    background: white;
-    color: #101928;
-    border: 0;
+    .welcome-text h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
 
-    font-family: Georgia, serif;
-    font-size: 1.65rem;
-    font-weight: 700;
-    line-height: 1.25;
-    text-align: left;
+    .welcome-text h2 {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
 
-    cursor: pointer;
-}
+    .welcome-text h3 {
+        margin-top: 0;
+    }
 
-.accordion-icon {
-    flex-shrink: 0;
-    margin-left: 15px;
-    font-size: 1.5rem;
-    line-height: 1;
-}
+    .practice-areas {
+        padding: 45px 0 35px;
+    }
 
-.accordion-content {
-    padding: 0 20px;
-}
+    /* WHY CHOOSE CASTLEROD */
+    .why-castlerod {
+        padding: 50px 15px;
+    }
 
-.accordion-item.open .accordion-content {
-    padding: 0 20px 24px;
-}
+    .why-heading {
+        width: min(850px, 100%);
+        margin: 0 auto 45px;
+        text-align: center;
+    }
 
-.team-section.team-page {
-    padding-top: 110px;
-}
+    .why-label {
+        color: #b28649;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        margin-bottom: 7px;
+    }
 
-.team-section.team-page .Title {
-    margin-bottom: 20px;
-}
-.footer-bottom{
+    .why-heading h2 {
+        font-size: 1.9rem;
+    }
 
-    margin-top:15px;
-    padding:0 15px;
+    .why-heading > p:last-child {
+        margin: 0;
+        color: white;
+        font-family: Georgia, serif;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
 
-}
-.mobile-header-actions{
-	display: flex;
-	align-items: center;
-	gap: 22px;
-	
-	margin-left: auto;
-	
-	position: relative;
-	z-index:2100;
-}
-.mobile-language-toggle {
-    display:block;
-    
-    color:white;
-    text-decoration: none;
-    
-    font-family: Arial, sans-serif;
-    font-size:18px;
-    font-weight: 700;
-    
-    z-index:2100;
-}
+    .why-intro {
+        margin-bottom: 30px;
+    }
+
+    .why-intro h2 {
+        font-size: 1.7rem;
+    }
+
+    .why-intro p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .why-card {
+        padding: 28px 22px;
+    }
+
+    .why-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .why-svg-icon,
+    .heart-handshake-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .heart-handshake-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .why-card h3 {
+        font-size: 1.35rem;
+    }
+
+    .why-card p {
+        font-size: 1rem;
+    }
+
+    .why-actions {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 35px;
+    }
+
+    .why-actions .contactUs {
+        width: auto;
+        min-width: 140px;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .practice-section {
+        width: calc(100% - 30px);
+        margin-bottom: 20px;
+        padding: 28px 20px;
+        border-left-width: 4px;
+        scroll-margin-top: 110px;
+    }
+
+    .practice-section h2 {
+        margin-bottom: 18px;
+        font-size: 1.65rem;
+        line-height: 1.25;
+    }
+
+    .practice-section p {
+        margin-bottom: 17px;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .crime-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    .crime-section img {
+        max-width: 100%;
+    }
+
+    .crime-section,
+    .crime-section:nth-child(even) {
+        flex-direction: column !important;
+    }
+
+    .crime-text {
+        text-align: center;
+    }
+
+    .crime-text h1 {
+        font-size: 2rem;
+    }
+
+    .crime-text h2 {
+        font-size: 1rem;
+    }
+
+    .footer-logo img {
+        height: 130px;
+        margin-bottom: 10px;
+    }
+
+    button.contactUs {
+        background-color: white;
+        color: #363636;
+
+        /* Faster so the gold appears immediately */
+        transition: background-color 0.12s ease, color 0.12s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Temporary gold state controlled by JavaScript */
+    button.contactUs.is-pressed {
+        background-color: #9b7238;
+        color: white;
+    }
+
+    .ContactUs-button,
+    .call-button {
+        display: block;
+        width: 250px;
+        margin: 15px auto;
+    }
+
+    .learn-more-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 180px;
+        margin: 25px auto 0;
+        padding: 12px 0;
+    }
+
+    .Title {
+        width: calc(100% - 30px);
+        margin-bottom: 20px;
+        padding: 28px 0 14px;
+        grid-template-columns: minmax(25px, 55px) auto minmax(25px, 55px);
+        gap: 10px;
+    }
+
+    .Title em {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        letter-spacing: 0.04em;
+    }
+
+    .footer .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .practice-areas.service-page {
+        /*
+        Mobile navigation is approximately 90px tall,
+        plus 20px of comfortable spacing.
+         */
+        padding-top: 110px;
+    }
+
+    .practice-areas.service-page .Title {
+        margin-bottom: 20px;
+    }
+
+    .accordion-list {
+        padding-top: 45px;
+        padding-bottom: 35px;
+    }
+
+    .accordion-header {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        color: #101928;
+        border: 0;
+        font-family: Georgia, serif;
+        font-size: 1.65rem;
+        font-weight: 700;
+        line-height: 1.25;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .accordion-icon {
+        flex-shrink: 0;
+        margin-left: 15px;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .accordion-content {
+        padding: 0 20px;
+    }
+
+    .accordion-item.open .accordion-content {
+        padding: 0 20px 24px;
+    }
+
+    .team-section.team-page {
+        padding-top: 110px;
+    }
+
+    .team-section.team-page .Title {
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+        margin-top: 15px;
+        padding: 0 15px;
+    }
+
+    .mobile-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-left: auto;
+        position: relative;
+        z-index: 2100;
+    }
+
+    .mobile-language-toggle {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        z-index: 2100;
+    }
+
     .hamburger {
         display: block;
         position: relative;
-
         top: -4px;
         right: auto;
         transform: none;
-
-		margin:0;
-		padding: 0;
-		
-		background: transparent;
-		border: 0;
-
-    	color:white;
-		font-family:Arial, sans-serif;
-		font-size: 34px;
-		font-weight: 400;
-		line-height: 1;
-		
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 34px;
+        font-weight: 400;
+        line-height: 1;
         z-index: 2100;
-
     }
-.mobile.language-toggle:hover,
-.mobile.language-toggle:focus,
-.mobile.language-toggle:active {
-	color: #b28649;
-}
-.language-link{
-	display: none;
-}
-.hamburger.active {
-  color: #e6b249; /* gold or white for visibility */
-}
+
+    .mobile.language-toggle:hover,
+    .mobile.language-toggle:focus,
+    .mobile.language-toggle:active {
+        color: #b28649;
+    }
+
+    .language-link {
+        display: none;
+    }
+
+    .hamburger.active {
+        color: #e6b249;  /* gold or white for visibility */
+    }
 
     .crime-section img,
     .crime-text {
         width: 100%;
     }
-    .navbar.active .mobile-logo{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-bottom:40px;
-}
 
-
-.navbar.active .mobile-logo img{
-    height:120px;
-    width:auto;
-}
-
-
-.navbar.active .mobile-logo h2{
-    color:white;
-    font-size:30px;
-    text-align:center;
-    margin-top:15px;
-}
-/* MOBILE DROPDOWN ONLY */
-.dropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/*
-Keep the dropdown rendered so its opening and closing
-can be animated.
-*/
-.dropdown-content {
-    display: flex !important;
-    position: static;
-
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0 !important;
-
-    /* Smaller, more professional width */
-    width: 285px;
-    max-width: calc(100vw - 40px);
-    min-width: 0;
-
-    margin: 0 auto;
-    padding: 0;
-
-    background: #ffffff;
-    border-radius: 8px;
-
-    overflow: hidden;
-
-    /* Closed state */
-    max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transform: translateY(-8px) scale(0.98);
-    transform-origin: top center;
-
-    box-shadow: none;
-
-    transition:
-        max-height 0.4s ease,
-        opacity 0.25s ease,
-        transform 0.35s ease,
-        margin-top 0.35s ease,
-        box-shadow 0.35s ease,
-        visibility 0s linear 0.4s;
-}
-
-/* Open state */
-.dropdown.open > .dropdown-content {
-    max-height: 700px;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    margin-top: 12px;
-
-    transform: translateY(0) scale(1);
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
-
-    transition:
-        max-height 0.45s ease,
-        opacity 0.3s ease,
-        transform 0.35s ease,
-        margin-top 0.35s ease,
-        box-shadow 0.35s ease,
-        visibility 0s;
-}
-
-.dropdown-content li {
-    width: 100%;
-    margin: 0;
-}
-
-/* Smaller dropdown text */
-.dropdown-content li a {
-	display: block;
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 16px;
-    line-height: 1.3;
-
-    color: #b28649;
-    text-align: center;
-    white-space: normal;
-}
-
-/* Light separation between options */
-.dropdown-content li:not(:last-child) a {
-    border-bottom: 1px solid rgba(16, 25, 40, 0.1);
-}
-
-.dropdown-content li a:hover,
-.dropdown-content li a:active {
-    background-color: #f5f5f5;
-}
-.service-actions {
-
+    .navbar.active .mobile-logo {
         display: flex;
-
-        flex-direction: row;
-
-        justify-content: center;
-
+        flex-direction: column;
         align-items: center;
+        margin-bottom: 40px;
+    }
 
+    .navbar.active .mobile-logo img {
+        height: 120px;
+        width: auto;
+    }
+
+    .navbar.active .mobile-logo h2 {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    /* MOBILE DROPDOWN ONLY */
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /*
+    Keep the dropdown rendered so its opening and closing
+    can be animated.
+     */
+    .dropdown-content {
+        display: flex !important;
+        position: static;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0 !important;
+
+        /* Smaller, more professional width */
+        width: 285px;
+        max-width: calc(100vw - 40px);
+        min-width: 0;
+        margin: 0 auto;
+        padding: 0;
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+
+        /* Closed state */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px) scale(0.98);
+        transform-origin: top center;
+        box-shadow: none;
+        transition: max-height 0.4s ease, opacity 0.25s ease, transform 0.35s ease, margin-top 0.35s ease, box-shadow 0.35s ease, visibility 0s linear 0.4s;
+    }
+
+    /* Open state */
+    .dropdown.open > .dropdown-content {
+        max-height: 700px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        margin-top: 12px;
+        transform: translateY(0) scale(1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+        transition: max-height 0.45s ease, opacity 0.3s ease, transform 0.35s ease, margin-top 0.35s ease, box-shadow 0.35s ease, visibility 0s;
+    }
+
+    .dropdown-content li {
         width: 100%;
+        margin: 0;
+    }
 
+    /* Smaller dropdown text */
+    .dropdown-content li a {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 16px;
+        line-height: 1.3;
+        color: #b28649;
+        text-align: center;
+        white-space: normal;
+    }
+
+    /* Light separation between options */
+    .dropdown-content li:not(:last-child) a {
+        border-bottom: 1px solid rgba(16, 25, 40, 0.1);
+    }
+
+    .dropdown-content li a:hover,
+    .dropdown-content li a:active {
+        background-color: #f5f5f5;
+    }
+
+    .service-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         gap: 10px;
-
         margin: 35px auto 0;
-
     }
 
     .service-actions .contactUs {
-
         width: auto;
-
         min-width: 140px;
-
         margin: 0;
-
         padding: 12px 16px;
-
         white-space: nowrap;
-      }
+    }
 
-.team-section {
-    padding: 20px 0 35px;
-    scroll-margin-top: 110px;
-}
+    .team-section {
+        padding: 20px 0 35px;
+        scroll-margin-top: 110px;
+    }
 
-.team-container {
-    width: calc(100% - 30px);
-    gap: 20px;
-}
+    .team-container {
+        width: calc(100% - 30px);
+        gap: 20px;
+    }
 
-.team-card,
-.team-card:nth-child(even) {
-    flex-direction: column;
+    .team-card,
+    .team-card:nth-child(even) {
+        flex-direction: column;
+        padding: 28px 20px;
+        gap: 24px;
+        border-left: 4px solid #b28649;
+        border-right: none;
+        text-align: center;
+    }
 
-    padding: 28px 20px;
-    gap: 24px;
+    .team-image {
+        flex: none;
+        width: 100%;
+    }
 
-    border-left: 4px solid #b28649;
-    border-right: none;
+    .team-image img {
+        width: 190px;
+        height: 240px;
+        margin: 0 auto;
+    }
 
-    text-align: center;
-}
+    .team-text h2 {
+        margin-bottom: 18px;
+        font-size: 1.8rem;
+    }
 
-.team-image {
-    flex: none;
-    width: 100%;
-}
+    .team-text p {
+        margin-bottom: 16px;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
 
-.team-image img {
-    width: 190px;
-    height: 240px;
-    margin: 0 auto;
-}
+    .faq-section {
+        padding: 25px 0 45px;
+    }
 
-.team-text h2 {
-    margin-bottom: 18px;
-    font-size: 1.8rem;
-}
+    .faq-section .Title {
+        margin-bottom: 20px;
+    }
 
-.team-text p {
-    margin-bottom: 16px;
-    font-size: 1rem;
-    line-height: 1.7;
-}
-.faq-section {
-    padding: 25px 0 45px;
-}
+    .faq-section .accordion-list {
+        width: calc(100% - 30px);
+    }
 
-.faq-section .Title {
-    margin-bottom: 20px;
-}
+    .faq-section .accordion-header {
+        padding: 20px;
+        font-size: 1.25rem;
+        line-height: 1.35;
+    }
 
-.faq-section .accordion-list {
-    width: calc(100% - 30px);
-}
+    .faq-section .accordion-content {
+        padding: 0 20px;
+    }
 
-.faq-section .accordion-header {
-    padding: 20px;
+    .faq-section .accordion-item.open .accordion-content {
+        padding: 0 20px 24px;
+    }
 
-    font-size: 1.25rem;
-    line-height: 1.35;
-}
+    .faq-section .accordion-header {
+        padding: 20px;
+        font-size: 1.3rem;
+        line-height: 1.35;
+    }
 
-.faq-section .accordion-content {
-    padding: 0 20px;
-}
+    .faq-section .accordion-content p {
+        font-size: 1.08rem;
+        line-height: 1.7;
+    }
 
-.faq-section .accordion-item.open .accordion-content {
-    padding: 0 20px 24px;
-}
-.faq-section .accordion-header {
-    padding: 20px;
-
-    font-size: 1.3rem;
-    line-height: 1.35;
-}
-
-.faq-section .accordion-content p {
-    font-size: 1.08rem;
-    line-height: 1.7;
-}
     .faq-section.faq-page {
         padding-top: 110px;
         padding-bottom: 45px;
