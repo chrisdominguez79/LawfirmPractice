@@ -68,12 +68,7 @@ color: white;
     line-height: 1;
 }
 
-.logo-icon {
-    width: 70px;   /* adjust if you want the icon a little bigger */
-    height: auto;
-    display: block;
-    flex-shrink: 0;
-}
+
 
 .logo-text {
     display: flex;
@@ -317,22 +312,21 @@ button.contactUs {
    FOOTER BRAND
 ========================================= */
 
+
+
 .footer-brand-link {
     display: flex;
     align-items: center;
-    gap: 15px;
-
+    gap: 14px;
     text-decoration: none;
 }
 
-
-/* Gold shield/logo */
-
 .footer-brand-logo {
-    width: 75px;
-    height: auto;
+    width: 90px;
+    height: 80px;
     flex-shrink: 0;
 }
+
 
 
 /* CASTLEROD + subtitle */
@@ -344,27 +338,20 @@ button.contactUs {
 
 
 .footer-brand-title {
-    color: #c79a5b;
-
+    color: #b28649;
     font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 1.8rem;
-    letter-spacing: 5px;
-
+    font-size: 2rem;
+    letter-spacing: 8px;
+    font-weight: 500;
     white-space: nowrap;
 }
 
-
 .footer-brand-subtitle {
-    color: #c79a5b;
-
+    color: #b28649;
     font-family: Georgia, "Times New Roman", serif;
-
     font-size: 0.85rem;
-    letter-spacing: 1.5px;
-
+    letter-spacing: 4px;
     margin-top: 5px;
-
     white-space: nowrap;
 }
 
@@ -1147,14 +1134,6 @@ button.contactUs {
 
 
 /* Footer bottom section */
-.footer-bottom {
-	    background-color: #101928;   /* matches top-bar */
-    color: white;
-    text-align: center;
-    margin: 0;
-    font-size: 1rem;
-    padding: 20px 5% 25px;
-}
 
 .footer-logo img {
     height: 150px;      /* adjust to fit your navbar */
@@ -2087,52 +2066,68 @@ text-align: center;
     white-space: nowrap;
 }
 
-/* bottom legal section */
-.footer-bottom {
-    width: 100%;
-    margin: 0;
-    padding: 18px 20px 28px;
-    background: #101928;
-    color: white;
-    text-align: center;
-}
+    .footer-bottom {
+        width: 100%;
+        margin: 0;
+        padding: 24px 24px 30px;
 
-/* paragraph spacing and readability */
-.footer-bottom p {
-    max-width: 340px;
-    margin: 0 auto 14px;
-    line-height: 1.45;
-}
+        background: #101928;
+        text-align: center;
+    }
 
-/* first legal line */
-.footer-bottom p:first-child {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 0.98rem;
-    color: #ffffff;
-}
+    .footer-bottom p {
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
 
-/* second legal line */
-.footer-bottom p:nth-child(2) {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 0.92rem;
-    color: #ffffff;
-}
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        line-height: 1.55;
+    }
 
-/* developer credit */
-.developer-credit {
-    margin: 4px auto 0;
-    font-family: Arial, sans-serif;
-    font-size: 0.78rem;
-    line-height: 1.5;
-    color: #b9b9b9;
-    letter-spacing: 0.2px;
-}
+    /* Responsible attorney */
+    .footer-bottom p:first-child {
+        margin-top: 0;
+        margin-bottom: 18px;
 
-/* links in developer credit */
-.developer-credit a {
-    color: inherit;
-    text-decoration: none;
-}
+        font-size: 0.84rem;
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    /* Copyright / privacy / disclaimer */
+    .footer-bottom p:nth-child(2) {
+        margin-top: 0;
+        margin-bottom: 18px;
+
+        font-size: 0.78rem;
+        line-height: 1.6;
+
+        color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* Website credit */
+    .developer-credit {
+        margin: 0 auto;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.72rem;
+        line-height: 1.5;
+
+        color: rgba(255, 255, 255, 0.55);
+        letter-spacing: 0.2px;
+    }
+
+    /* Website credit */
+    .developer-credit {
+        margin: 0 auto;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.72rem;
+        line-height: 1.5;
+
+        color: rgba(255, 255, 255, 0.55);
+        letter-spacing: 0.2px;
+    }
 
 .mobile-header-actions{
 	display: flex;
