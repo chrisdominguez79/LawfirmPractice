@@ -2005,99 +2005,133 @@ text-align: center;
 .team-section.team-page .Title {
     margin-bottom: 20px;
 }
-/* MOBILE FOOTER */
+/* ==============================
+   MOBILE FOOTER
+============================== */
+
+/* keep only branding section above legal footer */
 .footer-main {
     display: block;
     width: 100%;
-    padding: 30px 20px 20px;
+    padding: 28px 20px 10px;
     background: #101928;
 }
 
-/* Hide Contact, Firm and Counties */
+/* hide other desktop footer columns on mobile */
 .footer-main .footer-column:not(.footer-brand) {
     display: none;
 }
 
-/* Brand section only */
+/* brand section */
 .footer-brand {
     width: 100%;
     padding: 0;
     border: none;
+    text-align: center;
 }
 
-/* Hide tagline, divider and description */
+/* hide extra text you said you do not want on mobile */
 .footer-tagline,
 .footer-small-divider,
 .footer-description {
     display: none;
 }
 
-/* Logo + text */
+/* make logo + text a compact centered unit */
 .footer-brand-link {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    gap: 12px;
 
-    gap: 14px;
+    width: auto;
+    margin: 0 auto;
 
     text-decoration: none;
 }
 
-/* Gold logo */
+/* logo size */
 .footer-brand-logo {
-    width: 60px;
+    width: 52px;
     height: auto;
     flex-shrink: 0;
 }
 
-/* CASTLEROD and subtitle */
+/* text block beside logo */
 .footer-brand-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
 }
 
+/* CASTLEROD */
 .footer-brand-title {
+    margin: 0;
     color: #b28649;
     font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 1.45rem;
-    letter-spacing: 4px;
-
+    font-size: 1.15rem;
+    letter-spacing: 3px;
+    line-height: 1.1;
     white-space: nowrap;
 }
 
+/* CRIMINAL DEFENSE, P.L.L.C. */
 .footer-brand-subtitle {
+    margin-top: 4px;
     color: #b28649;
     font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 0.67rem;
-    letter-spacing: 1.4px;
-
-    margin-top: 4px;
-
+    font-size: 0.52rem;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
     white-space: nowrap;
 }
 
-/* Bottom legal footer */
+/* bottom legal section */
 .footer-bottom {
     width: 100%;
     margin: 0;
-    padding: 15px 20px 25px;
-
+    padding: 18px 20px 28px;
     background: #101928;
     color: white;
-
     text-align: center;
 }
 
+/* paragraph spacing and readability */
 .footer-bottom p {
-    margin: 0 0 10px;
+    max-width: 340px;
+    margin: 0 auto 14px;
+    line-height: 1.45;
 }
 
-.footer-bottom p:last-child {
-    margin-bottom: 0;
+/* first legal line */
+.footer-bottom p:first-child {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.98rem;
+    color: #ffffff;
+}
+
+/* second legal line */
+.footer-bottom p:nth-child(2) {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.92rem;
+    color: #ffffff;
+}
+
+/* developer credit */
+.developer-credit {
+    margin: 4px auto 0;
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #b9b9b9;
+    letter-spacing: 0.2px;
+}
+
+/* links in developer credit */
+.developer-credit a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .mobile-header-actions{
