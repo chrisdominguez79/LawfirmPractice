@@ -30,14 +30,27 @@
 		<link rel="alternate" hreflang="x-default" href="https://chrisdominguez79.github.io/LawfirmPractice/index.html">
 </head>
 <body>
-	<div class="header">
+	<header class="header">
 
 	<div class ="top-bar">   
 <div class="logo">
     <a href="index.html" aria-label="Return to homepage">
-        <img src="Castlerod.png" alt="Castlerod Law Group homepage">
+        <img src="Castlerod.png" alt="Castlerod Law Group homepage" class="logo-icon">
+
+        <div class="logo-text">
+            <span class="logo-title">CASTLEROD</span>
+
+            <div class="logo-divider">
+                <span class="line"></span>
+                <span class="diamond"></span>
+                <span class="line"></span>
+            </div>
+
+            <span class="logo-subtitle">CRIMINAL DEFENSE, P.L.L.C.</span>
+        </div>
     </a>
 </div>
+
 	<div class="mobile-header-actions">
 		<a class="mobile-language-toggle"
 		    href="../index.html"
@@ -56,13 +69,38 @@
 		    onclick="toggleMenu()"
 		>☰</button>	
 </div>
+
 		<nav class="navbar" id="main-navigation">
+		
+		
+		
 		<div class="mobile-logo">
 		    <a href="index.html" onclick="closeMobileMenu()" aria-label="Return to homepage">
 		        <img src="Castlerod.png" alt="Castlerod Law Group homepage">
+        <img
+            src="Castlerod.png"
+            alt="Castlerod Law Group logo"
+            class="mobile-menu-logo-icon"
+        >
+
+        <div class="mobile-menu-logo-text">
+
+            <span class="mobile-menu-logo-title">
+                CASTLEROD
+            </span>
+
+            <div class="mobile-menu-logo-divider">
+                <span class="mobile-menu-line"></span>
+                <span class="mobile-menu-diamond"></span>
+                <span class="mobile-menu-line"></span>
+            </div>
+
+            <span class="mobile-menu-logo-subtitle">
+                CRIMINAL DEFENSE, P.L.L.C.
+            </span>
+
+        </div>
 		    </a>
-		
-		    <h2>Castlerod Lawfirm, PLLC</h2>
 		</div>
 
 			<ul class="nav">
@@ -143,7 +181,8 @@
 			</ul>
 			</nav>
 </div>
-</div>
+</header>
+
 <div class="Welcome">
 
 <video
@@ -158,13 +197,59 @@
 src="">
     <source src="Video.mp4" type="video/mp4">
 </video>
+
+    <!-- Dark overlay over video -->
+    <div class="hero-overlay"></div>
+
     <div class="welcome-text">
-	<h3>CASTLEROD DEFENSA PENAL | HOUSTON | DISPONIBLES 24/7</h3>
-	<h1>Fue acusado de un delito en el Condado de Harris? Su defensa comienza aquí. </h1>
-	<h2>Hable hoy mismo con un abogado de defensa penal y conozca exactamente cuáles son sus opciones. Honorarios fijos desde el principio. Planes de pago disponibles. Atención en Inglés y Español</h2>
-<button class="contactUs" type="button" onclick="window.open('contactUs.html', '_blank', 'noopener')">Contáctenos</button>
-<button class="contactUs" onclick="window.location.href='tel:+13465007949'">(346) 500-7949</button>
-</div>
+
+        <p class="hero-eyebrow">
+            CASTLEROD CRIMINAL DEFENSE, P.L.L.C.
+            <span>|</span>
+            HOUSTON
+            <span>|</span>
+            DISPONIBLES 24/7
+        </p>
+
+        <h1 class="hero-title">
+            <span class="hero-white">
+                Acusado de un delito en el<br>
+                Condado de Harris?
+            </span>
+
+            <span class="hero-gold">
+                Su defensa comienza aquí
+            </span>
+        </h1>
+
+        <div class="hero-divider">
+            <span></span>
+            <i></i>
+            <span></span>
+        </div>
+
+        <p class="hero-description">
+            Hable hoy mismo con un abogado de defensa penal y conozca exactamente cuáles son sus opciones. Honorarios fijos desde el principio. Planes de pago disponibles. Atención en Inglés y Español
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="tel:+13465007949"
+               class="hero-button hero-button-primary">
+                LLÁMENOS AHORA
+            </a>
+
+            <a href="contactUs.html"
+               class="hero-button hero-button-secondary">
+                EVALUACIÓN DE SU CASO
+            </a>
+
+        </div>
+
+    </div>
+
+
+
 </div>
 
 <section class="why-castlerod">
@@ -525,164 +610,136 @@ src="">
 </section>
 
 
-<section class="faq-section">
 
-    <div class="Title">
-        <em>Preguntas Frequentes</em>
-    </div>
-
-    <div class="accordion-list">
-
-        <section class="accordion-item">
-
-            <button class="accordion-header" type="button">
-                <span>¿Debo hablar con la policía después de un arresto?</span>
-                <span class="accordion-icon">+</span>
-            </button>
-
-            <div class="accordion-content">
-
-                <p>
-                    En la mayoría de los casos, lo mejor es ejercer su derecho a permanecer en silencio y 
-                    hablar con un abogado antes de responder cualquier pregunta. 
-                    Todo lo que diga puede ser utilizado en su contra ante un tribunal.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="accordion-item">
-
-            <button class="accordion-header" type="button">
-                <span>¿Cuánto cuesta contratar a nuestro despacho?</span>
-                <span class="accordion-icon">+</span>
-            </button>
-
-            <div class="accordion-content">
-
-                <p>Ofrecemos honorarios fijos para que conozca el costo
-						total de su caso antes de contratarnos. Sin cobros por hora ni
-						cargos sorpresa. Además, ofrecemos planes de pago para muchos
-						tipos de casos.</p>
-
-            </div>
-
-        </section>
-
-        <section class="accordion-item">
-
-            <button class="accordion-header" type="button">
-                <span>¿Tendré que ir a la corte?</span>
-                <span class="accordion-icon">+</span>
-            </button>
-
-            <div class="accordion-content">
-
-                <p>
-                    Cada caso es diferente. Algunos pueden resolverse sin múltiples comparecencias ante el tribunal, mientras que otros requieren audiencias o un juicio. Le explicaremos qué puede esperar según las circunstancias específicas de su caso.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="accordion-item">
-
-            <button class="accordion-header" type="button">
-                <span>¿Pueden desestimar los cargos en mi contra?</span>
-                <span class="accordion-icon">+</span>
-            </button>
-
-            <div class="accordion-content">
-
-                <p>
-                    Cada caso depende de sus propios hechos y de las pruebas disponibles. Nuestro trabajo es analizar cuidadosamente su caso, identificar las debilidades en las pruebas de la Fiscalía y buscar el mejor resultado posible para usted.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="accordion-item">
-
-            <button class="accordion-header" type="button">
-                <span>¿Cuándo debo contactar a un abogado?</span>
-                <span class="accordion-icon">+</span>
-            </button>
-
-            <div class="accordion-content">
-
-                <p>
-                    Lo antes posible. Contar con representación legal desde el inicio puede ayudar a proteger sus derechos, preservar pruebas importantes y brindarle más opciones para resolver su caso de la mejor manera posible.
-                </p>
-
-            </div>
-
-        </section>
-
-    </div>
-
-</section>
 
 
 <section id="parentFooter">
+<div class="footer-main">
 
-    <div class="footer">
+    <!-- BRAND SECTION -->
+    <div class="footer-column footer-brand">
 
-        <div class="footer-logo">
-        <a href="index.html" aria-label="Return to homepage">
-            <img src="Castlerod.png" alt="Castlerod Law Group Logo">
+        <a href="index.html"
+           class="footer-brand-link"
+           aria-label="Return to homepage">
+
+            <img
+                src="Castlerod.png"
+                alt="Castlerod Criminal Defense logo"
+                class="footer-brand-logo"
+            >
+
+            <div class="footer-brand-text">
+                <div class="footer-brand-title">
+                    CASTLEROD
+                </div>
+
+                <div class="footer-brand-subtitle">
+                    CRIMINAL DEFENSE, P.L.L.C.
+                </div>
+            </div>
+
+        </a>
+
+        <p class="footer-tagline">
+            Su defensa comienza aquí.
+        </p>
+
+        <div class="footer-small-divider">
+            <span></span>
+            <i></i>
+            <span></span>
+        </div>
+
+        <p class="footer-description">
+            Defensa criminal dedicada, firme y orientada a resultados para Houston y los condados circundantes. Dispibles 24/7
+            in Inglés and Español.
+        </p>
+
+    </div>
+
+
+    <!-- CONTACT -->
+    <div class="footer-column">
+
+        <h3>CONTÁCTENOS</h3>
+
+        <div class="footer-links">
+            <a href="tel:+13465007949">
+                (346) 500-7949
+            </a>
+
+            <a href="mailto:info@castlerod.com">
+                info@castlerod.com
+            </a>
+
+            <span>
+                Disponibles 24/7
+            </span>
+
+            <span>
+                Houston, Texas
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- FIRM -->
+    <div class="footer-column">
+
+        <h3>EL DESPACHO</h3>
+
+        <div class="footer-links">
+            <a href="our-team.html">
+                Nuestro Equipo
+            </a>
+
+            <a href="faq.html">
+                FAQs
+            </a>
+
+            <a href="contactUs.html">
+                Contáctenos
             </a>
         </div>
 
-        <div class="footer-container">
-
-            <div class="row">
-
-<div class="column column_VISIT_TITLE">
-
-    <div class="footer-contact-item">
-        <i class="fa fa-phone" aria-hidden="true"></i>
-
-        <a href="tel:+13465007949">
-            (346) 500-7949
-        </a>
     </div>
 
-    <div class="footer-contact-item">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
 
-        <span>Houston, TX</span>
+    <!-- COUNTIES -->
+    <div class="footer-column">
+
+        <h3>CONDADOS QUE ATENDEMOS</h3>
+
+        <div class="footer-links">
+            <span>Condado Harris </span>
+            <span>Condado Montgomery</span>
+            <span>Condado Fort Bend</span>
+            <span>Condado Brazoria</span>
+            <span>Condado Galveston</span>
+            <span>Condado  Waller</span>
+        </div>
+
     </div>
 
 </div>
-                </div>
 
 
 				
-               <!-- SUBJECTED OUT FOR FUTURE OFFICE SPACE
-               
-                 <div class="column column_maps">
-                    <iframe 
-                        src=""
-                        width="100%" 
-                        height="200" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                -->
-                
-            </div>
 
          
             <div class="footer-bottom">
+                <p>
+                    Daniel Rodríguez, abogado responsable. Oficina principal: Houston, Texas.
+                </p>
 
                 <p>
                     © 2026 Castlerod Law Group PLLC. Todos los derechos reservados.
+                    <span class="footer-separator">|</span>
+				    <a href="privacy-policy.html">Política de Privacidad</a>
+				    <span class="footer-separator">|</span>
+				    <a href="disclaimer.html">Aviso Legal</a>
                 </p>
 
                 <p class="developer-credit">
