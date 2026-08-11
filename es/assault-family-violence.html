@@ -415,6 +415,18 @@
 
 </section>
 		
+<!--
+Sticky call bar, phones only. The header buttons are behind the hamburger
+on a small screen, so this keeps the two things a visitor in trouble needs
+within reach no matter how far down the page they are. Hidden on desktop,
+and hidden again while the hamburger menu is open.
+-->
+<div class="call-bar">
+    <a class="call-bar-call" href="tel:+13465007949">LLAMAR AHORA</a>
+    <a class="call-bar-message" href="contactUs.html"
+       target="_blank" rel="noopener noreferrer">ESCRÍBANOS</a>
+</div>
+
 	<script>
 	function goToPage(page) {
 	    window.location.href = page;
@@ -497,6 +509,34 @@
 	    event.currentTarget.setAttribute("aria-expanded", "false");
 	    event.currentTarget.blur();
 	}
+
+
+	/*
+	The sticky call bar stays out of the way until the hero has scrolled past, so
+	it does not sit directly under the hero's own CALL NOW. Pages with no hero,
+	which is every page except the homepage, get it straight away.
+	*/
+	(function () {
+	    const bar = document.querySelector(".call-bar");
+
+	    if (!bar) {
+	        return;
+	    }
+
+	    const hero = document.querySelector(".Welcome");
+
+	    if (!hero || !("IntersectionObserver" in window)) {
+	        bar.classList.add("is-visible");
+	        return;
+	    }
+
+	    /* Shown whenever the hero is no longer on screen. */
+	    const watcher = new IntersectionObserver(function (entries) {
+	        bar.classList.toggle("is-visible", !entries[0].isIntersecting);
+	    }, { threshold: 0 });
+
+	    watcher.observe(hero);
+	}());
 
 	/* Once the pointer leaves, forget the suppression so hovering back in opens
 	   the submenu normally again. */
@@ -586,17 +626,5 @@ document.addEventListener("visibilitychange", function () {
     }
 });
 	</script>
-
-<!--
-Sticky call bar, phones only. The header buttons are behind the hamburger
-on a small screen, so this keeps the two things a visitor in trouble needs
-within reach no matter how far down the page they are. Hidden on desktop,
-and hidden again while the hamburger menu is open.
--->
-<div class="call-bar">
-    <a class="call-bar-call" href="tel:+13465007949">LLAMAR AHORA</a>
-    <a class="call-bar-message" href="contactUs.html"
-       target="_blank" rel="noopener noreferrer">ESCRÍBANOS</a>
-</div>
 </body>
 </html>

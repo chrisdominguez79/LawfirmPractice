@@ -1919,6 +1919,12 @@ slightly larger than the header's and needs its own numbers.
 }
 @media (max-width: 768px) {
 
+    /* The 22px that sets the action pair apart on desktop pushes this
+       button off centre once the menu stacks vertically. */
+    .nav li a.nav-call {
+        margin-left: 0;
+    }
+
 .logo {
     display: flex;
     align-items: center;
@@ -3135,6 +3141,18 @@ can be animated.
         display: flex;
         gap: 10px;
 
+        /* Held back until the script marks the hero as scrolled past, so
+           the bar does not sit directly under the hero's own CALL NOW.
+           Pages with no hero get the class immediately. */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(100%);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.35s ease,
+            visibility 0s linear 0.35s;
+
         position: fixed;
         left: 0;
         right: 0;
@@ -3180,6 +3198,17 @@ can be animated.
         background: transparent;
         color: #b28649;
         border: 1px solid #b28649;
+    }
+
+    .call-bar.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.35s ease,
+            visibility 0s;
     }
 
     /* Stops the bar covering the last of the footer. */
