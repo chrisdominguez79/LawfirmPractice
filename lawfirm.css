@@ -3112,3 +3112,83 @@ can be animated.
         font-size: 13.5px;
     }
 }
+
+/* ============================================================================
+   18. STICKY CALL BAR  (phones only)
+   ----------------------------------------------------------------------------
+   On a phone the header actions are hidden behind the hamburger, so there is
+   no visible way to call once the hero has scrolled past. This pins both
+   actions to the bottom of the screen.
+
+   It sits above the page and the fixed header, but below the full screen
+   navigation, and hides entirely while that menu is open.
+   ========================================================================== */
+
+/* Desktop already has both actions in the header. */
+.call-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .call-bar {
+        display: flex;
+        gap: 10px;
+
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1500;
+
+        padding: 10px 12px;
+
+        /* clears the home indicator on a modern iPhone */
+        padding-bottom: calc(10px + env(safe-area-inset-bottom));
+
+        background: rgba(16, 25, 40, 0.97);
+        border-top: 1px solid rgba(178, 134, 73, 0.55);
+    }
+
+    .call-bar a {
+        flex: 1;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 48px;
+        border-radius: 3px;
+
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    /* Same primary and secondary pairing as the header and the hero. */
+    .call-bar-call {
+        background: #b28649 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23101928' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2'/%3E%3C/svg%3E") no-repeat left 22% center;
+        color: #101928;
+        border: 1px solid #b28649;
+        padding-left: 18px;
+    }
+
+    .call-bar-message {
+        background: transparent;
+        color: #b28649;
+        border: 1px solid #b28649;
+    }
+
+    /* Stops the bar covering the last of the footer. */
+    body {
+        padding-bottom: 78px;
+    }
+
+    /* The full screen menu owns the viewport while it is open. */
+    body.no-scroll .call-bar {
+        display: none;
+    }
+}
