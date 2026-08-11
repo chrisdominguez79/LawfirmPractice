@@ -77,7 +77,9 @@ color: white;
 }
 
 .logo-title {
-    font-size: 2rem;
+    /* Sized so CASTLEROD measures the same width as the subtitle
+       beneath it, leaving the lockup flush on both edges. */
+    font-size: 2.27rem;
     letter-spacing: 8px;
     color: #b28649;
     font-family: Georgia, "Times New Roman", serif;
@@ -357,7 +359,9 @@ height of 80px forced a 9:8 box onto a 1:1 image and stretched the shield
 .footer-brand-title {
     color: #b28649;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 2rem;
+    /* Sized so CASTLEROD measures the same width as the subtitle
+       beneath it, leaving the lockup flush on both edges. */
+    font-size: 2.27rem;
     letter-spacing: 8px;
     font-weight: 500;
     white-space: nowrap;
@@ -1751,7 +1755,7 @@ slightly larger than the header's and needs its own numbers.
 
 /* CASTLEROD */
 .logo-title {
-    font-size: 1.15rem;
+    font-size: 1.5625rem;
     letter-spacing: 4px;
     white-space: nowrap;
 }
@@ -2269,7 +2273,7 @@ text-align: center;
     color: #b28649;
 
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.4rem;
+    font-size: 1.47rem;
     letter-spacing: 3.5px;
     line-height: 1.1;
 
@@ -2820,5 +2824,26 @@ can be animated.
 
     .legal-contact {
         padding: 22px 18px;
+    }
+}
+
+/* ============================================================================
+   17. VERY NARROW PHONES  (up to 340px)
+   ----------------------------------------------------------------------------
+   On a 320px screen the header wordmark runs right up against the ES language
+   toggle. Both lines of the lockup are scaled down by the same 0.875 factor,
+   font size and letter spacing together, so they stay exactly equal in width
+   and the block simply gets smaller.
+   ========================================================================== */
+
+@media (max-width: 340px) {
+    .logo-title {
+        font-size: 1.281rem;
+        letter-spacing: 3.28px;
+    }
+
+    .logo-subtitle {
+        font-size: 0.533rem;
+        letter-spacing: 1.394px;
     }
 }
