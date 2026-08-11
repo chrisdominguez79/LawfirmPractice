@@ -51,7 +51,6 @@
 <meta name="description" content="Cómo Castlerod Criminal Defense,P.L.L.C. maneja la información enviada a través de este sitio web.">
 		<link rel="stylesheet" type="text/css" href="../lawfirm.css">		
 		<link rel="icon" type="image/png" href="../Castlerod.png?v=1">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="alternate" hreflang="en" href="https://chrisdominguez79.github.io/LawfirmPractice/privacy-policy.html">
 		<link rel="alternate" hreflang="es" href="https://chrisdominguez79.github.io/LawfirmPractice/es/privacy-policy.html">
 		<link rel="alternate" hreflang="x-default" href="https://chrisdominguez79.github.io/LawfirmPractice/privacy-policy.html">
@@ -141,56 +140,56 @@
 <ul class="dropdown-content">
     <li>
         <a href="dwi-defense.html" onclick="closeMobileMenu()">
-            DWI Defense
+            Defensa por DWI
         </a>
     </li>
 
     <li>
         <a href="assault-family-violence.html" onclick="closeMobileMenu()">
-            Assault and Family Violence
+            Asalto y Violencia Familiar
         </a>
     </li>
 
     <li>
         <a href="drug-charges.html" onclick="closeMobileMenu()">
-            Drug Charges
+            Cargos por Delitos de Droga
         </a>
     </li>
 
     <li>
         <a href="theft-charges.html" onclick="closeMobileMenu()">
-            Theft Charges
+            Cargos por Robo
         </a>
     </li>
 
     <li>
         <a href="sex-offense-allegations.html" onclick="closeMobileMenu()">
-            Sex Offense Allegations
+            Acusaciones de Delitos Sexuales
         </a>
     </li>
 
     <li>
         <a href="probation-violations.html" onclick="closeMobileMenu()">
-            Probation Violations
+            Violaciones de la Libertad Condicional
         </a>
     </li>
 
     <li>
         <a href="occupational-drivers-license.html" onclick="closeMobileMenu()">
-            Occupational Driver's Licenses
+            Licencias Ocupacionales de Conducir
         </a>
     </li>
 
     <li>
         <a href="expunctions-nondisclosures.html" onclick="closeMobileMenu()">
-            Expunctions and Nondisclosures
+            Eliminación de antecedentes y Órdenes de no Divulgación
         </a>
     </li>
 </ul>
 </li>
 
 				<li>
-					<a href="faq.html" onclick="toggleMenu(true)">FAQ's</a>
+					<a href="faq.html" onclick="toggleMenu(true)">FAQs</a>
 				</li>
 				
 				<li><a class="nav-call" href="tel:+13465007949">(346) 500-7949</a></li>				
@@ -536,8 +535,8 @@
         </div>
 
         <p class="footer-description">
-            Defensa criminal dedicada, firme y orientada a resultados para Houston y los condados circundantes. Dispibles 24/7
-            in Inglés and Español.
+            Defensa criminal dedicada, firme y orientada a resultados para Houston y los condados circundantes. Disponibles 24/7
+            en Inglés y Español.
         </p>
 
     </div>
@@ -647,9 +646,6 @@ and hidden again while the hamburger menu is open.
 </div>
 
 	<script>
-	function goToPage(page) {
-	    window.location.href = page;
-	}
   // Scroll to top on load or reload, including when coming from bfcache
   function scrollToTop() {
     // Use a second delay to override browser restoration
@@ -798,34 +794,6 @@ and hidden again while the hamburger menu is open.
 	}
 const mobileActionButtons =
     document.querySelectorAll("button.contactUs");
-
-document.querySelectorAll(".accordion-header").forEach(function (button) {
-    button.addEventListener("click", function () {
-        const item = button.closest(".accordion-item");
-        const isOpen = item.classList.contains("open");
-
-        /*
-        Close the other practice areas so only one remains open.
-        Remove this block if you want several sections open at once.
-        */
-        document.querySelectorAll(".accordion-item.open").forEach(function (openItem) {
-            openItem.classList.remove("open");
-
-            const openButton = openItem.querySelector(".accordion-header");
-
-            if (openButton) {
-                openButton.setAttribute("aria-expanded", "false");
-            }
-        });
-
-        if (!isOpen) {
-            item.classList.add("open");
-            button.setAttribute("aria-expanded", "true");
-        } else {
-            button.setAttribute("aria-expanded", "false");
-        }
-    });
-});
 
 function clearPressedButtons() {
     mobileActionButtons.forEach(function (button) {

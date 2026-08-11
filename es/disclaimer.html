@@ -51,10 +51,9 @@
 <meta name="description" content="Aviso legal del sitio web de Castlerod Criminal Defense,P.L.L.C.">
 		<link rel="stylesheet" type="text/css" href="../lawfirm.css">		
 		<link rel="icon" type="image/png" href="../Castlerod.png?v=1">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="alternate" hreflang="en" href="https://chrisdominguez79.github.io/LawfirmPractice/index.html">
-		<link rel="alternate" hreflang="es" href="https://chrisdominguez79.github.io/LawfirmPractice/es/index.html">
-		<link rel="alternate" hreflang="x-default" href="https://chrisdominguez79.github.io/LawfirmPractice/index.html">
+		<link rel="alternate" hreflang="en" href="https://chrisdominguez79.github.io/LawfirmPractice/disclaimer.html">
+		<link rel="alternate" hreflang="es" href="https://chrisdominguez79.github.io/LawfirmPractice/es/disclaimer.html">
+		<link rel="alternate" hreflang="x-default" href="https://chrisdominguez79.github.io/LawfirmPractice/disclaimer.html">
 </head>
 <body>
 	<header class="header">
@@ -186,13 +185,13 @@
 
     <li>
         <a href="expunctions-nondisclosures.html" onclick="closeMobileMenu()">
-            Eliminacion de antecedentes y Órdenes de no Divulgación
+            Eliminación de antecedentes y Órdenes de no Divulgación
         </a>
     </li>
 </ul>
 </li>
 				<li>
-					<a href="faq.html" onclick="toggleMenu(true)">FAQ's</a>
+					<a href="faq.html" onclick="toggleMenu(true)">FAQs</a>
 				</li>
 				<li>
 
@@ -456,8 +455,8 @@
         </div>
 
         <p class="footer-description">
-            Defensa criminal dedicada, firme y orientada a resultados para Houston y los condados circundantes. Dispibles 24/7
-            in Inglés and Español.
+            Defensa criminal dedicada, firme y orientada a resultados para Houston y los condados circundantes. Disponibles 24/7
+            en Inglés y Español.
         </p>
 
     </div>
@@ -567,9 +566,6 @@ and hidden again while the hamburger menu is open.
 </div>
 
 	<script>
-	function goToPage(page) {
-	    window.location.href = page;
-	}
   // Scroll to top on load or reload, including when coming from bfcache
   function scrollToTop() {
     // Use a second delay to override browser restoration
@@ -718,34 +714,6 @@ and hidden again while the hamburger menu is open.
 	}
 const mobileActionButtons =
     document.querySelectorAll("button.contactUs");
-
-document.querySelectorAll(".accordion-header").forEach(function (button) {
-    button.addEventListener("click", function () {
-        const item = button.closest(".accordion-item");
-        const isOpen = item.classList.contains("open");
-
-        /*
-        Close the other practice areas so only one remains open.
-        Remove this block if you want several sections open at once.
-        */
-        document.querySelectorAll(".accordion-item.open").forEach(function (openItem) {
-            openItem.classList.remove("open");
-
-            const openButton = openItem.querySelector(".accordion-header");
-
-            if (openButton) {
-                openButton.setAttribute("aria-expanded", "false");
-            }
-        });
-
-        if (!isOpen) {
-            item.classList.add("open");
-            button.setAttribute("aria-expanded", "true");
-        } else {
-            button.setAttribute("aria-expanded", "false");
-        }
-    });
-});
 
 function clearPressedButtons() {
     mobileActionButtons.forEach(function (button) {
