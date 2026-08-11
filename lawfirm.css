@@ -92,8 +92,10 @@ color: white;
     margin: 6px 0;
 }
 
+/* The two rules stretch to fill the lockup, so the divider always ends
+   level with CASTLEROD however wide the wordmark is set. */
 .logo-divider .line {
-    width: 95px;
+    flex: 1;
     height: 1px;
     background-color: #b28649;
     display: block;
@@ -378,7 +380,7 @@ slightly larger than the header's and needs its own numbers.
 
 .footer-brand-divider .line {
     display: block;
-    width: 95px;
+    flex: 1;
     height: 1px;
     background-color: #b28649;
 }
@@ -1763,7 +1765,6 @@ slightly larger than the header's and needs its own numbers.
 }
 
 .logo-divider .line {
-    width: 52px;
     height: 1px;
 }
 
@@ -2286,8 +2287,8 @@ proportion the desktop lockup has.
     margin: 4px 0;
 }
 
-.footer-brand-divider .line {
-    width: 63px;
+.footer-brand-divider {
+    align-self: stretch;
 }
 
 .footer-brand-divider .diamond {
