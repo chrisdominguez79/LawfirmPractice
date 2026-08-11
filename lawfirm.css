@@ -227,8 +227,6 @@ while closed, and it is delayed on the way out so the fade can finish.
         visibility 0s linear 0.4s;
 }
 
-/* :focus-within opens it for anyone tabbing through, now that the trigger
-   is no longer a link. */
 /*
 .navbar ul sets display:flex for the main nav row. The submenu used to
 escape that because it carried display:none; now that it animates instead,
@@ -238,21 +236,68 @@ it needs a selector specific enough to win, or its items lay out in a row.
     display: block;
 }
 
-.dropdown:hover > .dropdown-content,
-.dropdown:focus-within > .dropdown-content {
-    max-height: 700px;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+/*
+Everything that opens the submenu is scoped to desktop. It used to sit
+outside a media query, and :focus-within is specific enough to beat the
+phone rules, so tapping the trigger left the submenu stuck open even after
+the open class had been removed.
+*/
+@media (min-width: 769px) {
 
-    transition:
-        max-height 0.45s ease,
-        opacity 0.3s ease,
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        visibility 0s;
+    /* Centred under the trigger rather than aligned to its left edge, so
+       the panel reads as belonging to Criminal Defense. The centring has
+       to live in the transform, because the open and closed states animate
+       through it. */
+    .dropdown-content {
+        left: 50%;
+        transform: translate(-50%, -8px) scale(0.98);
+    }
+
+    /* :focus-within opens it for anyone tabbing through, now that the
+       trigger is no longer a link. */
+    .dropdown:hover > .dropdown-content,
+    .dropdown:focus-within > .dropdown-content {
+        max-height: 700px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate(-50%, 0) scale(1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+
+        transition:
+            max-height 0.45s ease,
+            opacity 0.3s ease,
+            transform 0.35s ease,
+            box-shadow 0.35s ease,
+            visibility 0s;
+    }
+
+    /*
+    Hover is what opens the submenu here, so a click on the trigger can only
+    mean the visitor wants it gone. lawfirm's script adds this class on
+    click and removes it when the pointer leaves, so hovering back in works
+    normally afterwards.
+    */
+    .dropdown.suppress > .dropdown-content,
+    .dropdown.suppress:hover > .dropdown-content,
+    .dropdown.suppress:focus-within > .dropdown-content {
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -8px) scale(0.98);
+        box-shadow: none;
+    }
+
+    /* Labels centred to match the panel. */
+    .nav .dropdown-content li a {
+        text-align: center;
+    }
+
+    /* the hover underline grows from the middle now, not the left */
+    .nav .dropdown-content li a::after {
+        transform-origin: center;
+    }
 }
 
 /* Dropdown links */

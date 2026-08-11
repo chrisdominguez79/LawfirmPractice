@@ -461,22 +461,39 @@
 	function toggleMobileDropdown(event) {
 	    /*
 	    The trigger has no href, so it can never navigate and can never put
-	    #Criminal-Defense in the address bar. On desktop the submenu opens on
-	    hover and on focus, both handled in CSS, so a click does nothing there.
+	    #Criminal-Defense in the address bar.
 	    */
-	    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+	    const dropdown = event.currentTarget.closest(".dropdown");
 
-	    if (!isMobile) {
+	    if (!dropdown) {
 	        return;
 	    }
 
-	    const dropdown = event.currentTarget.closest(".dropdown");
+	    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-	    if (dropdown) {
+	    if (isMobile) {
 	        const isOpen = dropdown.classList.toggle("open");
 	        event.currentTarget.setAttribute("aria-expanded", String(isOpen));
+	        return;
 	    }
+
+	    /*
+	    On desktop hover is what opens the submenu, so a click can only mean the
+	    visitor wants it out of the way. Suppress it and drop focus, otherwise
+	    :focus-within would hold it open after the pointer moved away.
+	    */
+	    dropdown.classList.add("suppress");
+	    event.currentTarget.setAttribute("aria-expanded", "false");
+	    event.currentTarget.blur();
 	}
+
+	/* Once the pointer leaves, forget the suppression so hovering back in opens
+	   the submenu normally again. */
+	document.querySelectorAll(".dropdown").forEach(function (dropdown) {
+	    dropdown.addEventListener("mouseleave", function () {
+	        dropdown.classList.remove("suppress");
+	    });
+	});
 
 	/* Enter and Space work the submenu for keyboard users, which a plain link
 	   used to give us for free. */
