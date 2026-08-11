@@ -346,11 +346,44 @@ button.contactUs {
     white-space: nowrap;
 }
 
+/*
+Line and diamond between CASTLEROD and the subtitle.
+
+The footer wordmark is set at the same size and tracking as the header one, so
+these are the same measurements as .logo-divider and the two lockups read
+identically. The phone sizes are in section 16, where the footer wordmark is
+slightly larger than the header's and needs its own numbers.
+*/
+.footer-brand-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 6px 0;
+}
+
+.footer-brand-divider .line {
+    display: block;
+    width: 95px;
+    height: 1px;
+    background-color: #b28649;
+}
+
+.footer-brand-divider .diamond {
+    display: block;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #b28649;
+    transform: rotate(45deg);
+}
+
 .footer-brand-subtitle {
     color: #b28649;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 0.85rem;
     letter-spacing: 4px;
+
+    /* Sits a little below the divider, rather than centred against it. */
     margin-top: 5px;
     white-space: nowrap;
 }
@@ -2227,6 +2260,26 @@ text-align: center;
     white-space: nowrap;
 }
 
+/*
+The footer wordmark is larger on a phone than the header one (1.4rem against
+1.15rem), so the divider gets its own measurements here instead of reusing the
+header's. Keeping the lines narrower than the subtitle preserves the same
+proportion the desktop lockup has.
+*/
+.footer-brand-divider {
+    gap: 7px;
+    margin: 4px 0;
+}
+
+.footer-brand-divider .line {
+    width: 63px;
+}
+
+.footer-brand-divider .diamond {
+    width: 6px;
+    height: 6px;
+}
+
 .footer-brand-subtitle {
     color: #b28649;
 
@@ -2235,7 +2288,7 @@ text-align: center;
     letter-spacing: 1.6px;
     line-height: 1.2;
 
-    margin-top: 5px;
+    margin-top: 4px;
     white-space: nowrap;
 }
 
