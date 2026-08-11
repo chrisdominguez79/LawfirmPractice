@@ -271,9 +271,15 @@ button.contactUs {
         color: white;
     }
 }
+/*
+Castlerod.png is a 1024x1024 square, so the height alone decides the size and
+the width has to stay automatic. Giving it a fixed width of 90px against a
+height of 80px forced a 9:8 box onto a 1:1 image and stretched the shield
+12.5% wider than it is drawn.
+*/
 .logo img {
     height: 80px;      /* adjust to fit your navbar */
-    width: 90px;       /* maintain aspect ratio */
+    width: 80px;       /* square box, because the source file is square */
 }
 /* =========================================
    FOOTER - MAIN SECTION
@@ -321,9 +327,11 @@ button.contactUs {
     text-decoration: none;
 }
 
+/* Same square source as the header logo, so the width stays automatic here
+   too. The phone rule below already did this correctly. */
 .footer-brand-logo {
-    width: 90px;
     height: 80px;
+    width: 80px;
     flex-shrink: 0;
 }
 
@@ -334,6 +342,13 @@ button.contactUs {
 .footer-brand-text {
     display: flex;
     flex-direction: column;
+
+    /*
+    Keep the wordmark at its natural width. Without this the flex row is
+    allowed to squeeze it, the first footer column collapses to its bare 1.35fr
+    share, and CASTLEROD runs into the gold divider line beside it.
+    */
+    flex-shrink: 0;
 }
 
 
