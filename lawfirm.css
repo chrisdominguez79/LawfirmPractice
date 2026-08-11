@@ -187,8 +187,18 @@ color: white;
     position: relative;
 }
 
+/* No href any more, so the browser will not supply the hand cursor. */
+.dropbtn {
+    cursor: pointer;
+}
+
+/*
+The submenu used to flip between display:none and display:block, which cannot
+be transitioned, so it appeared instantly. It now grows and fades the way the
+phone version in section 16 does. visibility is what keeps it unreachable
+while closed, and it is delayed on the way out so the fade can finish.
+*/
 .dropdown-content {
-    display: none !important;  /* forces it hidden */
     position: absolute;
     top: 100%;
     left: 0;
@@ -197,12 +207,52 @@ color: white;
     padding: 0;
     margin: 0;
     list-style: none;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    overflow: hidden;
     z-index: 9999;
+
+    /* closed */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+    box-shadow: none;
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.25s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        visibility 0s linear 0.4s;
 }
 
-.dropdown:hover > .dropdown-content {
-    display: block !important;
+/* :focus-within opens it for anyone tabbing through, now that the trigger
+   is no longer a link. */
+/*
+.navbar ul sets display:flex for the main nav row. The submenu used to
+escape that because it carried display:none; now that it animates instead,
+it needs a selector specific enough to win, or its items lay out in a row.
+*/
+.navbar .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover > .dropdown-content,
+.dropdown:focus-within > .dropdown-content {
+    max-height: 700px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+
+    transition:
+        max-height 0.45s ease,
+        opacity 0.3s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        visibility 0s;
 }
 
 /* Dropdown links */
@@ -231,6 +281,93 @@ color: white;
 /* Show underline when hovering over a dropdown option */
 .nav .dropdown-content li:hover > a::after {
     transform: scaleX(1);
+}
+
+/* ============================================================================
+   HEADER CALL TO ACTION
+   ----------------------------------------------------------------------------
+   The phone number and Contact Us used to render exactly like Home and FAQ's,
+   so nothing in the bar looked pressable. They are now buttons, following the
+   same primary and secondary pairing as the hero: the phone is the solid one,
+   because a call is what someone in trouble actually does.
+
+   Both are smaller than the hero pair, 42px against 58px, so the header stays
+   secondary to it.
+   ========================================================================== */
+
+.nav {
+    align-items: center;
+}
+
+/* The sliding underline belongs to the navigation links, not to buttons. */
+.nav li a.nav-call::after,
+.nav li a.nav-contact::after {
+    display: none;
+}
+
+/* PRIMARY - the phone. The loudest thing in the bar. */
+.nav li a.nav-call {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+
+    /* sets the action pair apart from the navigation links */
+    margin-left: 22px;
+
+    min-height: 42px;
+    padding: 0 20px 0 44px;
+
+    background: #b28649 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23101928' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2'/%3E%3C/svg%3E") no-repeat 20px center;
+    color: #101928;
+    border: 1px solid #b28649;
+    border-radius: 3px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* SECONDARY - Contact Us. Present, clearly the quieter of the two. */
+.nav li a.nav-contact {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+
+    min-height: 42px;
+    padding: 0 20px;
+
+    background: transparent;
+    color: #b28649;
+    border: 1px solid #b28649;
+    border-radius: 3px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav li a.nav-call:hover {
+        background-color: #c79a5b;
+        transform: translateY(-2px);
+    }
+
+    .nav li a.nav-contact:hover {
+        background-color: #b28649;
+        color: #101928;
+        transform: translateY(-2px);
+    }
 }
 /*
 Same outline treatment as the GET A CASE EVALUATION button in the hero,
@@ -2867,5 +3004,66 @@ can be animated.
     .logo-subtitle {
         font-size: 0.533rem;
         letter-spacing: 1.394px;
+    }
+}
+
+/* ============================================================================
+   NARROW DESKTOP AND TABLET  (769px to 1200px)
+   ----------------------------------------------------------------------------
+   Seven navigation items plus the wordmark do not fit on one line here, and
+   were already wrapping before the two buttons were added. Everything in the
+   bar is scaled down together. The wordmark and its subtitle use the same
+   0.77 factor on both size and letter spacing so the lockup stays flush.
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .top-bar {
+        padding: 0 20px;
+    }
+
+    .logo {
+        /* guarantees a gap between the lockup and the first nav link */
+        margin-right: 22px;
+    }
+
+    .logo img {
+        height: 58px;
+        width: 58px;
+    }
+
+    .logo-title {
+        font-size: 1.589rem;
+        letter-spacing: 5.6px;
+    }
+
+    .logo-subtitle {
+        font-size: 0.595rem;
+        letter-spacing: 2.8px;
+    }
+
+    .nav {
+        gap: 11px;
+    }
+
+    .navbar a {
+        font-size: 15px;
+
+        /* Our Team and Criminal Defense used to break onto two lines
+           here; at this size they now fit on one. */
+        white-space: nowrap;
+    }
+
+    .nav li a.nav-call {
+        margin-left: 10px;
+        min-height: 38px;
+        padding: 0 13px 0 33px;
+        background-position: 12px center;
+        font-size: 13.5px;
+    }
+
+    .nav li a.nav-contact {
+        min-height: 38px;
+        padding: 0 13px;
+        font-size: 13.5px;
     }
 }

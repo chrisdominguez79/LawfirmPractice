@@ -140,7 +140,7 @@
 				</li>
 
 				<li class="dropdown">
-    			<a href="#Criminal-Defense" class="dropbtn" onclick="toggleMobileDropdown(event)">Defensa Penal ▾</a>
+    			<a class="dropbtn" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" onclick="toggleMobileDropdown(event)" onkeydown="dropdownKeydown(event)">Defensa Penal ▾</a>
 <ul class="dropdown-content">
     <li>
         <a href="dwi-defense.html" onclick="closeMobileMenu()">
@@ -196,10 +196,10 @@
 				</li>
 				<li>
 
-					<a href="tel:+13465007949" >(346) 500-7949</a>
+					<a class="nav-call" href="tel:+13465007949">(346) 500-7949</a>
 				</li>
 				<li>
-				<a href="contactUs.html" target="_blank" rel="noopener noreferrer"> Contáctenos</a>				</li>
+				<a class="nav-contact" href="contactUs.html" target="_blank" rel="noopener noreferrer">Contáctenos</a>				</li>
 				<li class="language-link">
     <a href="../dwi-defense.html" lang="en" hreflang="en">
         English
@@ -469,18 +469,31 @@
 	}
 
 	function toggleMobileDropdown(event) {
+	    /*
+	    The trigger has no href, so it can never navigate and can never put
+	    #Criminal-Defense in the address bar. On desktop the submenu opens on
+	    hover and on focus, both handled in CSS, so a click does nothing there.
+	    */
 	    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
 	    if (!isMobile) {
 	        return;
 	    }
 
-	    event.preventDefault();
-
 	    const dropdown = event.currentTarget.closest(".dropdown");
 
 	    if (dropdown) {
-	        dropdown.classList.toggle("open");
+	        const isOpen = dropdown.classList.toggle("open");
+	        event.currentTarget.setAttribute("aria-expanded", String(isOpen));
+	    }
+	}
+
+	/* Enter and Space work the submenu for keyboard users, which a plain link
+	   used to give us for free. */
+	function dropdownKeydown(event) {
+	    if (event.key === "Enter" || event.key === " ") {
+	        event.preventDefault();
+	        toggleMobileDropdown(event);
 	    }
 	}
 
