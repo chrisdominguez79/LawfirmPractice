@@ -1,141 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- ==================================================================
-         PAGE BASICS
-         ================================================================== -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-    <title>Contact Us | Castlerod Law Group PLLC</title>
-    <meta name="description" content="Contact Castlerod Law Group PLLC in Houston, Texas. Send a message about your criminal case and we will get back to you. The consultation is free.">
-
-    <!-- ==================================================================
-         HOME SCREEN ICON
-         Same icon set as the rest of the site, so this page also shows the
-         Castlerod shield if someone saves it to their phone.
-         ================================================================== -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="Castlerod">
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Castlerod">
-    <meta name="theme-color" content="#101928">
-
-    <!-- ==================================================================
-         STYLES
-         This page has its own small stylesheet. It deliberately does not use
-         the site header, navigation or footer, because it opens in its own
-         tab from the "Contact Us" buttons.
-         ================================================================== -->
-    <link rel="stylesheet" href="contactUs.css">
-
-    <!-- ==================================================================
-         SEARCH ENGINES AND LANGUAGE PAIRING
-         ================================================================== -->
-    <link rel="canonical" href="https://chrisdominguez79.github.io/LawfirmPractice/contactUs.html">
-    <link rel="alternate" hreflang="en" href="https://chrisdominguez79.github.io/LawfirmPractice/contactUs.html">
-    <link rel="alternate" hreflang="es" href="https://chrisdominguez79.github.io/LawfirmPractice/es/contactUs.html">
-    <link rel="alternate" hreflang="x-default" href="https://chrisdominguez79.github.io/LawfirmPractice/contactUs.html">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Contact Us</title>
+ <link rel="stylesheet" href="contactUs.css">
+		<link rel="alternate" hreflang="en" href="https://chrisdominguez79.github.io/contactUs.html">
+		<link rel="alternate" hreflang="es" href="https://chrisdominguez79.github.io/es/contactUs.html">
+		<link rel="alternate" hreflang="x-default" href="https://chrisdominguez79.github.io/contactUs.html">
 </head>
 <body>
 
-    <div class="form-wrapper">
+<div class="form-wrapper">
+<form class ="form" action="https://formspree.io/f/xlgwnakp" method="POST">
+    <h2>Contact Us</h2>
+  <input type="text" name="name" placeholder="Full Name" required>
+  
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+  <textarea name="message" placeholder="Message" required></textarea>
+  
+  <button type="submit">SUBMIT</button>
+</form>
+</div>
 
-        <!--
-        The form posts to Formspree, which emails each submission to the firm.
+<script>
+document.getElementById("phone").addEventListener("input", function (e) {
+  let input = e.target.value.replace(/\D/g, "");
+  if (input.length > 10) input = input.slice(0, 10);
 
-        The "autocomplete" values let a phone fill in a saved name, email and
-        number in one tap. "aria-label" gives every field a spoken name for
-        screen readers, which the design otherwise lacks because it uses
-        placeholder text instead of visible labels.
-        -->
-        <form class="form" action="https://formspree.io/f/xlgwnakp" method="POST">
+  let formatted = input;
+  if (input.length > 6) {
+    formatted = `(${input.slice(0,3)}) ${input.slice(3,6)}-${input.slice(6)}`;
+  } else if (input.length > 3) {
+    formatted = `(${input.slice(0,3)}) ${input.slice(3)}`;
+  }
 
-            <h2>Contact Us</h2>
+  e.target.value = formatted;
+});
+</script>
 
-            <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                aria-label="Full name"
-                autocomplete="name"
-                required
-            >
-
-            <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                aria-label="Your email address"
-                autocomplete="email"
-                required
-            >
-
-            <!-- inputmode="tel" opens the number pad on a phone. The script
-                 at the bottom formats this as (123) 456-7890 while typing. -->
-            <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Your Phone Number"
-                aria-label="Your phone number"
-                autocomplete="tel"
-                inputmode="tel"
-                maxlength="14"
-                required
-            >
-
-            <textarea
-                name="message"
-                placeholder="Message"
-                aria-label="Your message"
-                required
-            ></textarea>
-
-            <button type="submit">SUBMIT</button>
-
-        </form>
-
-    </div>
-
-    <!--
-    Phone number formatting.
-
-    Kept inline rather than moved into lawfirm.js, because it is the only
-    script this page needs and it is smaller than the extra request would cost.
-    -->
-    <script>
-        (function () {
-            "use strict";
-
-            var phoneField = document.getElementById("phone");
-
-            if (!phoneField) {
-                return;
-            }
-
-            phoneField.addEventListener("input", function (event) {
-                /* Drop everything that is not a digit, then keep at most the
-                   ten digits of a US phone number. */
-                var digits = event.target.value.replace(/\D/g, "").slice(0, 10);
-                var formatted = digits;
-
-                if (digits.length > 6) {
-                    formatted = "(" + digits.slice(0, 3) + ") " +
-                                digits.slice(3, 6) + "-" + digits.slice(6);
-                } else if (digits.length > 3) {
-                    formatted = "(" + digits.slice(0, 3) + ") " + digits.slice(3);
-                }
-
-                event.target.value = formatted;
-            });
-        }());
-    </script>
 
 </body>
+
 </html>

@@ -20,6 +20,7 @@ body {
     max-width: 600px;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -35,17 +36,19 @@ body {
 
 .form-wrapper {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     background-color: #f4f4f4;
     padding: 40px 20px;
 }
 
 .form input,
 .form textarea {
-    width: 100%;  /* fills the form width */
-    padding: 15px 20px;  /* equal space inside left and right */
+    width: 100%;             /* fills the form width */
+    padding: 15px 20px;      /* equal space inside left and right */
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -64,10 +67,9 @@ body {
 .form input:focus,
 .form textarea:focus {
     outline: none;
-    border-color: #b28649;  /* matches your navbar */
+    border-color: #b28649;           /* matches your navbar */
     box-shadow: 0 0 5px rgba(11,61,145,0.3);
 }
-
 .form button {
     background-color: #b28649;
     color: white;
@@ -83,24 +85,24 @@ body {
 .form button:hover {
     background-color: #082c6a;
 }
+@media (max-width:1024px){
 
-@media (max-width:1024px) {
-    .form {
-        max-width: 550px;
-        padding: 40px;
+    .form{
+        max-width:550px;
+        padding:40px;
     }
 
-    .form h2 {
-        font-size: 1.5rem;
+    .form h2{
+        font-size:1.5rem;
         margin: 0 0 15px;
     }
 
     .form input,
-    .form textarea {
-        font-size: 1rem;
+    .form textarea{
+        font-size:1rem;
     }
-}
 
+}
 @media (max-width: 600px) {
     html {
         background-color: #f4f4f4;
@@ -116,14 +118,16 @@ body {
 
     .form-wrapper {
         min-height: 100svh;
+
         display: flex;
         justify-content: center;
         align-items: flex-start;
+
         padding: 60px 15px 20px;
         background-color: #f4f4f4;
+
         transition: none;
     }
-
     .form h2 {
         font-size: 1.5rem;
         margin: 0 0 15px;

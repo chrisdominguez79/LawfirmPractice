@@ -2,17 +2,7 @@
 
 ## Tabler Icons
 
-This website uses the following icons from Tabler Icons, embedded directly in
-the pages as inline SVG:
-
-| Icon              | Used for                                        |
-| ----------------- | ----------------------------------------------- |
-| Currency Dollar   | "Flat Fees, Affordable" card on the homepage    |
-| Gavel             | "Trial-Ready From Day One" card on the homepage |
-| Language          | "English & Spanish" card on the homepage        |
-| Heart Handshake   | "Real People. Real Care." card on the homepage  |
-| Phone             | Footer contact details on every page            |
-| Map Pin           | Footer location on every page                   |
+This website uses the “Heart Handshake” icon from Tabler Icons.
 
 Copyright (c) 2020-2026 Paweł Kuna
 
