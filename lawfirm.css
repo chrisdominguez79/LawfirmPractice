@@ -2775,6 +2775,23 @@ can be animated.
     .legal-contact {
         padding: 22px 18px;
     }
+
+    /*
+    The Contact Us and phone pair inside Why Castlerod and on the criminal
+    defense pages is dropped on phones. The sticky call bar carries the same
+    two actions and stays on screen, so the in-page pair only repeats it.
+
+    The containers are hidden rather than the buttons, because each carries
+    its own margin-top which would otherwise be left behind as a gap. This
+    sits at the end of the block deliberately: .service-actions sets
+    display:flex earlier in this same media query, and an equally specific
+    rule has to come after it to win. Desktop keeps both pairs, since there
+    is no call bar there.
+    */
+    .why-actions,
+    .service-actions {
+        display: none;
+    }
 }
 
 /* ============================================================================
