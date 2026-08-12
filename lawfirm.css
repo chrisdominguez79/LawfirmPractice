@@ -2969,9 +2969,19 @@ can be animated.
             visibility 0s;
     }
 
-    /* Stops the bar covering the last of the footer. */
-    body {
-        padding-bottom: 78px;
+    /*
+    Reserve the height of the bar so it cannot cover the last of the
+    footer. This sits on the footer rather than on the body: body has no
+    background of its own, so padding there left a strip of bare white
+    canvas below the navy footer. Inside the footer the same space is
+    painted by the footer's own background.
+
+    69px is the bar itself, 48px of button plus its 10px padding top and
+    bottom and the 1px top border, and the inset is the iPhone home
+    indicator, which the bar also pads itself by.
+    */
+    #parentFooter {
+        padding-bottom: calc(69px + env(safe-area-inset-bottom));
     }
 
     /* The full screen menu owns the viewport while it is open. */
