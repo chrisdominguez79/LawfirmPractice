@@ -2928,10 +2928,28 @@ can be animated.
 
     /* Same primary and secondary pairing as the header and the hero. */
     .call-bar-call {
-        background: #b28649 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23101928' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2'/%3E%3C/svg%3E") no-repeat left 22% center;
+        background: #b28649;
         color: #101928;
         border: 1px solid #b28649;
-        padding-left: 18px;
+    }
+
+    /*
+    The phone icon rides in the flex flow as a sibling of the label rather
+    than sitting in the background at a percentage of the button width.
+    Positioned the old way it stayed put while the label grew, so a longer
+    translation such as the Spanish one ran straight over it. As a flex
+    item the gap is fixed and no wording can collide with it.
+    */
+    .call-bar-call::before {
+        content: "";
+        flex: none;
+
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23101928' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2'/%3E%3C/svg%3E") no-repeat center;
+        background-size: contain;
     }
 
     .call-bar-message {
