@@ -1171,6 +1171,23 @@ slightly larger than the header's and needs its own numbers.
 .practice-areas.service-page .Title {
     margin-bottom: 25px;
 }
+.faq-category-title {
+    margin: 45px 0 18px;
+    padding-bottom: 10px;
+
+    color: #b28649;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    border-bottom: 1px solid rgba(178, 134, 73, 0.45);
+}
+
+.faq-category-title:first-child {
+    margin-top: 0;
+}
 .accordion-item {
     padding: 0;
     overflow: hidden;
@@ -1230,6 +1247,39 @@ slightly larger than the header's and needs its own numbers.
 .accordion-item.open .accordion-icon {
     transform: rotate(45deg);
 }
+
+.faq-disclaimer {
+
+    width: min(950px, calc(100% - 40px));
+
+    margin: 35px auto 0;
+
+    padding: 22px 25px;
+
+    background: #101928;
+
+    border-left: 4px solid #b28649;
+
+    border-radius: 6px;
+
+}
+
+.faq-disclaimer p {
+
+    margin: 0;
+
+    color: #f1f1f1;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.9rem;
+
+    line-height: 1.65;
+
+    text-align: center;
+
+}
+
 /* Header clearance for the standalone Our Team page */
 .team-section.team-page {
     padding-top: 90px;
@@ -2105,6 +2155,31 @@ button.contactUs.is-pressed {
     padding: 0 20px 24px;
 }
 
+.faq-disclaimer {
+
+        width: calc(100% - 30px);
+
+        margin-top: 25px;
+
+        padding: 18px;
+
+    }
+
+    .faq-disclaimer p {
+
+        font-size: 0.82rem;
+
+        line-height: 1.6;
+
+    }
+    .faq-category-title {
+        margin: 35px 0 15px;
+        padding-bottom: 8px;
+
+        font-size: 1.05rem;
+        line-height: 1.35;
+        letter-spacing: 0.7px;
+    }
 .team-section.team-page {
     padding-top: 110px;
 }
