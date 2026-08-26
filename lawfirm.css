@@ -509,7 +509,9 @@ height of 80px forced a 9:8 box onto a 1:1 image and stretched the shield
     border-left: none;
     padding-left: 10px;
 }
-
+#our-team-top {
+    scroll-margin-top: 100px;
+}
 /* =========================================
    FOOTER BRAND
 ========================================= */
