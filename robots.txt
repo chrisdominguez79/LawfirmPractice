@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lawfirmpractice.dominguez0599.workers.dev/sitemap.xml

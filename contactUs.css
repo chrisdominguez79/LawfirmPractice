@@ -26,7 +26,7 @@ body {
     gap: 25px;
 }
 
-.form h2 {
+.form h1 {
     text-align: center;
     font-size: 2rem;
     color: #0B3D91;
@@ -92,7 +92,7 @@ body {
         padding:40px;
     }
 
-    .form h2{
+    .form h1{
         font-size:1.5rem;
         margin: 0 0 15px;
     }
@@ -128,7 +128,7 @@ body {
 
         transition: none;
     }
-    .form h2 {
+    .form h1 {
         font-size: 1.5rem;
         margin: 0 0 15px;
     }
